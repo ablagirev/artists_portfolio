@@ -1,0 +1,6 @@
+export { Success } from 'features/paymentAdapter/molecules/Success'
+export { Accepted } from 'features/paymentAdapter/molecules/Accepted'
+export { Modal } from 'features/paymentAdapter/molecules/Modal'
+export { Loading } from 'features/paymentAdapter/molecules/Loading'
+export { Fail } from 'features/paymentAdapter/molecules/Fail'
+export { Rejected } from 'features/paymentAdapter/molecules/Rejected'
