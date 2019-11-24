@@ -1,5 +1,7 @@
 import React from 'react'
 
-export const NotFound = () => {
-  return <div>Not found</div>
+import { TemplateNotFound } from '../templates'
+
+export const NotFound = data => {
+  return <TemplateNotFound data={data} />
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 
-export const ArtistList = () => {
-  return <div>ArtistList</div>
+import { TemplateArtistList } from '../templates'
+
+export const ArtistList = data => {
+  return <TemplateArtistList data={data} />
 }

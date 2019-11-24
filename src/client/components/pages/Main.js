@@ -1,5 +1,7 @@
 import React from 'react'
 
-export const Main = () => {
-  return <div>Main</div>
+import { TemplateMain } from '../templates'
+
+export const Main = data => {
+  return <TemplateMain data={data} />
 }
