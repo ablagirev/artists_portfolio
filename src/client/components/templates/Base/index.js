@@ -1,0 +1,5 @@
+export { BaseMain } from './BaseMain'
+export { BaseNotFound } from './BaseNotFound'
+export { BaseAbout } from './BaseAbout'
+export { BaseArtistDetails } from './BaseArtistDetails'
+export { BaseArtistList } from './BaseArtistList'

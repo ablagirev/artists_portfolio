@@ -1,5 +1,7 @@
 import React from 'react'
 
-export const About = () => {
-  return <div>About</div>
+import { TemplateAbout } from '../templates'
+
+export const About = data => {
+  return <TemplateAbout data={data} />
 }
