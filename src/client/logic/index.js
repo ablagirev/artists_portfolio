@@ -1,0 +1,1 @@
+export { artistLogic } from './artistLogic'

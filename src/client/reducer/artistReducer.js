@@ -3,16 +3,15 @@ const namespace = 'artist'
 
 const initialState = {
   fetching: false,
-  data: [],
-  total: 0
+  data: {}
 }
 
 const symbiotes = {
   getArtistList: (state, payload) => {
     return { ...state, fetching: true }
   },
-  getArtistListSuccess: (state, payload) => {
-    return { ...state, fetching: false }
+  getArtistListSuccess: (state, { data }) => {
+    return { ...state, ...data, fetching: false }
   },
   getArtistListFail: (state, payload) => {
     return { ...state, fetching: false }
