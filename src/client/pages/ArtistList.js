@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { ArtistListTemplate } from 'client/templates/ArtistListTemplate'
-
+import { BaseArtistListTemplate } from 'client/templates'
 export const ArtistList = () => {
-  return <ArtistListTemplate />
+  return <BaseArtistListTemplate data="Список артистов"/>
 }

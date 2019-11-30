@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { BaseNotFoundTemplate } from 'client/templates'
+
 export const NotFound = () => {
-  return <div>Not found</div>
+  const data = '404'
+  return <BaseNotFoundTemplate data={data} />
 }

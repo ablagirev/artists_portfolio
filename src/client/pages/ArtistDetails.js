@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { BaseArtistDetailsTemplate } from 'client/templates'
+
 export const ArtistDetails = () => {
-  return <div>ArtistDetails</div>
+  const data = 'Детальная страница'
+  return <BaseArtistDetailsTemplate data={data} />
 }
