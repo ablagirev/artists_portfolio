@@ -1,27 +1,16 @@
 import React, { useCallback, useContext, useEffect } from 'react'
-import { useMappedState, useDispatch } from 'redux-react-hook'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import { applicationActions } from '../reducer'
-import { Loading } from '../templates/Loading'
-import { Accepted } from '../templates/Accepted'
-import { Form } from '../templates/Form'
-
-import { context } from 'src/index'
 
 export const Application = () => {
-  console.log(process.env)
-  // todo выборку стейтов вынести в селекторы (во всех местах)
   const mapState = useCallback(state => ({
-    loading: state.application.fetching,
-    photoSent: state.application.photoSent,
-    step: state.application.step,
-    modal: state.application.modal,
-    error: state.application.error,
-    id: state.application.id
+    data: state
   }))
 
-  const { loading, photoSent, step, modal, error, id } = useMappedState(mapState)
+  const { data } = useSelector(mapState)
+  console.log(data)
   const dispatch = useDispatch()
   const { hash } = useParams()
 

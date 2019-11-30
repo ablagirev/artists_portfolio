@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const getArtistList = () => {
+export const getArtistList = () => {
+  // return axios.get('/api/artists/')
+
   // return axios.get('api/artists')
   return Promise.resolve({
     data: [
@@ -43,8 +45,10 @@ const getArtistList = () => {
         firstName: 'Елена',
         lastName: 'Козина',
         age: 32
-      },
+      }
     ],
     total: 9
   })
 }
+
+export const artistApi = { getArtistList }

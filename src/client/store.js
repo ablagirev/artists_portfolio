@@ -8,8 +8,6 @@ import root from 'window-or-global'
 import { createRootReducer } from './rootReducer'
 import { rootLogic } from './rootLogic'
 
-const IS_DEV = process.env.NODE_ENV === 'development' ? true : false
-const IS_CLIENT = !!+process.env.IS_CLIENT
 const deps = {}
 
 export const history = createBrowserHistory()
