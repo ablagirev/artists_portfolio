@@ -3,11 +3,11 @@ import { Route, Switch } from 'react-router-dom'
 
 import { ABOUT, DETAILS, LIST, MAIN } from './names'
 
-import { NotFound } from 'components/pages/NotFound'
-import { Main } from 'components/pages/Main'
-import { About } from 'components/pages/About'
-import { ArtistList } from 'components/pages/ArtistList'
-import { ArtistDetails } from 'components/pages/ArtistDetails'
+import { NotFound } from 'client/pages/NotFound'
+import { Main } from 'client/pages/Main'
+import { About } from 'client/pages/About'
+import { ArtistList } from 'client/pages/ArtistList'
+import { ArtistDetails } from 'client/pages/ArtistDetails'
 
 export const RoutesConfig = () => {
   return (
