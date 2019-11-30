@@ -10,7 +10,7 @@ export const theme = {
     white: '#FFFFFF'
   },
 
-  font_sizes: { xs: 12, s: 14, md: 16, l: 18, xl: 24, xxl: 32, xxxl: 48 },
+  font_sizes: { xxs: 12, xs: 14, sm: 16, md: 18, lg: 24, xl: 32, xxl: 48 },
 
   borders: {
     basic: '1px solid'
