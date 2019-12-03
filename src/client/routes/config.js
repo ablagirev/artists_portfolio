@@ -12,7 +12,7 @@ import { ArtistDetails } from 'client/pages/ArtistDetails'
 export const RoutesConfig = () => {
   return (
     <Switch>
-      <Route exact path={MAIN} component={Main}/>
+      <Route exact path={MAIN} component={Main} />
       <Route path={LIST} component={ArtistList} />
       <Route path={DETAILS} component={ArtistDetails} />
       <Route path={ABOUT} component={About} />

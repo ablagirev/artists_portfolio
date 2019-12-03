@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { Heading } from '../../ui-kit/Heading'
-import { Text } from '../../ui-kit/Text'
+import { Heading, Text, Divider } from '../../ui-kit'
 
 export const BaseMainTemplate = ({ data }) => {
   return (
     <>
       <Heading>{data}</Heading>
+      <Divider />
       <Text>{data}</Text>
     </>
   )
