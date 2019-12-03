@@ -9,7 +9,6 @@ import { clientEntries } from './entries'
 import { common } from './common'
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const dotenv = require('dotenv').config({
   path: path.resolve(__dirname, '../.env')
 })
@@ -33,7 +32,7 @@ const wdsDevConfig = merge(common, {
     hot: true,
     overlay: true,
     filename: 'bundle.app.js',
-    historyApiFallback: { disableDotRule: true },
+    historyApiFallback: { disableDotRule: true }
     /*proxy: [
       {
         context: ['/site2-hot-money', '/site2-payment-adapter', '/site2-uuid-generator'],
@@ -76,10 +75,9 @@ const wdsDevConfig = merge(common, {
       inject: false,
       template: require('html-webpack-template'),
       appMountId: env.APP_ID,
-      mobile: true,
+      mobile: true
       // filename: path.resolve(__dirname, '../index.html')
     }),
-    new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
     new WebpackBar(),
     /*new ConsulPlugin({
       path: 'ump/portal-frontend/application/UMP_SERVICES_HTTP_URL',
