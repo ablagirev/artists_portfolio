@@ -59,6 +59,10 @@ export const common = {
           publicPath: '/',
           outputPath: 'fonts/'
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

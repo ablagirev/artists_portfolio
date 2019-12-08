@@ -7,6 +7,6 @@ import { artistReducer } from 'client/reducer'
 export const createRootReducer = history =>
   combineReducers({
     errors,
-    artistReducer,
+    artist: artistReducer,
     router: connectRouter(history)
   })
