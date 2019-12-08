@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 
 import { configureStore, history } from './store'
 import { RoutesConfig as Routes } from './routes/config'
+import { GlobalStyles } from './styles/global'
 
 const store = configureStore()
 
@@ -15,6 +16,7 @@ export const App = hot(() => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <ThemeProvider theme={theme}>
+          <GlobalStyles />
           <Routes />
         </ThemeProvider>
       </ConnectedRouter>

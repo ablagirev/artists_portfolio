@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Text } from '../Text'
-import { theme } from '../../theme'
+import { theme } from '../theme'
+
+import { Text } from './Text'
 
 const fontSize = {
   sm: 'lg',
@@ -35,8 +36,8 @@ export const Heading = ({
 }
 
 Text.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  sizemob: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['lg', 'xl', 'xxl']),
+  sizemob: PropTypes.oneOf(['lg', 'xl', 'xxl']),
   capitalize: PropTypes.bool,
   bold: PropTypes.bool,
   color: PropTypes.string
