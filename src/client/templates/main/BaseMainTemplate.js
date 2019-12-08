@@ -8,9 +8,7 @@ export const BaseMainTemplate = ({ data, header }) => {
     <>
       <Header data={header} />
       <Heading>{data}</Heading>
-      <Spacer space={100} />
-      <Divider />
-      <Text>{data}</Text>
+      <Text>Всем хорошо в Шато</Text>
     </>
   )
 }
