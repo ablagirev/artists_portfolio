@@ -3,7 +3,8 @@ const namespace = 'artist'
 
 const initialState = {
   fetching: false,
-  data: {}
+  rows: [],
+  total: 0
 }
 
 const symbiotes = {

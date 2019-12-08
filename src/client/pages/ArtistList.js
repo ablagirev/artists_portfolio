@@ -1,17 +1,20 @@
 import React, { useCallback, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { BaseArtistListTemplate } from 'client/templates'
 import { artistActions } from 'client/reducer'
 
 export const ArtistList = () => {
   const dispatch = useDispatch()
-  const mapState = useCallback(state => ({
-    data: state
+  const mapState = useSelector(state => ({
+    artist: state.artist
   }))
 
   useEffect(() => {
     dispatch(artistActions.getArtistList())
   }, [])
-  return <BaseArtistListTemplate data="Список артистов" />
+
+  const { artist } = mapState
+
+  return <BaseArtistListTemplate data={artist} />
 }

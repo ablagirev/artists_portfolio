@@ -1,5 +1,20 @@
 import React from 'react'
+import { Row, Col } from 'antd'
+
+import { ArtistPreview } from 'client/components'
 
 export const BaseArtistListTemplate = ({ data }) => {
-  return <div>{data}</div>
+  const { rows, total, fetching } = data
+
+  return (
+    <Row type="flex" justify="center">
+      {rows.map((item, index) => {
+        return (
+          <Col key={index} span={8}>
+            <ArtistPreview data={item} />
+          </Col>
+        )
+      })}
+    </Row>
+  )
 }

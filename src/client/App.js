@@ -7,10 +7,10 @@ import { Provider } from 'react-redux'
 import { configureStore, history } from './store'
 import { RoutesConfig as Routes } from './routes/config'
 import { GlobalStyles } from './styles/global'
+import { theme } from './theme'
 
 const store = configureStore()
 
-const theme = {}
 export const App = hot(() => {
   return (
     <Provider store={store}>
