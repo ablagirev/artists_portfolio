@@ -18,7 +18,7 @@ export const theme = {
 
   radius: 3,
 
-  breakpoints: 1024,
+  breakpoint: 1024,
 
   //use em here
   letter_spacing: {
