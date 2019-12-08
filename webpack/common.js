@@ -22,7 +22,7 @@ export const common = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /.svg$/,
+        test: /\.svg$/,
         use: [
           {
             loader: '@svgr/webpack',
@@ -34,21 +34,12 @@ export const common = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        exclude: ['/node_modules/', '/src/client/assets/favicons/'],
-        loader: 'url-loader',
-        options: {
-          limit: 20000
-        }
-      },
-      {
         test: /\.(png|ico)$/i,
-        exclude: ['/node_modules/', '/src/client/assets/img/'],
         loader: 'file-loader',
         options: {
-          publicPath: '/',
-          name: '[name].[ext]',
-          outputPath: 'images',
+          publicPath: '',
+          name: '[name][hash].[ext]',
+          outputPath: 'images'
         }
       },
       {
