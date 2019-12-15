@@ -25,5 +25,9 @@ export const theme = {
     sm: '0.02',
     md: '0.06',
     lg: '0.08'
+  },
+
+  transition: {
+    basic: '400ms'
   }
 }

@@ -113,6 +113,16 @@ const AdditionalInfoWrapper = styled.div`
 
 const DesignerText = styled(Text)`
   font-size: 19px;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+
+  &:hover {
+    background-size: 100% 88%;
+    color: ${theme.colors.blue.primary};
+  }
 `
 
 const DesignerWrapper = styled.div`
