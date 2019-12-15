@@ -7,7 +7,7 @@ export const BaseArtistListTemplate = ({ data }) => {
   const { rows, total, fetching } = data
 
   return (
-    <Row type="flex" justify="center">
+    <Row>
       {rows.map((item, index) => {
         return (
           <Col key={index} span={8}>

@@ -35,7 +35,7 @@ export const Heading = ({
   )
 }
 
-Text.propTypes = {
+Heading.propTypes = {
   size: PropTypes.oneOf(['lg', 'xl', 'xxl']),
   sizemob: PropTypes.oneOf(['lg', 'xl', 'xxl']),
   capitalize: PropTypes.bool,

@@ -1,40 +1,47 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Text } from '../ui-kit'
+import { Text } from 'client/ui-kit'
+import { theme } from 'client/theme'
 
 export const ArtistPreview = ({ data }) => {
   const { firstName, lastName, age, img } = data
-  console.log(111, img)
+
   return (
     <Wrapper>
-      <Info>
-        <Text>{`${firstName} ${lastName}, ${age}`}</Text>
-      </Info>
-      <Image url={img} />
+      <ArtistInfo>
+        <Text size="lg" color={theme.colors.blue.primary}>
+          {`${firstName} ${lastName}, ${age}`}
+        </Text>
+      </ArtistInfo>
+      <Image path={`${img}`} />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   display: flex;
-  width: 70px;
+  margin-bottom: 60px;
 `
 
-const Image = ({ url }) => {
+const Image = ({ path }) => {
   return (
     <ImageWrapper>
-      <img src={url} />
+      <img src={path} />
     </ImageWrapper>
   )
 }
 
 const ImageWrapper = styled.div`
-  height: 100px;
-  width: 50px;
+  & img {
+    width: 334px;
+    height: 402px;
+  }
+  margin: 0 0 0 23px;
 `
 
-const Info = styled.span`
+const ArtistInfo = styled.div`
   writing-mode: vertical-rl;
   transform: rotate(-180deg);
+  line-height: 0;
 `
