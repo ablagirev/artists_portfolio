@@ -22,7 +22,7 @@ export const common = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /.svg$/,
+        test: /\.svg$/,
         use: [
           {
             loader: '@svgr/webpack',
@@ -35,7 +35,6 @@ export const common = {
       },
       {
         test: /\.(png|ico)$/i,
-        exclude: ['/node_modules/', '/src/client/assets/img/'],
         loader: 'file-loader',
         options: {
           publicPath: '',
