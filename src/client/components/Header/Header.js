@@ -13,7 +13,8 @@ export const Header = ({ data }) => {
     <>
       <Row>
         <Col span={10}>
-          <Row>
+          <Spacer space={10} />
+          <CustomRow>
             {menu.map(item => {
               return (
                 <Col span={4} key={item.id}>
@@ -23,38 +24,39 @@ export const Header = ({ data }) => {
                 </Col>
               )
             })}
-          </Row>
+          </CustomRow>
           <Spacer space={16} />
           <Divider />
         </Col>
         <Col span={4}>
-          <a href={logo.link}>
-            <Logo src={logo.img} alt={logo.value} />
-          </a>
+          <LogoWrapper href={logo.link}>
+            <img src={logo.img} alt={logo.value} />
+          </LogoWrapper>
         </Col>
         <Col span={10}>
-          <Row>
-            <Col span={8} />
+          <Spacer space={10} />
+          <CustomRow>
+            <Col span={7} />
             {contacts.map(item => {
               return (
                 <React.Fragment key={item.id}>
                   {item.type === 'number' ? (
-                    <Col span={6}>
+                    <Col span={7}>
                       <a href="#">
-                        <Text color={theme.colors.gray.dark}>{item.link}</Text>
+                        <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
                       </a>
                     </Col>
                   ) : (
                     <Col span={2}>
                       <a href={item.link}>
-                        <Icon type={item.type} fill={theme.colors.gray.dark} />
+                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
                       </a>
                     </Col>
                   )}
                 </React.Fragment>
               )
             })}
-          </Row>
+          </CustomRow>
           <Spacer space={16} />
           <Divider />
         </Col>
@@ -63,6 +65,26 @@ export const Header = ({ data }) => {
   )
 }
 
-const Logo = styled.img`
+const LogoWrapper = styled.a`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 165px;
+
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+`
+
+const CustomRow = styled(Row)`
+  line-height: 20px;
+`
+
+const CustomIcon = styled(Icon)`
+  float: right;
+`
+
+const CustomText = styled(Text)`
+  text-align: center;
 `

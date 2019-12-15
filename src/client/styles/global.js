@@ -26,4 +26,8 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 700;
     src: url('assets/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
   }
+
+  body {
+    padding: 8px 20px;
+  }
 `
