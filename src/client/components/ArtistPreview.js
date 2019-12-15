@@ -37,11 +37,11 @@ const ImageWrapper = styled.div`
     width: 334px;
     height: 402px;
   }
-
   margin: 0 0 0 23px;
 `
 
 const ArtistInfo = styled.div`
   writing-mode: vertical-rl;
   transform: rotate(-180deg);
+  line-height: 0;
 `
