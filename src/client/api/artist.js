@@ -68,4 +68,33 @@ export const getArtistList = () => {
   })
 }
 
-export const artistApi = { getArtistList }
+export const getArtistDetails = () => {
+  return Promise.resolve({
+    data: {
+      photo: ['path1', 'path2', 'path3'],
+      firstName: 'Друзенко',
+      lastName: 'Анатолий',
+      middleName: 'Павлович',
+      age: 27,
+      height: 187,
+      city: 'Москва/С. Петербугр',
+      education: '2009-2014 СПбГАТИ',
+      skills: ['права (В)', 'вокал баритон', 'бокс', 'английский(разговорный)', 'легкая атлетика'],
+      theatre: [{ year: '2014', name: 'Санкт-Петербургский Молодежный театра на Фонтанке' }],
+      filmography: [
+        { year: 2019, name: 'Женская версия (в производстве)', role: 'Боря' },
+        { year: 2018, name: 'Темная сторона света (в производстве)', role: '' },
+        { year: 2018, name: 'Тайны города "ЭН" (в производстве)', role: 'Ваня' },
+        { year: 2017, name: 'Шеф. Игра на повышение', role: 'участковый' },
+        { year: 2017, name: 'Страх высоты. 20-я серия', role: '' },
+        { year: 2017, name: 'Личность не установлена', role: 'санитар' },
+        { year: 2017, name: 'Акватория', role: 'Эльдар Шляпин' },
+        { year: 2017, name: 'Большая рыба. 12-я серия', role: '' },
+        { year: 2016, name: 'Петербург. Только по любви', role: '' },
+        { year: 2016, name: 'Утро. История 3-я', role: '' }
+      ]
+    }
+  })
+}
+
+export const artistApi = { getArtistList, getArtistDetails }
