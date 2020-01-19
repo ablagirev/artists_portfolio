@@ -1,35 +1,36 @@
 import axios from 'axios'
 
-import img1 from 'assets/img/1.png'
-import img2 from 'assets/img/2.png'
-import img3 from 'assets/img/3.png'
-import img4 from 'assets/img/4.png'
-import img5 from 'assets/img/5.png'
-import img6 from 'assets/img/6.png'
-import img7 from 'assets/img/7.png'
-import img8 from 'assets/img/8.png'
-export const getArtistList = () => {
+import img1 from 'assets/img/buntina/main.jpg'
+import img2 from 'assets/img/volkova/main.jpg'
+import img3 from 'assets/img/egorova/main.jpg'
+import img4 from 'assets/img/kutovaya/main.jpg'
+import img5 from 'assets/img/lisicina/main.jpg'
+import img6 from 'assets/img/kuzenkina/main.jpg'
+import img7 from 'assets/img/malkova/main.jpg'
+import img8 from 'assets/img/kachnova/main.jpg'
+
+const getArtistList = () => {
   // return axios.get('/api/artists/')
 
   return Promise.resolve({
     data: {
       rows: [
         {
-          firstName: 'Анастасия',
-          lastName: 'Егорова',
-          age: 33,
+          firstName: 'Дарья',
+          lastName: 'Бунтина',
+          age: 28,
           img: img1
         },
         {
-          firstName: 'Ульяна',
-          lastName: 'Лисицина',
-          age: 25,
+          firstName: 'Мария',
+          lastName: 'Волкова',
+          age: 34,
           img: img2
         },
         {
-          firstName: 'Александра',
-          lastName: 'Кузенкина',
-          age: 29,
+          firstName: 'Анастасия',
+          lastName: 'Егорова',
+          age: 33,
           img: img3
         },
         {
@@ -68,7 +69,7 @@ export const getArtistList = () => {
   })
 }
 
-export const getArtistDetails = () => {
+const getArtistDetails = () => {
   return Promise.resolve({
     data: {
       photo: ['path1', 'path2', 'path3'],

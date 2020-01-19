@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Col, Row } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Text, Icon, Divider, Spacer } from '../../ui-kit'
-import { theme } from '../../theme'
+import { Text, Icon, Divider, Spacer } from 'client/ui-kit'
+import { theme } from 'client/theme'
+import { footerActions } from 'client/reducer'
 
-export const Footer = ({ data }) => {
-  const { social } = data
-  const { contacts } = data
-  const { attachment } = data
-  const { additional } = data
-  const { designer } = data
+export const Footer = () => {
+  const dispatch = useDispatch()
+  const mapState = useSelector(state => ({
+    footer: state.footer
+  }))
+
+  useEffect(() => {
+    dispatch(footerActions.getFooter())
+  }, [])
+
+  const {
+    footer: { social, contacts, attachment, additional, designer }
+  } = mapState
+
   return (
     <>
       <Row>

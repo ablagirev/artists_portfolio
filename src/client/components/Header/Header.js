@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Col, Row } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Text, Icon, Divider, Spacer } from '../../ui-kit'
-import { theme } from '../../theme'
+import { Text, Icon, Divider, Spacer } from 'client/ui-kit'
+import { theme } from 'client/theme'
+import { headerActions } from 'client/reducer'
 
-export const Header = ({ data }) => {
-  const { menu } = data
-  const { contacts } = data
-  const { logo } = data
+export const Header = () => {
+  const dispatch = useDispatch()
+  const mapState = useSelector(state => ({
+    header: state.header
+  }))
+
+  useEffect(() => {
+    dispatch(headerActions.getHeader())
+  }, [])
+
+  const {
+    header: { menu, contacts, logo }
+  } = mapState
+
   return (
     <Row>
       <Col span={10}>

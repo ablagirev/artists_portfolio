@@ -7,10 +7,10 @@ import { Header, Footer } from '../../components'
 import women from 'assets/img/main/women.png'
 import men from 'assets/img/main/men.png'
 
-export const BaseMainTemplate = ({ content, header, footer }) => {
+export const BaseMainTemplate = ({ data }) => {
   return (
     <>
-      <Header data={header} />
+      <Header />
       <Spacer space={32} />
       <Body>
         <WrapperImg>
@@ -28,7 +28,7 @@ export const BaseMainTemplate = ({ content, header, footer }) => {
         </WrapperImg>
       </Body>
       <Spacer space={71} />
-      <Footer data={footer} />
+      <Footer />
     </>
   )
 }
