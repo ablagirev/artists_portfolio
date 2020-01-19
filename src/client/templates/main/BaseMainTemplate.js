@@ -7,13 +7,12 @@ import { Header, Footer } from '../../components'
 import women from 'assets/img/main/women.png'
 import men from 'assets/img/main/men.png'
 
-export const BaseMainTemplate = ({ content, header, footer }) => {
+export const BaseMainTemplate = ({ data }) => {
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
-
   return (
     <>
-      <Header data={header} />
+      <Header />
       <Spacer space={32} />
       <Body>
         <WrapperWomen
@@ -39,7 +38,7 @@ export const BaseMainTemplate = ({ content, header, footer }) => {
         </WrapperMen>
       </Body>
       <Spacer space={71} />
-      <Footer data={footer} />
+      <Footer />
     </>
   )
 }

@@ -34,7 +34,7 @@ export const common = {
         ]
       },
       {
-        test: /\.(png|ico)$/i,
+        test: /\.(png|ico|jpeg|jpg)$/i,
         loader: 'file-loader',
         options: {
           publicPath: '',
