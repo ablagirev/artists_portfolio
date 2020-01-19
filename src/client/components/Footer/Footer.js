@@ -19,7 +19,7 @@ export const Footer = ({ data }) => {
           <Row>
             {social.map(item => {
               return (
-                <Col span={8} key={item.id}>
+                <Col span={7} key={item.id}>
                   <a href={item.link}>
                     <Icon type={item.type} fill={theme.colors.gray.dark} />
                   </a>
@@ -55,7 +55,7 @@ export const Footer = ({ data }) => {
             </Col>
           </Row>
         </Col>
-        <Col span={6}>
+        <Col span={5}>
           <AdditionalInfoWrapper>
             <CustomUl>
               {additional.map(item => {
