@@ -35,21 +35,28 @@ export const common = {
       },
       {
         test: /\.(png|ico)$/i,
-        loader: 'file-loader',
-        options: {
-          publicPath: '',
-          name: '[name][hash].[ext]',
-          outputPath: 'images'
-        }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name][hash].[ext]',
+              outputPath: 'images'
+            }
+          }
+        ]
       },
       {
-        test: /\.(woff|woff2)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          publicPath: '/',
-          outputPath: 'fonts/'
-        }
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              sourceMap: true,
+              name: '[name].[ext]',
+              outputPath: 'fonts'
+            }
+          }
+        ]
       },
       {
         test: /\.css$/i,
