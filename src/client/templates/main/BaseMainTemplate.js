@@ -1,15 +1,34 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import { Heading, Text } from '../../ui-kit'
+import { Heading, Text, Spacer } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 
-export const BaseMainTemplate = ({ data, header, footer }) => {
+import women from 'assets/img/main/women.png'
+import men from 'assets/img/main/men.png'
+
+export const BaseMainTemplate = ({ content, header, footer }) => {
   return (
     <>
       <Header data={header} />
-      <Heading>{data}</Heading>
-      <Text>Всем хорошо в Шато</Text>
+      <Spacer space={32} />
+      <Body>
+        <a href="#">
+          <img src={women} />
+        </a>
+        <Spacer space={20} />
+        <a href="#">
+          <img src={men} />
+        </a>
+      </Body>
+      <Spacer space={71} />
       <Footer data={footer} />
     </>
   )
 }
+
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

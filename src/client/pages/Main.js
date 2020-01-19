@@ -16,12 +16,16 @@ const header = {
     { id: '003', value: 'О Нас', link: '#' }
   ],
   contacts: [
-    { id: '004', type: 'cell', link: '#' },
-    { id: '005', type: 'watsapp', link: '#' },
-    { id: '006', type: 'number', link: '+7 903 729 66 17' },
-    { id: '007', type: 'post', link: '#' },
-    { id: '008', type: 'facebook', link: '#' },
-    { id: '009', type: 'instagram', link: '#' }
+    [
+      { id: '004', type: 'cell', link: '#' },
+      { id: '005', type: 'watsapp', link: '#' },
+      { id: '006', type: 'number', link: '+7 903 729 66 17' }
+    ],
+    [
+      { id: '007', type: 'post', link: '#' },
+      { id: '008', type: 'facebook', link: '#' },
+      { id: '009', type: 'instagram', link: '#' }
+    ]
   ]
 }
 
