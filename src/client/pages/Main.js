@@ -11,20 +11,16 @@ const header = {
     link: '#'
   },
   menu: [
-    { id: '001', value: 'Актеры', link: '#' },
-    { id: '002', value: 'Актрисы', link: '#' },
-    { id: '003', value: 'О Нас', link: '#' }
+    { id: '0asd01', value: 'Актеры', link: '#' },
+    { id: '0asdasd02', value: 'Актрисы', link: '#' },
+    { id: '0asdasd03', value: 'О Нас', link: '#' }
   ],
   contacts: [
+    [{ id: '0gfhfgfgh06', type: 'cell', link: '+7 903 729 66 17' }],
     [
-      { id: '004', type: 'cell', link: '#' },
-      { id: '005', type: 'watsapp', link: '#' },
-      { id: '006', type: 'number', link: '+7 903 729 66 17' }
-    ],
-    [
-      { id: '007', type: 'post', link: '#' },
-      { id: '008', type: 'facebook', link: '#' },
-      { id: '009', type: 'instagram', link: '#' }
+      { id: '0fghfgh07', type: 'post', link: '#' },
+      { id: '00ertert8', type: 'facebook', link: '#' },
+      { id: '00cvbc9', type: 'instagram', link: '#' }
     ]
   ]
 }

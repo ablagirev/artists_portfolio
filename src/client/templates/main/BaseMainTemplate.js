@@ -13,13 +13,19 @@ export const BaseMainTemplate = ({ content, header, footer }) => {
       <Header data={header} />
       <Spacer space={32} />
       <Body>
-        <a href="#">
-          <img src={women} />
-        </a>
+        <WrapperImg>
+          <a href="#">
+            <HeadingWomen size="lg">Актрисы</HeadingWomen>
+            <img src={women} />
+          </a>
+        </WrapperImg>
         <Spacer space={20} />
-        <a href="#">
-          <img src={men} />
-        </a>
+        <WrapperImg>
+          <a href="#">
+            <img src={men} />
+            <HeadingMen size="lg">Актеры</HeadingMen>
+          </a>
+        </WrapperImg>
       </Body>
       <Spacer space={71} />
       <Footer data={footer} />
@@ -31,4 +37,20 @@ const Body = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+const WrapperImg = styled.div`
+  position: relative;
+`
+
+const HeadingWomen = styled(Heading)`
+  position: absolute;
+  top: 50%;
+  left: -6em;
+`
+
+const HeadingMen = styled(Heading)`
+  position: absolute;
+  top: 50%;
+  right: -6em;
 `

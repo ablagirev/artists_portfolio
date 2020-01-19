@@ -38,18 +38,21 @@ export const Header = ({ data }) => {
           <Col span={8} />
           {contacts.map((group, index) => {
             return (
-              <Col span={8} key={index}>
-                {group.map(item => {
-                  return item.type === 'number' ? (
-                    <a href="#" key={item.id}>
-                      <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
-                    </a>
-                  ) : (
-                    <a href={item.link}>
-                      <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                    </a>
-                  )
-                })}
+              <Col span={group.length === 1 ? 9 : 7} key={index}>
+                <Contacts>
+                  {group.map(item => {
+                    return item.type === 'cell' ? (
+                      <CellLink href={`tel:${item.link}`} key={item.id}>
+                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                        <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
+                      </CellLink>
+                    ) : (
+                      <a href={item.link} key={item.id}>
+                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                      </a>
+                    )
+                  })}
+                </Contacts>
               </Col>
             )
           })}
@@ -78,9 +81,19 @@ const CustomRow = styled(Row)`
 `
 
 const CustomIcon = styled(Icon)`
-  float: right;
+  margin-left: 1em;
 `
 
 const CustomText = styled(Text)`
   text-align: center;
+`
+
+const Contacts = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
+const CellLink = styled.a`
+  display: flex;
+  flex-direction: row;
 `
