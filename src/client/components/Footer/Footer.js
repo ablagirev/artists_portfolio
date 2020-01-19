@@ -19,7 +19,7 @@ export const Footer = ({ data }) => {
           <Row>
             {social.map(item => {
               return (
-                <Col span={8} key={item.id}>
+                <Col span={7} key={item.id}>
                   <a href={item.link}>
                     <Icon type={item.type} fill={theme.colors.gray.dark} />
                   </a>
@@ -55,7 +55,7 @@ export const Footer = ({ data }) => {
             </Col>
           </Row>
         </Col>
-        <Col span={6}>
+        <Col span={5}>
           <AdditionalInfoWrapper>
             <CustomUl>
               {additional.map(item => {
@@ -113,6 +113,16 @@ const AdditionalInfoWrapper = styled.div`
 
 const DesignerText = styled(Text)`
   font-size: 19px;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+
+  &:hover {
+    background-size: 100% 40%;
+    color: ${theme.colors.blue.primary};
+  }
 `
 
 const DesignerWrapper = styled.div`

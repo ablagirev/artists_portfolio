@@ -1,15 +1,56 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import { Heading, Text } from '../../ui-kit'
+import { Heading, Text, Spacer } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 
-export const BaseMainTemplate = ({ data, header, footer }) => {
+import women from 'assets/img/main/women.png'
+import men from 'assets/img/main/men.png'
+
+export const BaseMainTemplate = ({ content, header, footer }) => {
   return (
     <>
       <Header data={header} />
-      <Heading>{data}</Heading>
-      <Text>Всем хорошо в Шато</Text>
+      <Spacer space={32} />
+      <Body>
+        <WrapperImg>
+          <a href="#">
+            <HeadingWomen size="lg">Актрисы</HeadingWomen>
+            <img src={women} />
+          </a>
+        </WrapperImg>
+        <Spacer space={20} />
+        <WrapperImg>
+          <a href="#">
+            <img src={men} />
+            <HeadingMen size="lg">Актеры</HeadingMen>
+          </a>
+        </WrapperImg>
+      </Body>
+      <Spacer space={71} />
       <Footer data={footer} />
     </>
   )
 }
+
+const Body = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const WrapperImg = styled.div`
+  position: relative;
+`
+
+const HeadingWomen = styled(Heading)`
+  position: absolute;
+  top: 50%;
+  left: -6em;
+`
+
+const HeadingMen = styled(Heading)`
+  position: absolute;
+  top: 50%;
+  right: -6em;
+`
