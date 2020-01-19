@@ -47,7 +47,7 @@ export const Header = ({ data }) => {
                         <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
                       </CellLink>
                     ) : (
-                      <a href={item.link}>
+                      <a href={item.link} key={item.id}>
                         <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
                       </a>
                     )
