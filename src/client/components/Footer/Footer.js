@@ -120,7 +120,7 @@ const DesignerText = styled(Text)`
   transition: background-size 0.25s ease-in;
 
   &:hover {
-    background-size: 100% 88%;
+    background-size: 100% 40%;
     color: ${theme.colors.blue.primary};
   }
 `

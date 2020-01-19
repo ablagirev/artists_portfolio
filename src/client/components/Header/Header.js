@@ -18,7 +18,7 @@ export const Header = ({ data }) => {
             return (
               <Col span={4} key={item.id}>
                 <a href={item.link}>
-                  <Text>{item.value}</Text>
+                  <Text>{item.value.toUpperCase()}</Text>
                 </a>
               </Col>
             )
@@ -35,24 +35,22 @@ export const Header = ({ data }) => {
       <Col span={10}>
         <Spacer space={10} />
         <CustomRow>
-          <Col span={7} />
-          {contacts.map(item => {
+          <Col span={8} />
+          {contacts.map((group, index) => {
             return (
-              <React.Fragment key={item.id}>
-                {item.type === 'number' ? (
-                  <Col span={7}>
-                    <a href="#">
+              <Col span={8} key={index}>
+                {group.map(item => {
+                  return item.type === 'number' ? (
+                    <a href="#" key={item.id}>
                       <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
                     </a>
-                  </Col>
-                ) : (
-                  <Col span={2}>
+                  ) : (
                     <a href={item.link}>
                       <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
-                  </Col>
-                )}
-              </React.Fragment>
+                  )
+                })}
+              </Col>
             )
           })}
         </CustomRow>
