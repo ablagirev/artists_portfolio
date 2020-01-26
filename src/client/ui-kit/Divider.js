@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 
 import { theme } from '../theme'
 
-export const Divider = ({ className, color }) => {
-  return <Wrapper className={className} color={color} />
+export const Divider = ({ className, color, width }) => {
+  return <Wrapper className={className} color={color} width={width} />
 }
 
 const Wrapper = styled.div`
   height: 2px;
   border-radius: 3px;
-  width: 100%;
+  width: ${({ width }) => (width ? width : '100%')};
   background-color: ${({ color }) => (color ? color : theme.colors.blue.primary)};
 `
 

@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { Heading, Text, Spacer } from '../../ui-kit'
+import { Heading, Spacer } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 
-import women from 'assets/img/main/women.png'
-import men from 'assets/img/main/men.png'
-
 export const BaseMainTemplate = ({ data }) => {
+  const { women, men } = data
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
   return (
@@ -21,8 +19,8 @@ export const BaseMainTemplate = ({ data }) => {
           opacity={womenOpacity}
         >
           <WrapperLink href="#">
-            <HeadingWomen size="lg">Актрисы</HeadingWomen>
-            <img src={women} />
+            <HeadingWomen size="lg">{women.title}</HeadingWomen>
+            <img src={women.picture} />
           </WrapperLink>
         </WrapperWomen>
         <Spacer space={20} />
@@ -32,8 +30,8 @@ export const BaseMainTemplate = ({ data }) => {
           opacity={menOpacity}
         >
           <WrapperLink href="#">
-            <img src={men} />
-            <HeadingMen size="lg">Актеры</HeadingMen>
+            <img src={men.picture} />
+            <HeadingMen size="lg">{men.title}</HeadingMen>
           </WrapperLink>
         </WrapperMen>
       </Body>

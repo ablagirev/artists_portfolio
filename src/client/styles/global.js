@@ -30,4 +30,10 @@ export const GlobalStyles = createGlobalStyle`
   body {
     padding: 8px 20px;
   }
+  
+  #artists_portfolio {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 `
