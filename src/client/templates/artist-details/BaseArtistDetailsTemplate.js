@@ -23,7 +23,7 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
           <Info />
         </Col>
       </Row>
-      <Footer/>
+      <Footer />
     </>
   )
 }

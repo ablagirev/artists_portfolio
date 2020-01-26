@@ -22,7 +22,7 @@ export const Footer = () => {
   } = mapState
 
   return (
-    <>
+    <FooterWrapper>
       <Row>
         <Col span={2} />
         <Col span={2}>
@@ -95,9 +95,13 @@ export const Footer = () => {
         </Col>
         <Col span={2}></Col>
       </Row>
-    </>
+    </FooterWrapper>
   )
 }
+
+const FooterWrapper = styled.div`
+  flex: 0 0 auto;
+`
 
 const FlexWrapper = styled.div`
   display: flex;
