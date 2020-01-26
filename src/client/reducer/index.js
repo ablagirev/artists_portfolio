@@ -1,3 +1,3 @@
-export { artistActions, artistReducer } from './artistReducer.js'
-export { headerActions, headerReducer } from './headerReducer.js'
-export { footerActions, footerReducer } from './footerReducer.js'
+export { artistActions, artistReducer } from './artistReducer'
+export { headerActions, headerReducer } from './headerReducer'
+export { footerActions, footerReducer } from './footerReducer'
