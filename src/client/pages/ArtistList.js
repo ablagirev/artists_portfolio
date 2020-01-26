@@ -7,14 +7,14 @@ import { artistActions } from 'client/reducer'
 export const ArtistList = () => {
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
-    artist: state.artist
+    artistList: state.artist.list
   }))
 
   useEffect(() => {
     dispatch(artistActions.getArtistList())
   }, [])
 
-  const { artist } = mapState
+  const { artistList } = mapState
 
-  return <BaseArtistListTemplate data={artist} />
+  return <BaseArtistListTemplate data={artistList} />
 }
