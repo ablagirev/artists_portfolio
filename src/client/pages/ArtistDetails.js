@@ -13,6 +13,7 @@ export const ArtistDetails = () => {
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
     artistDetails: state.artist.details,
+    fetching: state.artist.fetching,
     error: state.artist.error
   }))
 
@@ -20,7 +21,13 @@ export const ArtistDetails = () => {
     dispatch(artistActions.getArtistDetails(artistId))
   }, [])
 
-  const { artistDetails, error } = mapState
+  const { artistDetails, fetching, error } = mapState
 
-  return error.message ? <NotFound /> : <BaseArtistDetailsTemplate data={artistDetails} />
+  return error.message ? (
+    <NotFound />
+  ) : fetching ? (
+    'loading...'
+  ) : (
+    <BaseArtistDetailsTemplate data={artistDetails} />
+  )
 }

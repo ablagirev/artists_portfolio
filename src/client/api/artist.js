@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-import img1 from 'assets/img/buntina/main.jpg'
-import img2 from 'assets/img/volkova/main.jpg'
-import img3 from 'assets/img/egorova/main.jpg'
+import img1 from 'assets/img/buntina/main.png'
+import img2 from 'assets/img/volkova/main.png'
+import img3 from 'assets/img/egorova/1.jpeg'
 import img4 from 'assets/img/kutovaya/main.jpg'
 import img5 from 'assets/img/lisicina/main.jpg'
 import img6 from 'assets/img/kuzenkina/main.jpg'
