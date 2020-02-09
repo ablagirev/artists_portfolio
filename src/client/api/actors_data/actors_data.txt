@@ -1,0 +1,981 @@
+﻿const Buntina = {
+  id: 1,
+  photo: { main:, preview },
+  firstName: 'Дарья',
+  lastName: 'Бунтина',
+  middleName: 'Геннадьевна',
+  media: {
+    showreal: '',
+    card: 'https://youtu.be/cQ37dsGyzng',
+    artCard: ''
+  },
+  age: 28,
+  height: 171,
+  city: 'Москва',
+  education: 'РГИСИ',
+  skills: [
+    { category: 'Языки', value: 'Английский разговорный' },
+    { category: 'Танец', value: 'Современный, классическая хореография' },
+    { category: 'Вокал', value: 'Средне-профессиональный навык' },
+	{ category: 'Диапазон голоса', value: 'Альт' },
+    { category: 'Музыкальные инструменты', value: 'Гитара, фортепиано самоучка' },
+    {
+      category: 'Спорт',
+      value: 'Бег, акробатика, смешанные единоборства, танцы, фехтование, верховая езда'
+    },
+    {
+      category: 'Вождение',
+      value: 'Нет, закончена автошкола, водить умею'
+    }
+  ],
+  theatre: [{ year: '', name: 'Молодежный театр на Фонтанке' }],
+  filmography: [
+    {
+      year: 2019,
+      name: 'Последняя точка',
+      role: 'влюбленная девушка',
+      director: 'Мария Ханафиева'
+    },
+    { year: 2017, name: 'Детство', role: { name: '', main: false }, director: 'Алина Мустафина' },
+    {
+      year: 2016,
+      name: 'Физика и лирики',
+      role: { name: 'Маша', main: false },
+      director: 'Александра Субботина'
+    }
+  ]
+}
+const Volkova = {
+  id: 2,
+  photo: { main:, preview },
+  firstName: 'Мария',
+  lastName: 'Волкова',
+  middleName: 'Алексеевна',
+  media: {
+    showreal: 'https://youtu.be/MMHxeIrjq4Q',
+    card: 'https://youtu.be/OlbSSrD1YNs',
+    artCard: ''
+  },
+  age: 34,
+  height: 165,
+  city: 'Москва',
+  education: 'ТИ им. Б.Щукина',
+  skills: [
+	{ category: 'Языки', value: 'Русский — свободный, английский — разговорный, французский — базовый, испанский — базовый, итальянский — базовый' },
+    { category: 'Танец', value: 'Бальный, народный, модерн, балет' },
+    { category: 'Вокал', value: 'Оперный, мюзикл, эстрадный, хип-хоп'' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: 'Гитара, фортепиано, флейта, аккордеон' },
+    { category: 'Спорт',
+      value: 'Езда на лошади, фехтование, лыжи, ролики, фигурное катание, йога'
+    },
+    {category: 'Вождение',
+      value: Автомобиль, мотоцикл'
+    }
+  ],
+  theatre: [{ year: '', name: 'Театр им.Вахтангова' }],
+  filmography: [
+    {
+      year: 2018,
+      name: 'Нянька (в производстве)',
+      role: { name: 'Нина Локтева', main: false },
+      director: 'Сергей Пикалов'
+    },
+    {
+      year: 2017,
+      name: 'Склифосовский (6 сезон)',
+      role: { name: 'Кристина - бывшая жена Янина', main: false },
+      director: 'Юлия Краснова'
+    },
+    {
+      year: 2014,
+      name: 'Маскарад (фильм-спектакль)',
+      role: { name: 'Нина - жена Арбенина', main: false },
+      director: 'Римас Туминас'
+    },
+    {
+      year: 2011,
+      name: 'Чужие мечты',
+      role: { name: 'Маша Карелина - главная роль медсестра', main: true },
+      director: 'Александр Даруга'
+    },
+    {
+      year: 2011,
+      name: 'Кодекс чести-5',
+      role: { name: 'Таня Зайцева', main: false },
+      director: 'Георгий Николаенко'
+    },
+    {
+      year: 2010,
+      name: 'В лесах и на горах',
+      role: { name: 'Флёнушка - главная роль, внебрачная дочь Манефы', main: true },
+      director: 'Александр Холминский'
+    },
+    {
+      year: 2008,
+      name: 'Шаг за шагом',
+      role: { name: 'Лиза', main: false },
+      director: 'Андрей Кузнецов'
+    },
+    {
+      year: 2008,
+      name: 'И все-таки я люблю...',
+      role: { name: 'Марина', main: false },
+      director: 'Сергей Гинзбург'
+    }
+  ]
+}
+
+const Egorova = {
+  id: 3,
+  photo: { main:, preview },
+  firstName: 'Анастасия',
+  lastName: 'Егорова',
+  middleName: 'Михайловна',
+  media: {
+    showreal: 'https://youtu.be/zq5DKge0FOo',
+    card: 'https://youtu.be/nQZNq3rhcG0',
+    artCard: 'https://youtu.be/5ROJ0G87Hsk'
+  },
+  age: 33,
+  height: 164,
+  city: 'Москва',
+  education: 'РАТИ-ГИТИС',
+  skills: [
+    { category: 'Языки', value: '' },
+    { category: 'Танец', value: '' },
+    { category: 'Вокал', value: '' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: 'Игра на скрипке и фортепиано - окончила музыкальную школу №14 с отличием, аккордеон' },
+    { category: 'Спорт',
+      value: 'Опыт работы на пуантах, спортивная аэробика - 1 место по Москве 2004 год, стэп'
+    },
+    {category: 'Вождение',
+      value: 'Нет, закончена автошкола, водить умею'
+    }
+  ],
+  theatre: [{ year: '', name: 'Театр Наций' }],
+  filmography: [
+    {
+      year: 2018,
+      name: { name: 'Мамы в спорте', main: false },
+      role: 'Учительница английского языка',
+      director: 'Сергей Арланов'
+    },
+    {
+      year: 2017,
+      name: 'Пострадавшая',
+      role: { name: 'Пострадавшая', main: false },
+      director: 'Е. Николаева'
+    },
+    {
+      year: 2016,
+      name: 'Доктор Рихтер',
+      role: { name: 'Старшая медсестра', main: false },
+      director: 'Илья Казанков'
+    },
+    {
+      year: 2015,
+      name: 'Голубка',
+      role: { name: 'Девушка (короткий метр)', main: false },
+      director: 'А. Смирнова'
+    },
+    {
+      year: 2015,
+      name: 'Холодное танго',
+      role: { name: 'Медсестра', main: false },
+      director: 'Павел Чухрай'
+    },
+    {
+      year: 2015,
+      name: 'Коллекционер',
+      role: { name: 'Она (короткий метр)', main: false },
+      director: 'А. Саатчан'
+    },
+    {
+      year: 2015,
+      name: 'Я-Эльф',
+      role: { name: 'Моранель (короткий метр)', main: false },
+      director: 'А. Шалганова'
+    },
+    {
+      year: 2015,
+      name: 'Голоса',
+      role: { name: 'Девушка (короткий метр)', main: false },
+      director: 'Е. Березовская'
+    },
+    {
+      year: 2014,
+      name: 'Эти глаза напротив',
+      role: { name: 'Переводчица', main: false },
+      director: 'Сергей Комаров'
+    }
+  ]
+}
+
+
+const Girzekorn = {
+  id: 4,
+  photo: { main:, preview },
+  firstName: 'Евгения',
+  lastName: 'Гирзекорн',
+  middleName: 'Алексеевна',
+  media: {
+    showreal: 'https://youtu.be/C8iiZHMs1z8',
+    card: 'https://youtu.be/_N-M8SlSRE4',
+    artCard: ''
+  },
+  age: 33,
+  height: 170,
+  city: 'Москва',
+  education: 'ВТУ им. Б.Щукина (курс В.Поглазова)',
+  skills: [
+	{ category: 'Языки', value: 'Английский (базовый)' },
+    { category: 'Танец', value: 'Бальный, модерн' },
+    { category: 'Вокал', value: 'Мюзикл' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: 'Фортепиано' },
+    { category: 'Спорт',value: 'Езда на лошади, фехтование'},
+    { category: 'Вождение',value: 'Автомобиль'}
+  ],
+  theatre: [{ year: '', name: '' }],
+  filmography: [
+    {
+      year: 2016,
+      name: 'Пятница',
+      role: {name:'Варя', main:false},
+      director: 'Евгений Шелякин'
+    },
+    {
+      year: 2016,
+      name: 'Возвращение блаженного Августа',
+      role: { name: 'Надюша', main: false },
+      director: 'Алексей Тагушев'
+    },
+    {
+      year: 2015,
+      name: 'Бедные люди',
+      role: { name: 'Женя', main: false },
+      director: 'Ж.Кадникова'
+    },
+    {
+      year: 2014,
+      name: 'Мой любимый папа',
+      role: { name: 'Маруся', main: false },
+      director: 'Игорь Штернберг'
+    },
+    {
+      year: 2014,
+      name: 'Академия',
+      role: { name: 'Катя', main: false },
+      director: ''
+    },
+    {
+      year: 2014,
+      name: 'Саша Таня',
+      role: { name: 'Подруга Лили', main: false },
+      director: 'Богатырев и Грачева'
+    },
+    {
+      year: 2013,
+      name: 'Я буду рядом',
+      role: { name: 'Алла', main: false },
+      director: 'Павел Игнатов'
+    },
+    {
+      year: 2013,
+      name: 'Я не смогу тебя забыть',
+      role: { name: 'Катя дочь банкира', main: false },
+      director: 'Демченко'
+    },
+    {
+      year: 2012,
+      name: 'Поверь все будет хорошо',
+      role: { name: 'Ленка', main: false },
+      director: 'Бриус'
+    },
+	{
+		year:2012
+		name: 'Светофор',
+		role: {name:'Ирина секретарша', main:false},
+		director: 'Фокин'
+	},
+	{
+		year:2011
+		name: 'Счастье есть',
+		role: {name:'Яна', main:false},
+		director: 'Сорокин'
+	},
+	{
+		year:2007
+		name: 'Платон - эпизод ',
+		role: {name:'', main:false},
+		director: 'Вартан Акопян'
+	},
+	{
+		year:2007
+		name: 'Generation P - эпизод ',
+		role: {name:'', main:false},
+		director: 'В. Гинзбург'
+	},
+  ]
+}
+
+const Kachnova = {
+  id: 5,
+  photo: { main:, preview },
+  firstName: 'Анастасия',
+  lastName: 'Качнова',
+  middleName: 'Александровна',
+  media: {
+    showreal: '',
+    card: 'https://youtu.be/qfwwaGPrPKY',
+    artCard: 'https://youtu.be/AcMDVzSdoU0'
+  },
+  age: 23,
+  height: 165,
+  city: 'Москва',
+  education: 'Институт Театрального Искусства имени И.Д. Кобзона',
+  skills: [
+	{ category: 'Языки', value: 'Английский (базовый)' },
+    { category: 'Танец', value: 'Эстрадный' },
+    { category: 'Вокал', value: 'Базовый' },
+	{ category: 'Диапазон голоса', value: 'Сопрано' },
+    { category: 'Музыкальные инструменты', value: '' },
+    { category: 'Спорт',value: ''},
+    { category: 'Вождение',value: ''}
+  ],
+  theatre: [{ year: '', name: '' }],
+  filmography: [
+    {
+      year: 2019,
+      name: 'Отражение',
+      role: {name:'', main:false},
+      director: 'Никита Чванов'
+    }
+  ]
+}
+
+const Kuzenkina = {
+  id: 6,
+  photo: { main:, preview },
+  firstName: 'Александра',
+  lastName: 'Кузенкина',
+  middleName: 'Андреевна',
+  media: {
+    showreal: 'https://yadi.sk/i/E1RlAYhRqrM4rQ',
+    card: '',
+    artCard: ''
+  },
+  age: 29,
+  height: 165,
+  city: 'Москва',
+  education: 'Школа-студия МХАТ',
+  skills: [
+	{ category: 'Языки', value: 'Английский - разговорный' },
+    { category: 'Танец', value: 'Базовый ' },
+    { category: 'Вокал', value: 'Базовый' },
+	{ category: 'Диапазон голоса', value: 'ми второй октавы - ми малой октавы; меццо сопрано' },
+    { category: 'Музыкальные инструменты', value: '8 лет назад играла на гитаре' },
+    { category: 'Спорт',value: 'Танец, спортивная'},
+    { category: 'Вождение',value: 'Да, автомат'}
+  ],
+  theatre: [{ year: '', name: 'Сатирикон' }],
+  filmography: [
+    {
+      year: 2020,
+      name: 'Гранд-3 (в производстве)',
+      role: {name:'Юлия Комиссарова', main:true},
+      director: 'Дмитрий Грибанов'
+    },
+    {
+      year: 2019,
+      name: 'Отель "Белград" (Hotel Beograd) (Россия, Сербия, в производстве)',
+      role: { name: 'Н', main: false },
+      director: 'Константин Статский'
+    },
+    {
+      year: 2019,
+      name: 'Корни (в производстве)',
+      role: { name: '', main: false },
+      director: 'Марк Горобец'
+    },
+    {
+      year: 2019,
+      name: 'Нефутбол (в производстве)',
+      role: { name: '', main: false },
+      director: ''
+    },
+    {
+      year: 2019,
+      name: 'Короче',
+      role: { name: '', main: false },
+      director: 'Илья Фарфель'
+    },
+    {
+      year: 2018,
+      name: 'Гранд',
+      role: { name: 'Юлия Комиссарова', main: true },
+      director: 'Дмитрий Грибанов'
+    },
+    {
+      year: 2017,
+      name: 'Хождение по мукам',
+      role: { name: 'Маруся', main: false },
+      director: 'Константин Худяков'
+    },
+    {
+      year: 2017,
+      name: 'Отель Элеон (все сезоны) (Россия, Украина)',
+      role: { name: 'Юлия Комиссарова', main: true },
+      director: 'Антон Федотов'
+    },
+    {
+      year: 2015,
+      name: 'Окрылённые',
+      role: { name: 'Тома', main: false },
+      director: 'Анна Писаненко'
+    },
+	{
+		year:2015
+		name: 'Как я стал русским',
+		role: {name:'Юля - подруга Ани', main:false},
+		director: 'Константин Статский'
+	},
+	{
+		year:2014
+		name: 'СВсё вернётся (Россия, Украина)',
+		role: {name:'Лиля Печёнкина - подруга Натальи', main:false},
+		director: 'Алексей Лисовец'
+	},
+	{
+		year:2013
+		name: 'Студия 17',
+		role: {name:'Ксюха - девушка Пети', main:false},
+		director: 'Сергей Сенцов'
+	},
+	{
+		year:2009
+		name: 'Выхожу тебя искать',
+		role: {name:'Скоморох-девица', main:false},
+		director: 'Сергей Попов'
+	},
+	{
+		year:2006
+		name: 'Громовы - эпизод',
+		role: {name:'Скоморох-девица', main:false},
+		director: 'Александр Баранов'
+	},
+	{
+		year:2003
+		name: 'Полосатое лето',
+		role: {name:'', main:false},
+		director: 'Елена Цыплакова'
+	}
+  ]
+}
+
+const Kutovaya = {
+  id: 7,
+  photo: { main:, preview },
+  firstName: 'Маргарита',
+  lastName: 'Кутовая',
+  middleName: 'Валерьевна',
+  media: {
+    showreal: '',
+    card: 'https://youtu.be/IlFkpGjZix4',
+    artCard: ''
+  },
+  age: 33,
+  height: 165,
+  city: 'Москва',
+  education: 'ТИ им. Б.Щукина',
+  skills: [
+	{ category: 'Языки', value: 'Английский - разговорный,французский - базовый, итальянский- базовый' },
+    { category: 'Танец', value: '' },
+    { category: 'Вокал', value: 'Профессионально' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: '' },
+    { category: 'Спорт',value: 'Базовая верховая езда'},
+    { category: 'Вождение',value: ''}
+  ],
+  theatre: [{ year: '', name: '' }],
+  filmography: [
+    {
+      year: 2016,
+      name: 'Мой лучший друг',
+      role: {name:'Айнур', main:false},
+      director: 'Э.Суни'
+    },
+    {
+      year: 2012,
+      name: 'Чужие тайны.Треугольник',
+      role: { name: 'Зоя', main: false },
+      director: 'Э.Суни'
+    },
+    {
+      year: 2011,
+      name: 'Моя вторая половинка',
+      role: { name: 'Шама', main: false },
+      director: 'Т.Эсадзе'
+    },
+    {
+      year: 2011,
+      name: 'Мамочки',
+      role: { name: 'Медсестра', main: false },
+      director: 'Д.Полторацкая'
+    },
+    {
+      year: 2010,
+      name: 'Больше,чем любовь',
+      role: { name: 'жена Паустовского', main: false },
+      director: 'И.Ушаков'
+    },
+    {
+      year: 2009,
+      name: 'След. Анатомия по глюку',
+      role: { name: 'Кэт', main: false },
+      director: 'В.Аравин'
+    },
+    {
+      year: 2008,
+      name: 'Все умрут,а я останусь',
+      role: { name: 'старшеклассница', main: false },
+      director: 'В.Германика'
+    },
+    {
+      year: 2007,
+      name: 'Две сестры',
+      role: { name: 'школьницf', main: false },
+      director: 'О.Массарыгин'
+    }
+  ]
+}
+const Lisicina = {
+  id: 8,
+  photo: { main:, preview },
+  firstName: 'Ульяна',
+  lastName: 'Лисицина',
+  middleName: 'Степановна',
+  media: {
+    showreal: '',
+    card: 'https://youtu.be/gUFsA_m87QM',
+    artCard: 'https://youtu.be/N41c1gaVCRw'
+  },
+  age:25,
+  height: 155,
+  city: 'Москва',
+  education: 'ВШСИ К. Райкина',
+  skills: [
+	{ category: 'Языки', value: 'Русский — свободный, английский — базовый' },
+    { category: 'Танец', value: 'Народный, модерн' },
+    { category: 'Вокал', value: 'Эстрадный' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: 'Гитара' },
+    { category: 'Спорт',value: 'Фехтование, лыжи, ролики, фигурное катание'},
+    { category: 'Вождение',value: 'Автомобиль'}
+  ],
+  theatre: [{ year: '', name: 'Сатирикон' }],
+  filmography: [
+    {
+      year:,
+      name: '',
+      role: {name:'', main:false},
+      director: ''
+    }
+  ]
+}
+
+const Malkova = {
+  id: 9,
+  photo: { main:, preview },
+  firstName: 'Анастасия',
+  lastName: 'Малкова',
+  middleName: 'Андреевна',
+  media: {
+    showreal: '',
+    card: 'https://youtu.be/QAsDBLSWxHI',
+    artCard: ''
+  },
+  age:32,
+  height: 172,
+  city: 'Москва',
+  education: 'РУТИ - ГИТИС',
+  skills: [
+	{ category: 'Языки', value: '' },
+    { category: 'Танец', value: 'Модерн (современный танец), балет(стою на пуантах)' },
+    { category: 'Вокал', value: 'Мюзикл' },
+	{ category: 'Диапазон голоса', value: '' },
+    { category: 'Музыкальные инструменты', value: '' },
+    { category: 'Спорт',value: 'Конная езда, лыжи горные'},
+    { category: 'Вождение',value: 'Категория B'}
+  ],
+  theatre: [{ year: '', name: '' }],
+  filmography: [
+    {
+      year: 2016,
+      name: 'Спасенная любовь',
+      role: {name:'Аня', main:false},
+      director: 'Средникова Наталья'
+    },
+	{
+      year: 2012,
+      name: 'Карпов — (эпизод)',
+      role: {name:'Катя', main:false},
+      director: 'Игорь Ромашенко, Иван Щеголев'
+    }
+  ]
+}
+
+const Vetrov= {
+  id: 10,
+  photo: { main:, preview },
+  firstName: 'Владислав',
+  lastName: 'Ветров',
+  middleName: 'Владимирович',
+  media: {
+    showreal: '',
+    card: '',
+    artCard: ''
+  },
+  age:55,
+  height: 187,
+  city: 'Москва',
+  education: '',
+  skills: [
+	{ category: 'Языки', value: '' },
+    { category: 'Танец', value: 'Нет, нужен дублер' },
+    { category: 'Вокал', value: 'Базовый' },
+	{ category: 'Диапазон голоса', value: 'Баритон' },
+    { category: 'Музыкальные инструменты', value: '' },
+    { category: 'Спорт',value: 'Сценнический бой (базовый)'},
+    { category: 'Вождение',value: ''}
+  ],
+  theatre: [{ year: '', name: 'Современник' }],
+  filmography: [
+    {
+      year: 2019,
+      name: 'Союз Спасения (в производстве)',
+      role: {name:'Густав Гебель', main:false},
+      director: 'Андрей Кравчук'
+    },
+	{
+      year: 2019,
+      name: 'Один вдох (в производстве)',
+      role: {name:'Врач', main:false},
+      director: 'Елена Хазанова'
+    },
+	{
+      year: 2019,
+      name: 'Невечерняя (в производстве)',
+      role: {name:'Павлович Чехов', main:True},
+      director: ''
+    },
+	{
+      year: 2018,
+      name: 'Юристы',
+      role: {name:'Куницкий', main:True},
+      director: 'Павел Игнатов'
+    },
+	{
+      year: 2018,
+      name: 'Реставратор',
+      role: {name:'Сергей Михайлович Ревзин - директор детского дома', main:false},
+      director: 'Карен Захаров'
+    },
+	{
+      year: 2018,
+      name: 'Московские тайны',
+      role: {name:'Сергей Вяземский - отец Насти', main:false},
+      director: 'Александр Баршак'
+    },
+	{
+      year: 2018,
+      name: 'Молодёжка',
+      role: {name:'Сосед Бакиных - старший прапорщик', main:false},
+      director: 'Сергей Арланов'
+    },
+	{
+      year: 2018,
+      name: 'Ёлки последние',
+      role: {name:'Отец Гали', main:false},
+      director: 'Тимур Бикмамбетов'
+    },
+	{
+      year: 2018,
+      name: 'Гранд',
+      role: {name:'Борис Леонидович', main:true},
+      director: 'Дмитрий Грибанов'
+    },
+	{
+      year: 2018,
+      name: 'Вольная грамота',
+      role: {name:'Алексей Петрович Головин', main:false},
+      director: 'Дмитрий Черкасов'
+    },
+	{
+      year: 2018,
+      name: 'Бобры',
+      role: {name:'Кругликов - литератор', main:false},
+      director: 'Юрий Попович'
+    },
+	{
+      year: 2017,
+      name: 'Яблочко от яблоньки',
+      role: {name:'Борис Борисович', main:true},
+      director: 'Юрий Морозов'
+    },
+	{
+      year: 2017,
+      name: 'Ёлки новые',
+      role: {name:'', main:false},
+      director: 'Жора Крыжовников'
+    },
+	{
+      year: 2017,
+      name: 'Отель Элеон (все сезоны) (Россия, Украина)',
+      role: {name:'Борис Леонидович - главный инженер отеля', main:false},
+      director: 'Антон Федотов'
+    },
+	{
+      year: 2015,
+      name: 'Я знаю твои секреты',
+      role: {name:'Виктор Вадимыч - патологоанатом', main:false},
+      director: 'Андрей Верещагин'
+    },
+	{
+      year: 2015,
+      name: 'Самый лучший день!',
+      role: {name:'Викентий Михайлович - ухажер Татьяны', main:false},
+      director: 'Жора Крыжовников'
+    },
+	{
+      year: 2015,
+      name: 'Метод',
+      role: {name:'Сергей Леонидович Цветков - декан', main:false},
+      director: 'Юрий Быков'
+    },
+	{
+      year: 2015,
+      name: 'Людмила Гурченко',
+      role: {name:'Владимир Сергеевич - редактор "Комсомольской правды"', main:false},
+      director: 'Сергей Алдонин'
+    },
+	{
+      year: 2014,
+      name: 'Хорошие руки',
+      role: {name:'Борис Аркадьевич Добровольский - адвокат', main:false},
+      director: 'Юрий Кузьменко'
+    },
+	{
+      year: 2014,
+      name: 'Уходящая натура',
+      role: {name:'Виктор - художник-постановщик', main:false},
+      director: 'Дмитрий Иосифов'
+    },
+	{
+      year: 2014,
+      name: 'Обнимая небо',
+      role: {name:'Фёдор Николаевич Петрушин - генерал, профессор, отчим Жени Луговой', main:false},
+      director: 'Милена Фадеева'
+    },
+	{
+      year: 2014,
+      name: 'Зимы не будет',
+      role: {name:'', main:false},
+      director: 'Илья Демичев'
+    },
+	{
+      year: 2013,
+      name: 'Небо падших',
+      role: {name:'Архипов', main:false},
+      director: 'Валентин Донсков'
+    },
+	{
+      year: 2013,
+      name: 'Нарочно не придумаешь (Беларусь)',
+      role: {name:'Александр Леонидович Велигоров', main:true},
+      director: 'Александр Хван'
+    },
+	{
+      year: 2013,
+      name: 'Не плачь по мне, Аргентина!',
+      role: {name:'Зам.министра', main:false},
+      director: 'Владимир Устюгов'
+    },
+	{
+      year: 2012,
+      name: 'Найдёныш-3',
+      role: {name:'Никита Краснов', main:true},
+      director: 'Сайдо Курбанов'
+    },
+	{
+      year: 2012,
+      name: 'МосГаз',
+      role: {name:'Игорь Васильевич Чеботарь - отец Сережи, технолог на ткацкой фабрике', main:false},
+      director: 'Андрей Малюков'
+    },
+	{
+      year: 2012,
+      name: 'День Победы (короткометражный)',
+      role: {name:'', main:false},
+      director: 'Игорь Гринякин'
+    },
+	{
+      year: 2012,
+      name: 'Гром',
+      role: {name:'Пётр Сергеевич Горчаков - следователь, майор', main:false},
+      director: 'Юрий Кузьменко'
+    },
+	{
+      year: 2011,
+      name: 'Раскол',
+      role: {name:'Афанасий Ордин', main:false},
+      director: 'Николай Досталь'
+    },
+	{
+      year: 2011,
+      name: 'Найдёныш-2',
+      role: {name:'Никита Краснов', main:true },
+      director: 'Саша Кириенко'
+    },
+	{
+      year: 2011,
+      name: '"Кедр" пронзает небо',
+      role: {name:'Марат Васильевич Фуджиев - лейтенант госбезопасности', main:false},
+      director: 'Александр Боршак'
+    },
+	{
+      year: 2011,
+      name: 'Бабушка на сносях',
+      role: {name:'Антон - муж Любы', main:false},
+      director: 'Андрей Селиванов'
+    },
+	{
+      year: 2010,
+      name: 'Найдёныш',
+      role: {name:'Никита Краснов', main:true },
+      director: 'Саша Кириенко'
+    },
+	{
+      year: 2010,
+      name: 'Журов-2',
+      role: {name:'Евгений Дробышев - профессор', main:false},
+      director: 'Карен Аганесян'
+    },
+	{
+      year: 2010,
+      name: 'Дежурный ангел',
+      role: {name:'Вадим Кондауров - экстрасенс', main:false},
+      director: 'Павел Игнатов'
+    },
+	{
+      year: 2010,
+      name: 'Гаражи',
+      role: {name:'Петр Васильевич Киреевский', main:false},
+      director: 'Юрий Кузьменко'
+    },
+	{
+      year: 2010,
+      name: 'Башня',
+      role: {name:'Баташов', main:false},
+      director: 'Денис Нейманд'
+    },
+	{
+      year: 2009,
+      name: 'Черчилль',
+      role: {name:'Вячеслав Витальевич - профессор, бывший сослуживец Светланы', main:false},
+      director: 'Николай Хомерики'
+    },
+	{
+      year: 2009,
+      name: 'Рябиновый вальс',
+      role: {name:'Следователь Кириллов', main:false},
+      director: 'Алена Райнер'
+    },
+	{
+      year: 2009,
+      name: 'Иван Грозный',
+      role: {name:'Василий III Иванович, отец Ивана Грозного', main:true },
+      director: 'САндрей Эшпай'
+    },
+	{
+      year: 2009,
+      name: 'Адмиралъ (сериал)',
+      role: {name:'Сергей Николаевич Тимирёв - муж Анны Тимирёвой', main:false},
+      director: 'Андрей Кравчук'
+    },
+	{
+      year: 2008,
+      name: 'Гоголь',
+      role: {name:'Портрет загадочного гения. Гоголь', main:false},
+      director: 'Дмитрий Демин'
+    },
+	{
+      year: 2006,
+      name: 'Потерянные в раю',
+      role: {name:'', main:false},
+      director: 'Сергей Колосов'
+    },
+	{
+      year: 2005,
+      name: 'Лебединый рай',
+      role: {name:'Врач-психиатр', main:false},
+      director: 'Александр Митта'
+    },
+	{
+      year: 2005,
+      name: 'Каменская-4',
+      role: {name:'Руслан Нильский - журналист', main:false},
+      director: 'Александр Аравин'
+    },
+	{
+      year: 2005,
+      name: 'Даша Васильева. Любительница частного сыска -4',
+      role: {name:'Кабанов', main:false},
+      director: 'Игорь Можжухин'
+    },
+	{
+      year: 2005,
+      name: 'Голая пионерка (фильм-спектакль)',
+      role: {name:'Генерал Зуков', main:false},
+      director: 'Кирилл Серебренников'
+    },
+	{
+      year: 2000,
+      name: 'Ростов-папа',
+      role: {name:'Пал Палыч', main:false},
+      director: 'Кирилл Серебренников'
+    },
+	{
+      year: 1999,
+      name: 'Ласточка',
+      role: {name:'', main:false},
+      director: 'Кирилл Серебренников'
+    },
+	{
+      year: 1999,
+      name: 'Куба далеко',
+      role: {name:'', main:true},
+      director: 'Владислав Ветров'
+    },
+	{
+      year: 1997,
+      name: 'Таганрога я не миную… (документальный)',
+      role: {name:'А.П. Чехов', main:true},
+      director: 'Юрий Лаптев'
+    },
+	{
+      year: 1993,
+      name: 'Аз воздам (Белоруссия - Польша)',
+      role: {name:'Казимир Лыщинский', main:true },
+      director: 'Борис Степановэ
+    },
+	{
+      year: 1992,
+      name: 'Дымъ (Россия, ФРГ)',
+      role: {name:'Григорий Михайлович Литвинов', main:true },
+      director: 'Аян Шахмалиеваэ
+    }
+  ]
+}
