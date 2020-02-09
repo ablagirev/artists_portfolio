@@ -1,6 +1,8 @@
+import { main, preview } from 'client/assets/img/buntina'
+
 const Buntina = {
   id: 1,
-  photo: { main: 'path', list: ['path1', 'path2', 'path3'] },
+  photo: { main, preview },
   firstName: 'Дарья',
   lastName: 'Бунтина',
   middleName: 'Геннадьевна',

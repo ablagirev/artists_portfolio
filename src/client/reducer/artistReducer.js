@@ -2,7 +2,7 @@ import { createSymbiote } from 'redux-symbiote'
 const namespace = 'artist'
 
 const initialState = {
-  fetching: false,
+  fetching: true,
   list: {
     rows: [],
     total: 0
