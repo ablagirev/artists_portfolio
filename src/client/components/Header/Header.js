@@ -18,65 +18,135 @@ export const Header = () => {
   }, [])
 
   const {
-    header: { menu, contacts, logo }
+    header: { menu, contacts, logo, fetching }
   } = mapState
 
-  return (
-    <Row>
-      <Col span={10}>
-        <Spacer space={10} />
-        <CustomRow>
-          {menu.map(item => {
-            return (
-              <Col span={4} key={item.id}>
-                <a href={item.link}>
-                  <Text>{item.value.toUpperCase()}</Text>
-                </a>
-              </Col>
-            )
-          })}
-        </CustomRow>
-        <Spacer space={16} />
-        <Divider />
-      </Col>
-      <Col span={4}>
-        <LogoWrapper href={logo.link}>
-          <img src={logo.img} alt={logo.value} />
-        </LogoWrapper>
-      </Col>
-      <Col span={10}>
-        <Spacer space={10} />
-        <CustomRow>
-          <Col span={8} />
-          {contacts.map((group, index) => {
-            return (
-              <Col span={group.length === 1 ? 9 : 7} key={index}>
-                <Contacts>
-                  {group.map(item => {
-                    return item.type === 'cell' ? (
-                      <CellLink href={`tel:${item.link}`} key={item.id}>
-                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                        <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
-                      </CellLink>
-                    ) : (
-                      <a href={item.link} key={item.id}>
-                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                      </a>
-                    )
-                  })}
-                </Contacts>
-              </Col>
-            )
-          })}
-        </CustomRow>
-        <Spacer space={16} />
-        <Divider />
-      </Col>
-    </Row>
-  )
+  return !fetching ? (
+    <HeaderWrapper>
+      <MobileHeaderWrapper>
+        <MobileHeaderMainMenu>
+          <Row>
+            <Col span={12}>
+              <MobileLogo href={logo.link}>
+                <img src={logo.img.mobile} alt={logo.value} />
+              </MobileLogo>
+            </Col>
+            <Col span={8} />
+            {contacts.map(group => {
+              return group.map((item, index) => {
+                return (
+                  (item.type === 'cell' || item.type === 'post') && (
+                    <Col span={2} key={index}>
+                      <Icon type={item.type} fill={theme.colors.gray.dark} />
+                    </Col>
+                  )
+                )
+              })
+            })}
+          </Row>
+        </MobileHeaderMainMenu>
+        <MobileFixedMenu>
+          <CustomRow>
+            {menu.map(item => {
+              return (
+                <Col span={8} key={item.id}>
+                  <a href={item.link}>
+                    <Text>{item.value.toUpperCase()}</Text>
+                  </a>
+                </Col>
+              )
+            })}
+          </CustomRow>
+        </MobileFixedMenu>
+      </MobileHeaderWrapper>
+
+      <DesktopHeaderWrapper>
+        <Row>
+          <Col span={10}>
+            <Spacer space={10} />
+            <CustomRow>
+              {menu.map(item => {
+                return (
+                  <Col span={4} key={item.id}>
+                    <a href={item.link}>
+                      <Text>{item.value.toUpperCase()}</Text>
+                    </a>
+                  </Col>
+                )
+              })}
+            </CustomRow>
+            <Spacer space={16} />
+            <Divider />
+          </Col>
+          <Col span={4}>
+            <DesktopLogo href={logo.link}>
+              <img src={logo.img.desktop} alt={logo.value} />
+            </DesktopLogo>
+          </Col>
+          <Col span={10}>
+            <Spacer space={10} />
+            <CustomRow>
+              <Col span={8} />
+              {contacts.map((group, index) => {
+                return (
+                  <Col span={group.length === 1 ? 9 : 7} key={index}>
+                    <Contacts>
+                      {group.map(item => {
+                        return item.type === 'cell' ? (
+                          <CellLink href={`tel:${item.link}`} key={item.id}>
+                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                            <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
+                          </CellLink>
+                        ) : (
+                          <a href={item.link} key={item.id}>
+                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                          </a>
+                        )
+                      })}
+                    </Contacts>
+                  </Col>
+                )
+              })}
+            </CustomRow>
+            <Spacer space={16} />
+            <Divider />
+          </Col>
+        </Row>
+      </DesktopHeaderWrapper>
+    </HeaderWrapper>
+  ) : null
 }
 
-const LogoWrapper = styled.a`
+const MobileFixedMenu = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: ${theme.colors.white};
+  padding: 8px 20px;
+  z-index: 1;
+`
+const MobileHeaderMainMenu = styled.div`
+  padding: 8px 20px;
+`
+
+const HeaderWrapper = styled.div``
+
+const MobileHeaderWrapper = styled.div`
+  display: none;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
+    position: relative;
+  }
+`
+
+const DesktopHeaderWrapper = styled.div`
+  padding: 8px 20px;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+
+const DesktopLogo = styled.a`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -109,3 +179,5 @@ const CellLink = styled.a`
   display: flex;
   flex-direction: row;
 `
+
+const MobileLogo = styled.a``
