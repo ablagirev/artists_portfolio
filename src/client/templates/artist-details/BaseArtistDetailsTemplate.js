@@ -36,7 +36,9 @@ const PhotoViewer = ({ data }) => {
   const [current, setCurrent] = useState(main)
 
   const handleClick = (e, preview) => {
-    setCurrent(preview)
+    if (window.innerWidth > theme.breakpoint) {
+      setCurrent(preview)
+    }
   }
   return (
     <PhotoWrapper>
