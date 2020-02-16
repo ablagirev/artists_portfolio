@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Tilt from 'react-tilt'
 
-import { Heading, Spacer } from '../../ui-kit'
+import { Heading } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 import { theme } from '../../theme'
 
@@ -99,6 +99,7 @@ const Content = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     height: 100%;
     display: flex;
+    padding-bottom: 50px;
   }
 `
 

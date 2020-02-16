@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Row, Col } from 'antd'
 
 import { Header, Footer } from '../../components'
 import { Heading, Spacer, Text, Divider, Breadcrumbs } from '../../ui-kit'
+import { theme } from '../../theme'
 
 export const BaseAboutTemplate = ({ data }) => {
   const { title, text, img, breadcrumbs } = data
@@ -10,11 +12,13 @@ export const BaseAboutTemplate = ({ data }) => {
     <>
       <Header />
       <Body>
-        <Breadcrumbs data={breadcrumbs} />
+        <CustomBreadcrumbs data={breadcrumbs} />
         <Spacer />
         <Content>
-          <AboutImg src={img} />
-          <FakeAboutImgBlock />
+          <ImgWrapper>
+            <img src={img} />
+          </ImgWrapper>
+          <Spacer />
           <Description>
             <Heading size="lg">{title}</Heading>
             <Spacer />
@@ -29,31 +33,41 @@ export const BaseAboutTemplate = ({ data }) => {
   )
 }
 
+const ImgWrapper = styled.div`
+  img {
+    width: 100%;
+  }
+`
+
 const Body = styled.div`
-  padding: 0 120px 120px 120px;
+  padding: 0 120px 60px 120px;
   position: relative;
   flex: 1 0 auto;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 0;
+    margin-top: 4em;
+    padding-bottom: 50px;
+  }
 `
 
 const Content = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-`
 
-const AboutImg = styled.img`
-  width: 625px;
-  height: 528px;
-  position: absolute;
-  left: -2em;
-`
-
-const FakeAboutImgBlock = styled.div`
-  min-width: 515px;
-  min-height: 528px;
+  @media (max-width: ${theme.breakpoint}px) {
+    flex-direction: column;
+  }
 `
 
 const Description = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+const CustomBreadcrumbs = styled(Breadcrumbs)`
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 0 1em;
+  }
 `
