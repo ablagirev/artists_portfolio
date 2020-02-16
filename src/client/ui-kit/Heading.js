@@ -5,31 +5,17 @@ import { theme } from '../theme'
 
 import { Text } from './Text'
 
-const fontSize = {
-  xs: 'md',
-  sm: 'lg',
-  md: 'xl',
-  lg: 'xxl'
-}
-
 export const Heading = ({
   children,
   className,
   color = theme.colors.blue.primary,
-  size = 'md',
-  sizemob = 'sm',
+  size = 'lg',
   capitalize,
   bold
 }) => {
   return (
     <div className={className}>
-      <Text
-        size={fontSize[size]}
-        sizemob={fontSize[sizemob]}
-        color={color}
-        capitalize={capitalize}
-        bold={bold}
-      >
+      <Text size={size} color={color} capitalize={capitalize} bold={bold}>
         {children}
       </Text>
     </div>
@@ -38,7 +24,6 @@ export const Heading = ({
 
 Heading.propTypes = {
   size: PropTypes.oneOf(['lg', 'xl', 'xxl']),
-  sizemob: PropTypes.oneOf(['lg', 'xl', 'xxl']),
   capitalize: PropTypes.bool,
   bold: PropTypes.bool,
   color: PropTypes.string

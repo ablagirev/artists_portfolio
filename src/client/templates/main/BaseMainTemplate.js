@@ -1,52 +1,119 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import Tilt from 'react-tilt'
 
-import { Heading, Spacer } from '../../ui-kit'
+import { Heading } from '../../ui-kit'
 import { Header, Footer } from '../../components'
+import { theme } from '../../theme'
+
+const imageHoverOptions = {
+  reverse: false,
+  max: 2,
+  scale: 1.09,
+  speed: 3000,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: 'cubic-bezier(.03,.98,.52,.99)'
+}
 
 export const BaseMainTemplate = ({ data }) => {
-  const { women, men } = data
+  const { women, men, background } = data
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
   return (
     <>
       <Header />
-      <Body>
-        <Wrapper>
-          <WrapperWomen
-            onMouseOver={() => setMenOpacity(true)}
-            onMouseLeave={() => setMenOpacity(false)}
-            opacity={womenOpacity}
-          >
-            <WrapperLink href="#">
-              <HeadingWomen size="lg" hover={menOpacity}>
-                {women.title}
-              </HeadingWomen>
-              <img src={women.picture} />
-            </WrapperLink>
-          </WrapperWomen>
-          <Spacer space={20} />
-          <WrapperMen
-            onMouseOver={() => setWomenOpacity(true)}
-            onMouseLeave={() => setWomenOpacity(false)}
-            opacity={menOpacity}
-          >
-            <WrapperLink href="#">
-              <img src={men.picture} />
-              <HeadingMen size="lg" hover={womenOpacity}>
-                {men.title}
-              </HeadingMen>
-            </WrapperLink>
-          </WrapperMen>
-        </Wrapper>
-      </Body>
+      <Content>
+        <ContentDesktop>
+          <Wrapper>
+            <WrapperWomen
+              onMouseOver={() => setMenOpacity(true)}
+              onMouseLeave={() => setMenOpacity(false)}
+              opacity={womenOpacity}
+            >
+              <Tilt className="Tilt" options={imageHoverOptions}>
+                <div className="Tilt-inner">
+                  <WrapperLink href="#">
+                    <HeadingWomen size="xxl" hover={menOpacity}>
+                      {women.title}
+                    </HeadingWomen>
+                    <img src={women.picture} />
+                  </WrapperLink>
+                </div>
+              </Tilt>
+            </WrapperWomen>
+            <WrapperMen
+              onMouseOver={() => setWomenOpacity(true)}
+              onMouseLeave={() => setWomenOpacity(false)}
+              opacity={menOpacity}
+            >
+              <Tilt className="Tilt" options={imageHoverOptions}>
+                <div className="Tilt-inner">
+                  <WrapperLink href="#">
+                    <img src={men.picture} />
+                    <HeadingMen size="xxl" hover={womenOpacity}>
+                      {men.title}
+                    </HeadingMen>
+                  </WrapperLink>
+                </div>
+              </Tilt>
+            </WrapperMen>
+          </Wrapper>
+        </ContentDesktop>
+        <ContentMobile>
+          <BackgroundImg src={background.mobile} />
+          <ContentMobileInner>
+            <Heading size="xxl" color={theme.colors.white}>
+              БЮРО
+            </Heading>
+            <Heading size="xxl" color={theme.colors.white} bold>
+              Маши
+              <br />
+              Поповой
+            </Heading>
+          </ContentMobileInner>
+        </ContentMobile>
+      </Content>
       <Footer />
     </>
   )
 }
 
-const Body = styled.div`
-  padding: 32px 0 110px 0;
+const ContentMobileInner = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 8px;
+`
+
+const BackgroundImg = styled.img`
+  position: absolute;
+  height: 100vh;
+  z-index: -1;
+`
+
+const Content = styled.div`
+  @media (max-width: ${theme.breakpoint}px) {
+    height: 100%;
+    display: flex;
+    padding-bottom: 50px;
+  }
+`
+
+const ContentDesktop = styled.div`
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+
+const ContentMobile = styled.div`
+  display: none;
+  @media (max-width: ${theme.breakpoint}px) {
+    position: relative;
+    display: block;
+  }
 `
 
 const Wrapper = styled.div`
@@ -54,7 +121,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 610px;
+  min-height: 530px;
 `
 
 const WrapperWomen = styled.div`
@@ -63,16 +130,8 @@ const WrapperWomen = styled.div`
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
 
-  &:hover {
-    transition: 700ms ease-in-out;
-    right: 44%;
-    top: -1%;
-    z-index: 1;
-
-    img {
-      transition: 700ms ease-in-out;
-      height: 670px;
-    }
+  img {
+    height: 448px;
   }
 `
 
@@ -82,33 +141,35 @@ const WrapperMen = styled.div`
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
 
-  &:hover {
-    transition: 700ms ease-in-out;
-    left: 44%;
-    top: -1%;
-    z-index: 1;
-
-    img {
-      transition: 700ms ease-in-out;
-      height: 670px;
-    }
+  img {
+    height: 448px;
   }
 `
 
 const HeadingWomen = styled(Heading)`
   position: absolute;
-  top: ${({ hover }) => (hover ? 'unset' : '50%')};
-  bottom: ${({ hover }) => (hover ? '8em' : 'unset')};
+  top: 50%;
+  bottom: 0;
   left: -6em;
-  transition: 700ms ease-in-out;
+  transition: 1100ms ease-in-out;
+
+  ${WrapperWomen}:hover & {
+    top: -1em;
+    bottom: 8em;
+  }
 `
 
 const HeadingMen = styled(Heading)`
   position: absolute;
-  top: ${({ hover }) => (hover ? 'unset' : '50%')};
-  bottom: ${({ hover }) => (hover ? '8em' : 'unset')};
+  top: 50%;
+  bottom: 0;
   right: -6em;
-  transition: 700ms ease-in-out;
+  transition: 1100ms ease-in-out;
+
+  ${WrapperMen}:hover & {
+    top: -1em;
+    bottom: 8em;
+  }
 `
 
 const WrapperLink = styled.a`

@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-import logo from 'assets/logo/logo.png'
+import logoDesktop from 'assets/logo/logoDesktop.png'
+import logoMobile from 'assets/logo/logoMobile.png'
 
 const getHeader = () => {
   // return axios.get('/api/artists/')
@@ -10,7 +11,7 @@ const getHeader = () => {
       logo: {
         id: '000',
         value: 'logo',
-        img: logo,
+        img: { desktop: logoDesktop, mobile: logoMobile },
         link: '#'
       },
       menu: [

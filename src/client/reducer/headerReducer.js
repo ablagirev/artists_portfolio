@@ -2,7 +2,7 @@ import { createSymbiote } from 'redux-symbiote'
 const namespace = 'header'
 
 const initialState = {
-  fetching: false,
+  fetching: true,
   contacts: [],
   logo: {},
   menu: []
