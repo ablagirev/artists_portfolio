@@ -20,9 +20,11 @@ export const BaseAboutTemplate = ({ data }) => {
           </ImgWrapper>
           <Spacer />
           <Description>
-            <Heading size="lg">{title}</Heading>
+            <Heading size="xl" bold>
+              {title}
+            </Heading>
             <Spacer />
-            <Text size="md">{text}</Text>
+            <Text size="lg">{text}</Text>
             <Spacer space={32} />
             <Divider width="20%" />
           </Description>

@@ -52,9 +52,7 @@ export const Header = () => {
                 <Col span={8} key={item.id}>
                   <MobileMenuLinkWrapper>
                     <a href={item.link}>
-                      <Text sizemob="xs" color={theme.colors.blue.primary}>
-                        {item.value.toUpperCase()}
-                      </Text>
+                      <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
                     </a>
                   </MobileMenuLinkWrapper>
                 </Col>
@@ -146,6 +144,7 @@ const MobileHeaderMainMenu = styled.div`
   padding: 8px 20px;
   width: 100%;
   background-color: ${theme.colors.white};
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.05);
 `
 
 const HeaderWrapper = styled.div`
@@ -201,4 +200,9 @@ const CellLink = styled.a`
   flex-direction: row;
 `
 
-const MobileLogo = styled.a``
+const MobileLogo = styled.a`
+  img {
+    width: 150px;
+    height: 26px;
+  }
+`
