@@ -148,8 +148,9 @@ const MobileHeaderMainMenu = styled.div`
   background-color: ${theme.colors.white};
 `
 
-const HeaderWrapper = styled.div``
-
+const HeaderWrapper = styled.div`
+  z-index: 1;
+`
 const MobileHeaderWrapper = styled.div`
   display: none;
   @media (max-width: ${theme.breakpoint}px) {
