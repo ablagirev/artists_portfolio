@@ -6,6 +6,7 @@ import { theme } from '../theme'
 import { Text } from './Text'
 
 const fontSize = {
+  xs: 'md',
   sm: 'lg',
   md: 'xl',
   lg: 'xxl'

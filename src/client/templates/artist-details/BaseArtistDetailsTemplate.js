@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Breadcrumb } from 'antd'
+import { Breadcrumb, Row, Col } from 'antd'
 import styled from 'styled-components'
 
 import { theme } from 'client/theme'
 import { Header } from 'client/components/Header'
 import { Footer } from 'client/components/Footer'
-import { Text } from 'client/ui-kit'
+import { Media } from 'client/components/Media'
+import { Heading, Text } from 'client/ui-kit'
 
 export const BaseArtistDetailsTemplate = ({ data }) => {
   const { photo } = data
@@ -19,10 +20,10 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col lg={12}>
           <PhotoViewer data={photo} />
         </Col>
-        <Col>
+        <Col lg={12}>
           <Info data={data} />
         </Col>
       </Row>
@@ -42,9 +43,9 @@ const PhotoViewer = ({ data }) => {
   }
   return (
     <PhotoWrapper>
-      <ImageWrapper>
+      <MainImageWrapper>
         <img src={current} />
-      </ImageWrapper>
+      </MainImageWrapper>
       <PreviewWrapper>
         {preview.map(src => {
           return (
@@ -58,16 +59,16 @@ const PhotoViewer = ({ data }) => {
   )
 }
 
-const Row = styled.div`
+const RowWrapper = styled.div`
   @media (min-width: ${theme.breakpoint}px) {
     display: flex;
   }
 `
-const Col = styled.div`
+const ColWrapper = styled.div`
   width: 100%;
 
   @media (min-width: ${theme.breakpoint}px) {
-    width: 50%;
+    //width: 100%;
   }
 `
 
@@ -93,12 +94,26 @@ const PhotoPreviewList = ({ data, onClick }) => {
 }
 
 const Info = ({ data }) => {
-  const { firstName, lastName, middleName, age, height, city } = data
+  const { firstName, lastName, middleName, age, height, city, media } = data
   const fullName = `${lastName} ${firstName} ${middleName}`
 
   return (
     <>
       <GeneralInfo>
+        <Row>
+          <Col>
+            <FullName>
+              <Heading size="md" color={theme.colors.blue.primary}>
+                {fullName}
+              </Heading>
+            </FullName>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Media data={media} />
+          </Col>
+        </Row>
         <Row>
           <Col span={6}>
             <Text color={theme.colors.blue.primary}>Возраст:</Text>
@@ -107,14 +122,35 @@ const Info = ({ data }) => {
             <Text>{age}</Text>
           </Col>
         </Row>
+        <Row>
+          <Col span={6}>
+            <Text color={theme.colors.blue.primary}>Рост:</Text>
+          </Col>
+          <Col span={6}>
+            <Text>{height}</Text>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={6}>
+            <Text color={theme.colors.blue.primary}>Город:</Text>
+          </Col>
+          <Col span={6}>
+            <Text>{city}</Text>
+          </Col>
+        </Row>
       </GeneralInfo>
-      <FullName>{fullName}</FullName>
     </>
   )
 }
 
 const FullName = styled.div`
+  margin: 24px 0 0 0;
   display: flex;
+  justify-content: center;
+  @media (min-width: ${theme.breakpoint}px) {
+    margin: 0;
+    justify-content: start;
+  }
 `
 
 const GeneralInfo = styled.div`
@@ -124,15 +160,17 @@ const GeneralInfo = styled.div`
 const PreviewWrapper = styled.div`
   display: flex;
   @media (min-width: ${theme.breakpoint}px) {
-    margin: 16px 0 0 0;
+    flex-direction: column;
+    //flex: 1;
   }
 `
 
 const ImageWrapper = styled.div`
   padding: 0 24px 0 0;
   height: 334px;
+  width: 100%         ;
   &:last-child {
-    padding: 0;
+    padding: 0;         
   }
   & img {
     height: 100%;
@@ -140,10 +178,18 @@ const ImageWrapper = styled.div`
   }
 
   @media (min-width: ${theme.breakpoint}px) {
+    width: 70px;
     height: auto;
+
+    padding: 16px 0 0 0;
+    &:first-child {
+      padding: 0;
+    }
+    &:last-child {
+      padding: 16px 0 0 0;
+    }
     & img {
       width: 100%;
-      display: block;
     }
   }
 `
@@ -152,6 +198,22 @@ const PhotoWrapper = styled.div`
   overflow-y: hidden;
 
   @media (min-width: ${theme.breakpoint}px) {
+    padding: 0 24px 0 0;
+  }
+`
+const MainImageWrapper = styled.div`
+  display: none;
+  @media (min-width: ${theme.breakpoint}px) {
     display: block;
+    padding: 0 24px 0 0;
+    height: auto;
+
+    &:last-child {
+      padding: 0;
+    }
+
+    & img {
+      width: 100%;
+    }
   }
 `
