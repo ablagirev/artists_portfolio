@@ -30,5 +30,6 @@ export const GlobalStyles = createGlobalStyle`
   #artists_portfolio {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 `

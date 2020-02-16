@@ -50,9 +50,13 @@ export const Header = () => {
             {menu.map(item => {
               return (
                 <Col span={8} key={item.id}>
-                  <a href={item.link}>
-                    <Text>{item.value.toUpperCase()}</Text>
-                  </a>
+                  <MobileMenuLinkWrapper>
+                    <a href={item.link}>
+                      <Text sizemob="xs" color={theme.colors.blue.primary}>
+                        {item.value.toUpperCase()}
+                      </Text>
+                    </a>
+                  </MobileMenuLinkWrapper>
                 </Col>
               )
             })}
@@ -117,16 +121,31 @@ export const Header = () => {
   ) : null
 }
 
+const MobileMenuLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 const MobileFixedMenu = styled.div`
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   background-color: ${theme.colors.white};
   padding: 8px 20px;
   z-index: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px 8px 0 0;
+  min-height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const MobileHeaderMainMenu = styled.div`
+  position: fixed;
   padding: 8px 20px;
+  width: 100%;
+  background-color: ${theme.colors.white};
 `
 
 const HeaderWrapper = styled.div``
@@ -160,6 +179,7 @@ const DesktopLogo = styled.a`
 
 const CustomRow = styled(Row)`
   line-height: 20px;
+  width: 100%;
 `
 
 const CustomIcon = styled(Icon)`
