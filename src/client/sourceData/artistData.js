@@ -41,11 +41,20 @@ const Buntina = {
       director: 'Александра Субботина'
     }
   ],
-  media: {
-    showreal: '',
-    card: 'https://youtu.be/cQ37dsGyzng',
-    artCard: ''
-  }
+  media: [
+    {
+      label: 'Шоурил',
+      link: ''
+    },
+    {
+      label: 'Творческая визитка',
+      link: 'https://youtu.be/cQ37dsGyzng'
+    },
+    {
+      label: 'Визитка',
+      link: ''
+    }
+  ]
 }
 const Volkova = {
   id: 2,

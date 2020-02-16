@@ -22,19 +22,7 @@ export const common = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              svgo: false
-            }
-          },
-          'file-loader'
-        ]
-      },
-      {
-        test: /\.(png|ico|jpeg|jpg)$/i,
+        test: /\.(png|ico|jpeg|jpg|svg)$/i,
         loader: 'file-loader',
         options: {
           publicPath: '',
