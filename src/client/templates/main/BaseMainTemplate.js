@@ -1,9 +1,21 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import Tilt from 'react-tilt'
 
 import { Heading, Spacer } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 import { theme } from '../../theme'
+
+const imageHoverOptions = {
+  reverse: false,
+  max: 2,
+  scale: 1.09,
+  speed: 3000,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: 'cubic-bezier(.03,.98,.52,.99)'
+}
 
 export const BaseMainTemplate = ({ data }) => {
   const { women, men, background } = data
@@ -20,12 +32,16 @@ export const BaseMainTemplate = ({ data }) => {
               onMouseLeave={() => setMenOpacity(false)}
               opacity={womenOpacity}
             >
-              <WrapperLink href="#">
-                <HeadingWomen size="lg" hover={menOpacity}>
-                  {women.title}
-                </HeadingWomen>
-                <img src={women.picture} />
-              </WrapperLink>
+              <Tilt className="Tilt" options={imageHoverOptions}>
+                <div className="Tilt-inner">
+                  <WrapperLink href="#">
+                    <HeadingWomen size="lg" hover={menOpacity}>
+                      {women.title}
+                    </HeadingWomen>
+                    <img src={women.picture} />
+                  </WrapperLink>
+                </div>
+              </Tilt>
             </WrapperWomen>
             {/* <Spacer space={20} /> */}
             <WrapperMen
@@ -33,12 +49,16 @@ export const BaseMainTemplate = ({ data }) => {
               onMouseLeave={() => setWomenOpacity(false)}
               opacity={menOpacity}
             >
-              <WrapperLink href="#">
-                <img src={men.picture} />
-                <HeadingMen size="lg" hover={womenOpacity}>
-                  {men.title}
-                </HeadingMen>
-              </WrapperLink>
+              <Tilt className="Tilt" options={imageHoverOptions}>
+                <div className="Tilt-inner">
+                  <WrapperLink href="#">
+                    <img src={men.picture} />
+                    <HeadingMen size="lg" hover={womenOpacity}>
+                      {men.title}
+                    </HeadingMen>
+                  </WrapperLink>
+                </div>
+              </Tilt>
             </WrapperMen>
           </Wrapper>
         </ContentDesktop>
@@ -71,20 +91,18 @@ const ContentMobileInner = styled.div`
 
 const BackgroundImg = styled.img`
   position: absolute;
-  width: 220px;
-  height: 592px;
+  height: 100vh;
   z-index: -1;
 `
 
 const Content = styled.div`
-  min-height: 720px;
   @media (max-width: ${theme.breakpoint}px) {
-    min-height: 600px;
+    height: 100%;
+    display: flex;
   }
 `
 
 const ContentDesktop = styled.div`
-  padding: 32px 0 110px 0;
   @media (max-width: ${theme.breakpoint}px) {
     display: none;
   }
@@ -95,7 +113,6 @@ const ContentMobile = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     position: relative;
     display: block;
-    /* height: 100vh; */
   }
 `
 
@@ -104,7 +121,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 610px;
+  min-height: 530px;
 `
 
 const WrapperWomen = styled.div`
@@ -113,16 +130,8 @@ const WrapperWomen = styled.div`
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
 
-  &:hover {
-    transition: 700ms ease-in-out;
-    right: 46%;
-    top: 15%;
-    z-index: 1;
-
-    img {
-      transition: 700ms ease-in-out;
-      height: 670px;
-    }
+  img {
+    height: 448px;
   }
 `
 
@@ -132,33 +141,35 @@ const WrapperMen = styled.div`
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
 
-  &:hover {
-    transition: 700ms ease-in-out;
-    left: 46%;
-    top: 15%;
-    z-index: 1;
-
-    img {
-      transition: 700ms ease-in-out;
-      height: 670px;
-    }
+  img {
+    height: 448px;
   }
 `
 
 const HeadingWomen = styled(Heading)`
   position: absolute;
-  top: ${({ hover }) => (hover ? 'unset' : '50%')};
-  bottom: ${({ hover }) => (hover ? '8em' : 'unset')};
+  top: 50%;
+  bottom: 0;
   left: -6em;
-  transition: 700ms ease-in-out;
+  transition: 1100ms ease-in-out;
+
+  ${WrapperWomen}:hover & {
+    top: -1em;
+    bottom: 8em;
+  }
 `
 
 const HeadingMen = styled(Heading)`
   position: absolute;
-  top: ${({ hover }) => (hover ? 'unset' : '50%')};
-  bottom: ${({ hover }) => (hover ? '8em' : 'unset')};
+  top: 50%;
+  bottom: 0;
   right: -6em;
-  transition: 700ms ease-in-out;
+  transition: 1100ms ease-in-out;
+
+  ${WrapperMen}:hover & {
+    top: -1em;
+    bottom: 8em;
+  }
 `
 
 const WrapperLink = styled.a`
