@@ -35,7 +35,7 @@ export const BaseMainTemplate = ({ data }) => {
               <Tilt className="Tilt" options={imageHoverOptions}>
                 <div className="Tilt-inner">
                   <WrapperLink href="#">
-                    <HeadingWomen size="lg" hover={menOpacity}>
+                    <HeadingWomen size="xxl" hover={menOpacity}>
                       {women.title}
                     </HeadingWomen>
                     <img src={women.picture} />
@@ -43,7 +43,6 @@ export const BaseMainTemplate = ({ data }) => {
                 </div>
               </Tilt>
             </WrapperWomen>
-            {/* <Spacer space={20} /> */}
             <WrapperMen
               onMouseOver={() => setWomenOpacity(true)}
               onMouseLeave={() => setWomenOpacity(false)}
@@ -53,7 +52,7 @@ export const BaseMainTemplate = ({ data }) => {
                 <div className="Tilt-inner">
                   <WrapperLink href="#">
                     <img src={men.picture} />
-                    <HeadingMen size="lg" hover={womenOpacity}>
+                    <HeadingMen size="xxl" hover={womenOpacity}>
                       {men.title}
                     </HeadingMen>
                   </WrapperLink>
@@ -65,10 +64,10 @@ export const BaseMainTemplate = ({ data }) => {
         <ContentMobile>
           <BackgroundImg src={background.mobile} />
           <ContentMobileInner>
-            <Heading size="xl" color={theme.colors.white}>
+            <Heading size="xxl" color={theme.colors.white}>
               БЮРО
             </Heading>
-            <Heading size="lg" color={theme.colors.white} bold>
+            <Heading size="xxl" color={theme.colors.white} bold>
               Маши
               <br />
               Поповой
