@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Tilt from 'react-tilt'
 
-import { Heading } from '../../ui-kit'
+import { Heading, Loader } from '../../ui-kit'
 import { Header, Footer } from '../../components'
 import { theme } from '../../theme'
 
