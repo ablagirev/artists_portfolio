@@ -10,7 +10,7 @@ export const ArtistPreview = ({ data }) => {
   return (
     <Wrapper>
       <ArtistInfo>
-        <Text size="lg" color={theme.colors.blue.primary}>
+        <Text size="md" color={theme.colors.blue.primary}>
           {`${firstName} ${lastName}, ${age}`}
         </Text>
       </ArtistInfo>

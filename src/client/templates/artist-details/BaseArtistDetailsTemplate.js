@@ -76,7 +76,7 @@ const MainPhoto = styled.div`
   & img {
     width: 100%;
   }
-  // max-height: 684px;
+  /* max-height: 684px; */
 `
 
 const PhotoPreviewList = ({ data, onClick }) => {
@@ -168,10 +168,12 @@ const PreviewWrapper = styled.div`
 const ImageWrapper = styled.div`
   padding: 0 24px 0 0;
   height: 334px;
-  width: 100%         ;
+  width: 100%;
+
   &:last-child {
-    padding: 0;         
+    padding: 0;
   }
+
   & img {
     height: 100%;
     display: block;
@@ -180,14 +182,16 @@ const ImageWrapper = styled.div`
   @media (min-width: ${theme.breakpoint}px) {
     width: 70px;
     height: auto;
-
     padding: 16px 0 0 0;
+
     &:first-child {
       padding: 0;
     }
+
     &:last-child {
       padding: 16px 0 0 0;
     }
+
     & img {
       width: 100%;
     }

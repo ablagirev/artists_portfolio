@@ -155,6 +155,7 @@ const MobileHeaderWrapper = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     display: block;
     position: relative;
+    min-height: 42px;
   }
 `
 
