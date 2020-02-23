@@ -12,64 +12,96 @@ export const BaseAboutTemplate = ({ data }) => {
     <>
       <Header />
       <Body>
-        <CustomBreadcrumbs data={breadcrumbs} />
-        <Spacer />
-        <Content>
-          <ImgWrapper>
-            <img src={img} />
-          </ImgWrapper>
-          <Spacer />
-          <Description>
-            <Heading size="xl" bold>
-              {title}
-            </Heading>
-            <Spacer />
-            <Text size="lg">{text}</Text>
-            <Spacer space={32} />
-            <Divider width="20%" />
-          </Description>
-        </Content>
+        <Row>
+          <Col span={0} xl={2} />
+          <Col>
+            <WrapperBreadCrumbs>
+              <Breadcrumbs data={breadcrumbs} />
+            </WrapperBreadCrumbs>
+          </Col>
+          <Col span={0} xl={2} />
+        </Row>
+        <Row>
+          <Col span={0} lg={2} />
+          <Col span={24} lg={20}>
+            <ContentWrapper>
+              <ImgWrapper>
+                <img src={img} />
+              </ImgWrapper>
+              <Spacer />
+              <Description>
+                <CustomHeading size="xl" bold>
+                  {title}
+                </CustomHeading>
+                <Spacer />
+                <Text size="md">{text}</Text>
+                <Spacer space={32} />
+                <Divider width="20%" />
+              </Description>
+            </ContentWrapper>
+          </Col>
+          <Col span={0} lg={2} />
+        </Row>
       </Body>
-      <Footer />
+      <Footer mobileShow={true} />
     </>
   )
 }
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1080px;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+`
+
+const CustomHeading = styled(Heading)`
+  line-height: 24px;
+`
+
 const ImgWrapper = styled.div`
+  width: 50%;
+
   img {
+    width: 100%;
+    max-width: 510px;
+
+    @media (max-width: ${theme.breakpoint}px) {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: ${theme.breakpoint}px) {
     width: 100%;
   }
 `
 
 const Body = styled.div`
-  padding: 0 120px 60px 120px;
   position: relative;
   flex: 1 0 auto;
 
   @media (max-width: ${theme.breakpoint}px) {
     padding: 0;
-    margin-top: 4em;
-    padding-bottom: 50px;
-  }
-`
-
-const Content = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-
-  @media (max-width: ${theme.breakpoint}px) {
-    flex-direction: column;
   }
 `
 
 const Description = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
-`
-
-const CustomBreadcrumbs = styled(Breadcrumbs)`
   @media (max-width: ${theme.breakpoint}px) {
     padding: 0 1em;
+    width: 100%;
+  }
+`
+
+const WrapperBreadCrumbs = styled.div`
+  padding-bottom: 1em;
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 1em;
   }
 `
