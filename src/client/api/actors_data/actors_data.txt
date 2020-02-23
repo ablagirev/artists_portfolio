@@ -1026,7 +1026,7 @@ const Vladimorov = {
   photo: { main:, preview },
   firstName: 'Михаил',
   lastName: 'Владимиров',
-  middleName: 'ВБорисович',
+  middleName: 'Борисович',
   media: {
     showreal: '',
     card: 'https://youtu.be/ktIsZG7vbX0',
@@ -1080,7 +1080,7 @@ const Vladimorov = {
 	{
 		year:2016,
 		name:'Дух балтийский',
-		role:{name:'',main:false},
+		role:{name:'Фима',main:false},
 		director:'Александр Поженский'
 	},
 	{
@@ -1116,7 +1116,7 @@ const Vladimorov = {
 	{
 		year:2013,
 		name:'Криминальный блюз для саксофона',
-		role:{name:'',main:false},
+		role:{name:'Животное',main:false},
 		director:'Максим Воронков'
 	},
 	{
@@ -1151,12 +1151,6 @@ const Vladimorov = {
 	},
 	{
 		year:2010,
-		name:'Желтый в городе (не был завершен)',
-		role:{name:'',main:false},
-		director:'Владимир Зайкин'
-	},
-	{
-		year:2010,
 		name:'Гаражи',
 		role:{name:'Олег',main:false},
 		director:'Юрий Кузьменко'
@@ -1164,7 +1158,7 @@ const Vladimorov = {
 	{
 		year:2010,
 		name:'Блюз-кафе',
-		role:{name:'',main:false},
+		role:{name:'роль второго плана',main:false},
 		director:'Алексей Чистиков'
 	},
 	{
@@ -1314,73 +1308,73 @@ const Druzenko = {
       year:2019,
       name: 'Женская версия (в производстве)',
       role: {name:'Кичин', main:false},
-      director: ''
+      director: 'Валерия Ивановская'
     },
 	{
 	  year:2019,
       name: 'Тёмная сторона света',
       role: {name:'Линьков опер', main:false},
-      director: ''
+      director: 'Григорий Жихаревич'
 	},
 	{
 	  year:2017,
       name: 'Шеф.Игра на повышение',
       role: {name:'Участковый', main:false},
-      director: ''
+      director: 'Олег Ларин, Арменак Назикян'
 	},
 	{
 	  year:2017,
       name: 'Казнить нельзя помиловать',
       role: {name:'Перебежчик', main:false},
-      director: ''
+      director: 'Ким Дружинин'
 	},
 	{
 	  year:2017,
       name: 'Акватория',
       role: {name:'Эльдар Шляпин', main:false},
-      director: ''
+      director: 'альманах'
 	},
 	{
 	  year:2015,
       name: 'Такая работа',
       role: {name:'Игорь Гусаров', main:false},
-      director: ''
+      director: 'альманах'
 	},
 	{
 	  year:2015,
       name: 'Тайны города "ЭН"',
       role: {name:'Ваня Петушков - стажер', main:false},
-      director: ''
+      director: 'альманах'
 	},
 	{
 	  year:2015,
       name: 'Один день, одна ночь',
       role: {name:'Паша - помощник Мишакова', main:false},
-      director: ''
+      director: 'Пётр Амелин'
 	},
 	{
 	  year:2015,
       name: 'Морские дьяволы. Смерч. Судьбы - 2',
       role: {name:'Илья Зыков (Дакар)', main:true},
-      director: ''
+      director: 'альманах'
 	},
 	{
 	  year:2015,
       name: 'Морские дьяволы. Смерч-3',
       role: {name:'Илья Зыков (Дакар)', main:true},
-      director: ''
+      director: 'альманах'
 	},
 	{
 	  year:2014,
       name: 'Наставник',
       role: {name:'Сергей Горшенин - стажер', main:false},
-      director: ''
+      director: 'Григорий Жихарев'
 	},
 	{
 	  year:2013,
       name: 'Дознаватель-2',
       role: {name:'Юрик', main:false},
-      director: ''
+      director: 'Андрей Коршунов'
 	}
   ]
 }
@@ -1503,7 +1497,7 @@ const Kosmachev = {
 	{
 	  year:2018,
       name: 'Фитнес',
-      role: {name:'', main:false},
+      role: {name:'эпизод', main:false},
       director: 'Антон Маслов'
 	},
 	{
@@ -1566,12 +1560,6 @@ const Patuev = {
       director: 'Николай Бурлак'
 	},
 	{
-	  year:2019,
-      name: 'Камера про Васю',
-      role: {name:'Глеб', main:false},
-      director: ''
-	},
-	{
 	  year:2017,
       name: 'Печень',
       role: {name:'Алексей', main:false},
@@ -1620,16 +1608,10 @@ const Poshnagov = {
 	},
 	{
 	  year:2019,
-      name: 'Когда падали Аисты (в производстве)',
+      name: 'Чернобыль. Бездна (в производстве)',
       role: {name:'Сеня', main:false},
-      director: ''
+      director: 'Данила Козловский'
 	},
-	{
-	  year:2019,
-      name: 'Скейтч-ком «Во всем виноват Миша»',
-      role: {name:'Эпизодическая роль', main:false},
-      director: ''
-	}
   ]
 }
 
@@ -1721,7 +1703,7 @@ const Shevchenko = {
 	{
 	  year:2018,
       name: 'Глаза в глаза (в производстве)',
-      role: {name:'', main:false},
+      role: {name:'Красновский', main:false},
       director: 'Дмитрий Пантелеев'
 	},
 	{
@@ -1757,7 +1739,7 @@ const Shevchenko = {
 	{
 	  year:2015,
       name: 'Фэйк (короткометражный)',
-      role: {name:'', main:false},
+      role: {name:'Семён', main:false},
       director: ''
 	},
 	{
@@ -1847,7 +1829,7 @@ const Shevchenko = {
 	{
 	  year:2012,
       name: 'Агент особого назначения-3',
-      role: {name:'', main:false},
+      role: {name:'эпизод', main:false},
       director: 'Андрей Элинсон'
 	},
 	{
@@ -1871,7 +1853,7 @@ const Shevchenko = {
 	{
 	  year:2009,
       name: '9 мая. Личное отношение (киноальманах)',
-      role: {name:'', main:false},
+      role: {name:'Ассистент', main:false},
       director: 'Авдотья Смирнова'
 	},
 	{
