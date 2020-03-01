@@ -4,4 +4,4 @@ import p3 from './3.png'
 import p4 from './4.png'
 
 const preview = [p1, p2, p3, p4]
-export const buntina = { main: p1, preview }
+export const kosmachev = { main: p1, preview }

@@ -1,19 +1,19 @@
 import axios from 'axios'
 
-import img1 from 'assets/img/buntina/main.png'
-import img2 from 'assets/img/volkova/main.png'
-import img3 from 'assets/img/egorova/1.jpeg'
-import img4 from 'assets/img/kutovaya/main.jpg'
-import img5 from 'assets/img/lisicina/main.jpg'
-import img6 from 'assets/img/kuzenkina/main.jpg'
-import img7 from 'assets/img/malkova/main.jpg'
-import img8 from 'assets/img/kachnova/main.jpg'
-import { data } from 'client/sourceData/artistData'
+// import img1 from 'assets/img/buntina/main.png'
+// import img2 from 'assets/img/volkova/main.png'
+// import img3 from 'assets/img/egorova/1.jpeg'
+// import img4 from 'assets/img/kutovaya/main.jpg'
+// import img5 from 'assets/img/lisicina/main.jpg'
+// import img6 from 'assets/img/kuzenkina/main.jpg'
+// import img7 from 'assets/img/malkova/main.jpg'
+// import img8 from 'assets/img/kachnova/main.jpg'
+import { normalizedData } from 'client/sourceData/artistData'
 
 const getArtistList = () => {
   // return axios.get('/api/artists/')
 
-  return Promise.resolve({
+  return Promise.resolve(/*{
     data: {
       rows: [
         {
@@ -67,12 +67,12 @@ const getArtistList = () => {
       ],
       total: 9
     }
-  })
+  }*/)
 }
 
 const getArtistDetails = artistId => {
-  return data[artistId]
-    ? Promise.resolve({ data: data[artistId] })
+  return normalizedData[artistId]
+    ? Promise.resolve({ data: normalizedData[artistId] })
     : Promise.reject({ statusCode: 404, message: 'Страница не найдена' })
 }
 
