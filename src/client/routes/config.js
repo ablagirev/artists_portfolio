@@ -13,7 +13,7 @@ export const RoutesConfig = () => {
   return (
     <Switch>
       <Route exact path={MAIN} component={Main} />
-      <Route path={LIST} component={ArtistList} />
+      <Route exact path={LIST} component={ArtistList} />
       <Route path={DETAILS} component={ArtistDetails} />
       <Route path={ABOUT} component={About} />
       <Route component={NotFound} />

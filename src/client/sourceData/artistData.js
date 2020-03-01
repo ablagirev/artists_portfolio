@@ -2,6 +2,7 @@ import { main, preview } from 'client/assets/img/buntina'
 
 const Buntina = {
   id: 1,
+  gender: 'female',
   photo: { main, preview },
   firstName: 'Дарья',
   lastName: 'Бунтина',
@@ -53,7 +54,7 @@ const Buntina = {
       link: ''
     },
     {
-      label: 'Творческая визитка',
+      label: 'Творческая Визитка',
       link: 'https://youtu.be/cQ37dsGyzng'
     },
     {

@@ -18,11 +18,7 @@ export const Media = ({ data }) => {
             {data.map(({ label, link }, index) => {
               return (
                 <LinkWrapper key={`media-${index}`}>
-                  <a href={link}>
-                    <Text size="md" capitalize={true}>
-                      {label}
-                    </Text>
-                  </a>
+                  <StyledText size="md">{label}</StyledText>
                 </LinkWrapper>
               )
             })}
@@ -37,13 +33,15 @@ const Wrapper = styled.div`
   display: flex;
   margin: 16px 0 0 0;
   padding: 8px 8px 12px 8px;
-  background: ${theme.colors.blue.light};
+  background: ${theme.colors.blue.primary}10;
   flex-direction: column;
 
   @media (min-width: ${theme.breakpoint}px) {
     background: none;
     width: 492px;
     margin: 32px 0 0 0;
+    padding: 0;
+    display: block;
   }
 `
 
@@ -54,33 +52,49 @@ const IconWrapper = styled.div`
 `
 
 const LinksWrapper = styled.div`
+  display: flex;
   margin: 8px 0 0 0;
   justify-content: space-around;
 
   @media (min-width: ${theme.breakpoint}px) {
-    display: flex;
-    border: #f3f3f5 solid 1px;
     height: 52px;
+    border: ${theme.colors.gray.light}80 solid 1px;
+    margin: 0;
     align-items: center;
     justify-content: center;
+    border-radius: ${theme.radius};
+  }
+`
+const StyledText = styled(Text)`
+  @media (min-width: ${theme.breakpoint}px) {
+    text-transform: uppercase;
+    text-align: center;
+    color: ${theme.colors.blue.primary};
   }
 `
 
 const LinkWrapper = styled.div`
+  cursor: pointer;
   border-bottom: 1px ${theme.colors.gray.primary} solid;
   padding: 0 0 2px 0;
 
   @media (min-width: ${theme.breakpoint}px) {
-    //width: 100%;
-    //height: 100%;
-    //display: flex;
-    //align-items: center;
-    //justify-content: stretch;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    align-content: center;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbfbfb;
+
     &:hover {
       background: ${theme.colors.blue.primary};
-      opacity: 80%;
-      color: ${theme.colors.blue.primary};
+
+      & ${StyledText} {
+        color: ${theme.colors.white};
+      }
     }
   }
 `
