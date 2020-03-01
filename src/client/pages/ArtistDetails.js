@@ -6,9 +6,10 @@ import { NotFound } from './NotFound'
 
 import { artistActions } from 'client/reducer'
 import { BaseArtistDetailsTemplate } from 'client/templates'
+import { Loader } from 'client/ui-kit'
 
 export const ArtistDetails = () => {
-  const { id: artistId } = useParams()
+  const { id: artistId, type } = useParams()
 
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
@@ -18,7 +19,7 @@ export const ArtistDetails = () => {
   }))
 
   useEffect(() => {
-    dispatch(artistActions.getArtistDetails(artistId))
+    dispatch(artistActions.getArtistDetails({ type, artistId }))
   }, [])
 
   const { artistDetails, fetching, error } = mapState
@@ -26,7 +27,7 @@ export const ArtistDetails = () => {
   return error.message ? (
     <NotFound />
   ) : fetching ? (
-    'loading...'
+    <Loader />
   ) : (
     <BaseArtistDetailsTemplate data={artistDetails} />
   )

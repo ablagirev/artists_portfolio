@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Row, Col } from 'antd'
 
 import { MediaItem } from './MediaItem'
 
@@ -25,17 +26,35 @@ const Wrapper = styled.div`
   display: flex;
   margin: 16px 0 0 0;
   padding: 8px 8px 12px 8px;
-  background: ${theme.colors.blue.light};
+  background: ${theme.colors.blue.primary}10;
   flex-direction: column;
 
   @media (min-width: ${theme.breakpoint}px) {
+    background: none;
+    width: 492px;
+    margin: 32px 0 0 0;
+    padding: 0;
+    display: block;
   }
 `
 
-const IconWrapper = styled.div``
+const IconWrapper = styled.div`
+  @media (min-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
 
 const LinksWrapper = styled.div`
   display: flex;
   margin: 8px 0 0 0;
   justify-content: space-around;
+
+  @media (min-width: ${theme.breakpoint}px) {
+    height: 52px;
+    border: ${theme.colors.gray.light}80 solid 1px;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: ${theme.radius};
+  }
 `

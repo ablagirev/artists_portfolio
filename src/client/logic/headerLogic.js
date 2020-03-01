@@ -13,6 +13,7 @@ const getHeader = createLogic({
         dispatch(headerActions.getHeaderSuccess({ data }))
       })
       .catch(error => dispatch(headerActions.getHeaderFail(error)))
+      .then(() => done())
   }
 })
 

@@ -23,7 +23,7 @@ export const Heading = ({
 }
 
 Heading.propTypes = {
-  size: PropTypes.oneOf(['lg', 'xl', 'xxl']),
+  size: PropTypes.oneOf(['md', 'lg', 'xl', 'xxl']),
   capitalize: PropTypes.bool,
   bold: PropTypes.bool,
   color: PropTypes.string

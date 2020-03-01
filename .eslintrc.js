@@ -84,6 +84,7 @@ module.exports = {
     'fp/no-valueof-field': 'error',
     'react-perf/jsx-no-new-function-as-prop': 'off',
     'react-perf/jsx-no-new-array-as-prop': 'off',
+    'react-perf/jsx-no-new-object-as-prop': 'off',
     'react/no-deprecated': 2,
     'react/destructuring-assignment': 0,
     'react/no-will-update-set-state': 'error',

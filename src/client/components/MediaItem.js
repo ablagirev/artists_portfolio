@@ -26,9 +26,7 @@ export const MediaItem = ({ link, label }) => {
   return (
     <>
       <LinkWrapper onClick={() => showModal(link)}>
-        <div>
-          <Text>{label}</Text>
-        </div>
+        <StyledText>{label}</StyledText>
       </LinkWrapper>
       {youtubeLink ? (
         <Modal visible={visibility} onCancel={onCancel} isContentLoaded={isContentLoaded}>
@@ -47,9 +45,39 @@ export const MediaItem = ({ link, label }) => {
   )
 }
 
+const StyledText = styled(Text)`
+  @media (min-width: ${theme.breakpoint}px) {
+    text-transform: uppercase;
+    text-align: center;
+    color: ${theme.colors.blue.primary};
+  }
+`
+
 const LinkWrapper = styled.div`
+  cursor: pointer;
   border-bottom: 1px ${theme.colors.gray.primary} solid;
   padding: 0 0 2px 0;
+
+  @media (min-width: ${theme.breakpoint}px) {
+    padding: 0 5px;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbfbfb;
+
+    &:hover {
+      background: ${theme.colors.blue.primary};
+
+      & ${StyledText} {
+        color: ${theme.colors.white};
+      }
+    }
+  }
 `
 
 const Iframe = styled.iframe`

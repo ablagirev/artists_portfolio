@@ -18,15 +18,18 @@ const getArtistList = createLogic({
 
 const getArtistDetails = createLogic({
   type: artistActions.getArtistDetails().type,
-  process({ action: { payload: artistId } }, dispatch, done) {
+  process({ action: { payload } }, dispatch, done) {
+    const { type, artistId } = payload
+
     artistApi
-      .getArtistDetails(artistId)
+      .getArtistDetails(type, artistId)
       .then(({ data }) => {
         dispatch(artistActions.getArtistDetailsSuccess({ data }))
       })
       .catch(error => {
         dispatch(artistActions.getArtistDetailsFail({ error }))
       })
+      .then(() => done())
   }
 })
 
