@@ -121,7 +121,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 525px;
+  min-height: 520px;
 `
 
 const WrapperWomen = styled.div`

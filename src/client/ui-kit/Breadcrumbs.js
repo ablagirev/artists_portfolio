@@ -1,25 +1,37 @@
 import React from 'react'
-import { Breadcrumb } from 'antd'
+import { Breadcrumb as AntBreadcrumb } from 'antd'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
-import { urlMapping } from 'client/routes/names.js'
+import { theme } from '../theme'
 
 const renderBreadcrumbs = ({ url, nested, text }) => {
-  const path = urlMapping[url] ? urlMapping[url] : urlMapping['default']
   if (nested) {
     return (
       <>
-        <Breadcrumb.Item>
-          <Link to={path}>{text}</Link>
-        </Breadcrumb.Item>
+        <AntBreadcrumb.Item>
+          <Link to={url}>{text}</Link>
+        </AntBreadcrumb.Item>
         {renderBreadcrumbs(nested)}
       </>
     )
   } else if (text) {
-    return <Breadcrumb.Item>{text}</Breadcrumb.Item>
+    return <AntBreadcrumb.Item>{text}</AntBreadcrumb.Item>
   }
 }
 
 export const Breadcrumbs = ({ data }) => {
-  return <Breadcrumb>{renderBreadcrumbs(data)}</Breadcrumb>
+  return (
+    <BreadcrumbWrapper>
+      <AntBreadcrumb>{renderBreadcrumbs(data)}</AntBreadcrumb>
+    </BreadcrumbWrapper>
+  )
 }
+
+const BreadcrumbWrapper = styled.div`
+  padding-bottom: 1em;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 1em;
+  }
+`

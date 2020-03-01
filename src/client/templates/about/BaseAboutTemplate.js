@@ -13,11 +13,9 @@ export const BaseAboutTemplate = ({ data }) => {
       <Header />
       <Body>
         <Row>
-          <Col span={0} xl={2} />
+          <Col span={0} lg={2} />
           <Col>
-            <WrapperBreadCrumbs>
-              <Breadcrumbs data={breadcrumbs} />
-            </WrapperBreadCrumbs>
+            <Breadcrumbs data={breadcrumbs} />
           </Col>
           <Col span={0} xl={2} />
         </Row>
@@ -96,12 +94,5 @@ const Description = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     padding: 0 1em;
     width: 100%;
-  }
-`
-
-const WrapperBreadCrumbs = styled.div`
-  padding-bottom: 1em;
-  @media (max-width: ${theme.breakpoint}px) {
-    padding: 1em;
   }
 `
