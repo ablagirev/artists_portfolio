@@ -48,7 +48,7 @@ const Buntina = {
     },
     {
       label: 'Творческая визитка',
-      link: 'https://youtu.be/cQ37dsGyzng'
+      link: 'cQ37dsGyzng'
     },
     {
       label: 'Визитка',

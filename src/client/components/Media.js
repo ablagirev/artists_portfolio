@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { MediaItem } from './MediaItem'
+
 import { theme } from 'client/theme'
 import iconVideo from 'client/assets/icons/icon_video.svg'
-import { Text } from 'client/ui-kit'
 
 export const Media = ({ data }) => {
   return (
@@ -13,13 +14,7 @@ export const Media = ({ data }) => {
       </IconWrapper>
       <LinksWrapper>
         {data.map(({ label, link }, index) => {
-          return (
-            <LinkWrapper>
-              <a href={link} key={`media-${index}`}>
-                <Text>{label}</Text>
-              </a>
-            </LinkWrapper>
-          )
+          return <MediaItem key={`media-${index}`} label={label} link={link} />
         })}
       </LinksWrapper>
     </Wrapper>
@@ -43,9 +38,4 @@ const LinksWrapper = styled.div`
   display: flex;
   margin: 8px 0 0 0;
   justify-content: space-around;
-`
-
-const LinkWrapper = styled.div`
-  border-bottom: 1px ${theme.colors.gray.primary} solid;
-  padding: 0 0 2px 0;
 `

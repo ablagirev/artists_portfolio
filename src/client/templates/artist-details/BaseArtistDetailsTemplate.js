@@ -103,7 +103,7 @@ const Info = ({ data }) => {
         <Row>
           <Col>
             <FullName>
-              <Heading size="md" color={theme.colors.blue.primary}>
+              <Heading size="lg" color={theme.colors.blue.primary}>
                 {fullName}
               </Heading>
             </FullName>

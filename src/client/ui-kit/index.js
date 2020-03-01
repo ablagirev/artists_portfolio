@@ -5,5 +5,6 @@ import { Spacer } from './Spacer'
 import { Icon } from './Icon'
 import { Breadcrumbs } from './Breadcrumbs'
 import { Loader } from './Loader'
+import { Modal } from './Modal'
 
-export { Text, Heading, Divider, Spacer, Icon, Breadcrumbs, Loader }
+export { Text, Heading, Divider, Spacer, Icon, Breadcrumbs, Loader, Modal }
