@@ -125,6 +125,7 @@ const ImageWrapper = styled.div`
   &:last-child {
     padding: 0;
   }
+
   & img {
     height: 100%;
     display: block;
@@ -133,14 +134,16 @@ const ImageWrapper = styled.div`
   @media (min-width: ${theme.breakpoint}px) {
     width: 52px;
     height: auto;
-
     padding: 16px 0 0 0;
+
     &:first-child {
       padding: 0;
     }
+
     &:last-child {
       padding: 16px 0 0 0;
     }
+
     & img {
       width: 100%;
     }

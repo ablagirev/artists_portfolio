@@ -8,7 +8,7 @@ const calcMobSize = {
   xxs: 'xxs',
   xs: 'xs',
   sm: 'sm',
-  md: 'xxs',
+  md: 'xs',
   lg: 'xs',
   xl: 'md',
   xxl: 'xl'
