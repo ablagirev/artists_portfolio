@@ -1,9 +1,9 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import { theme } from '../theme'
 
-export const Loader = () => (
+export const Loader = ({ color }) => (
   <>
     <Filter version="1.1">
       <defs>
@@ -20,11 +20,11 @@ export const Loader = () => (
       </defs>
     </Filter>
     <Dots>
-      <Dot />
-      <Dot />
-      <Dot />
-      <Dot />
-      <Dot />
+      <Dot color={color} />
+      <Dot color={color} />
+      <Dot color={color} />
+      <Dot color={color} />
+      <Dot color={color} />
     </Dots>
   </>
 )
@@ -39,7 +39,7 @@ const Dots = styled.div`
 `
 
 const Dot = styled.div`
-  background: ${theme.colors.blue.primary};
+  background: ${({ color }) => (color ? color : theme.colors.blue.primary)};
   border-radius: 50%;
   display: inline-block;
   margin-right: 20px;

@@ -2,30 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
 
+import { MediaItem } from './MediaItem'
+
 import { theme } from 'client/theme'
 import iconVideo from 'client/assets/icons/icon_video.svg'
-import { Text } from 'client/ui-kit'
 
 export const Media = ({ data }) => {
   return (
-    <Row>
-      <Col>
-        <Wrapper>
-          <IconWrapper>
-            <img src={iconVideo} />
-          </IconWrapper>
-          <LinksWrapper>
-            {data.map(({ label, link }, index) => {
-              return (
-                <LinkWrapper key={`media-${index}`}>
-                  <StyledText size="md">{label}</StyledText>
-                </LinkWrapper>
-              )
-            })}
-          </LinksWrapper>
-        </Wrapper>
-      </Col>
-    </Row>
+    <Wrapper>
+      <IconWrapper>
+        <img src={iconVideo} />
+      </IconWrapper>
+      <LinksWrapper>
+        {data.map(({ label, link }, index) => {
+          return <MediaItem key={`media-${index}`} label={label} link={link} />
+        })}
+      </LinksWrapper>
+    </Wrapper>
   )
 }
 
@@ -63,38 +56,5 @@ const LinksWrapper = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: ${theme.radius};
-  }
-`
-const StyledText = styled(Text)`
-  @media (min-width: ${theme.breakpoint}px) {
-    text-transform: uppercase;
-    text-align: center;
-    color: ${theme.colors.blue.primary};
-  }
-`
-
-const LinkWrapper = styled.div`
-  cursor: pointer;
-  border-bottom: 1px ${theme.colors.gray.primary} solid;
-  padding: 0 0 2px 0;
-
-  @media (min-width: ${theme.breakpoint}px) {
-    flex: 1;
-    height: 100%;
-    align-items: center;
-    align-content: center;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fbfbfb;
-
-    &:hover {
-      background: ${theme.colors.blue.primary};
-
-      & ${StyledText} {
-        color: ${theme.colors.white};
-      }
-    }
   }
 `
