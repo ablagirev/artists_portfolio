@@ -59,6 +59,7 @@ const PreviewWrapper = styled.div`
   display: flex;
   @media (min-width: ${theme.breakpoint}px) {
     flex-direction: column;
+    cursor: pointer;
   }
 `
 const ImageWrapper = styled.div`

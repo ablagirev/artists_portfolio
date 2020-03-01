@@ -26,9 +26,7 @@ export const MediaItem = ({ link, label }) => {
   return (
     <>
       <LinkWrapper onClick={() => showModal(link)}>
-        <div>
-          <Text>{label}</Text>
-        </div>
+        <StyledText>{label}</StyledText>
       </LinkWrapper>
       {youtubeLink ? (
         <Modal visible={visibility} onCancel={onCancel} isContentLoaded={isContentLoaded}>
@@ -61,6 +59,7 @@ const LinkWrapper = styled.div`
   padding: 0 0 2px 0;
 
   @media (min-width: ${theme.breakpoint}px) {
+    padding: 0 5px;
     flex: 1;
     height: 100%;
     align-items: center;

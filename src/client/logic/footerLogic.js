@@ -13,6 +13,7 @@ const getFooter = createLogic({
         dispatch(footerActions.getFooterSuccess({ data }))
       })
       .catch(error => dispatch(footerActions.getFooterFail(error)))
+      .then(() => done())
   }
 })
 

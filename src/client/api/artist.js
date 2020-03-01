@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { schema, normalize } from 'normalizr'
 
 // import img1 from 'assets/img/buntina/main.png'
 // import img2 from 'assets/img/volkova/main.png'
@@ -8,7 +9,7 @@ import axios from 'axios'
 // import img6 from 'assets/img/kuzenkina/main.jpg'
 // import img7 from 'assets/img/malkova/main.jpg'
 // import img8 from 'assets/img/kachnova/main.jpg'
-import { normalizedData } from 'client/sourceData/artistData'
+import { data } from 'client/sourceData/artistData'
 
 const getArtistList = () => {
   // return axios.get('/api/artists/')
@@ -70,8 +71,14 @@ const getArtistList = () => {
   }*/)
 }
 
-const getArtistDetails = artistId => {
-  return normalizedData[artistId]
+const getArtistDetails = (type, artistId) => {
+  const artists = data[type] ? data[type] : []
+  const scheme = new schema.Entity('artist')
+  const {
+    entities: { artist: normalizedData }
+  } = normalize(artists, [scheme])
+
+  return normalizedData && normalizedData[artistId]
     ? Promise.resolve({ data: normalizedData[artistId] })
     : Promise.reject({ statusCode: 404, message: 'Страница не найдена' })
 }
