@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import { ABOUT, DETAILS, LIST, MAIN } from './names'
@@ -13,9 +13,9 @@ export const RoutesConfig = () => {
   return (
     <Switch>
       <Route exact path={MAIN} component={Main} />
-      <Route path={LIST} component={ArtistList} />
-      <Route path={DETAILS} component={ArtistDetails} />
       <Route path={ABOUT} component={About} />
+      <Route path={DETAILS} component={ArtistDetails} />
+      <Route path={LIST} component={ArtistList} />
       <Route component={NotFound} />
     </Switch>
   )

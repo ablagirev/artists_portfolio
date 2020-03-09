@@ -4,12 +4,21 @@ import styled from 'styled-components'
 
 import { theme } from '../theme'
 
+const calcMobSize = {
+  xxs: 'xxs',
+  xs: 'xs',
+  sm: 'sm',
+  md: 'xs',
+  lg: 'xs',
+  xl: 'md',
+  xxl: 'xl'
+}
+
 export const Text = ({
   children,
   className,
   color = theme.colors.gray.primary,
   size = 'xs',
-  sizemob = 'xxs',
   capitalize,
   bold
 }) => {
@@ -17,7 +26,7 @@ export const Text = ({
     <Wrapper
       bold={bold}
       size={size}
-      sizemob={sizemob}
+      sizemob={calcMobSize[size]}
       className={className}
       capitalize={capitalize}
       color={color}
@@ -45,7 +54,6 @@ const Wrapper = styled.div`
 
 Text.propTypes = {
   size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
-  sizemob: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
   capitalize: PropTypes.bool,
   bold: PropTypes.bool,
   color: PropTypes.string

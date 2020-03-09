@@ -22,41 +22,22 @@ export const common = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              svgo: false
-            }
-          },
-          'file-loader'
-        ]
+        test: /\.(png|ico|jpeg|jpg|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          publicPath: '',
+          name: '[name][hash].[ext]',
+          outputPath: 'images'
+        }
       },
       {
-        test: /\.(png|ico)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name][hash].[ext]',
-              outputPath: 'images'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              sourceMap: true,
-              name: '[name].[ext]',
-              outputPath: 'fonts'
-            }
-          }
-        ]
+        test: /\.(woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          publicPath: '/',
+          outputPath: 'fonts/'
+        }
       },
       {
         test: /\.css$/i,

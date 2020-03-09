@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    blue: { primary: '#708E99', secondary: '#9BB0B7' },
+    blue: { primary: '#708E99', secondary: '#9BB0B7', light: '#F1F4F5' },
     gray: {
       primary: '#5C6567',
       secondary: '#9DA3A4',
@@ -18,12 +18,16 @@ export const theme = {
 
   radius: 3,
 
-  breakpoints: 1024,
+  breakpoint: 992,
 
   //use em here
   letter_spacing: {
     sm: '0.02',
     md: '0.06',
     lg: '0.08'
+  },
+
+  transition: {
+    basic: '400ms'
   }
 }
