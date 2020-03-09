@@ -24,7 +24,7 @@ const getHeader = () => {
         [
           { id: '0fghfgh07', type: 'post', link: '7296617@mail.ru' },
           { id: '00ertert8', type: 'facebook', link: '#' },
-          { id: '00cvbc9', type: 'instagram', link: '#' }
+          { id: '00cvbc9', type: 'instagram', link: 'https://www.instagram.com/bureau_mp/' }
         ]
       ]
     }

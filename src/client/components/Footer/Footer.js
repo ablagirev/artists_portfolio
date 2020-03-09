@@ -36,7 +36,7 @@ export const Footer = ({ mobileShow = false }) => {
               {social.map(item => {
                 return (
                   <Col span={7} key={item.id}>
-                    <a href={item.link}>
+                    <a href={item.type === 'post' ? `mailto:${item.value}` : item.value}>
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
                   </Col>
