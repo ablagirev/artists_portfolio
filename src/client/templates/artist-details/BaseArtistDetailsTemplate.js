@@ -1,5 +1,5 @@
 import React from 'react'
-import { Breadcrumb, Row, Col } from 'antd'
+import { Row, Col } from 'antd'
 import styled from 'styled-components'
 
 import { theme } from 'client/theme'
@@ -29,7 +29,7 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
   if (genderData) {
     breadcrumbs = {
       text: 'Главная',
-      url: 'main',
+      url: '/',
       nested: {
         text: genderData['text'],
         url: genderData['url'],

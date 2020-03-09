@@ -13,16 +13,21 @@ export const ArtistPreview = ({ data }) => {
   const path = `/actresses/${id}`
 
   return (
-    <Link to={path} >
+    <Link to={path}>
       <Wrapper>
-        <InfoWrapper>
+        <CardWrapper>
+          <InfoWrapperDesktop>
+            <Text size="md" color={theme.colors.blue.primary}>
+              {`${firstName} ${lastName}, ${age.value}`}
+            </Text>
+          </InfoWrapperDesktop>
+          <img src={photo.list} />
+        </CardWrapper>
+        <InfoWrapperMobile>
           <Text size="md" color={theme.colors.blue.primary}>
             {`${firstName} ${lastName}, ${age.value}`}
           </Text>
-        </InfoWrapper>
-        <ImageWrapper>
-          <img src={photo.list} />
-        </ImageWrapper>
+        </InfoWrapperMobile>
       </Wrapper>
     </Link>
   )
@@ -31,18 +36,57 @@ export const ArtistPreview = ({ data }) => {
 const Wrapper = styled.div`
   display: flex;
   margin-bottom: 60px;
-`
+  justify-content: center;
+  flex-direction: column;
 
-const ImageWrapper = styled.div`
-  & img {
-    width: 334px;
-    height: 402px;
+  @media (max-width: ${theme.breakpoint}px) {
+    margin-bottom: 25px;
+    align-items: center;
   }
-  margin: 0 0 0 23px;
 `
 
-const InfoWrapper = styled.div`
-  writing-mode: vertical-rl;
-  transform: rotate(-180deg);
-  line-height: 0;
+const CardWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  & img {
+    max-width: 322px;
+
+    @media (max-width: 1100px) {
+      max-width: 270px;
+    }
+  }
+
+  @media (max-width: ${theme.breakpoint}px) {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const InfoWrapperDesktop = styled.div`
+  position: absolute;
+  min-width: 270px;
+  transform: rotate(-90deg);
+  left: -28%;
+  bottom: 31%;
+
+  @media (max-width: 1100px) {
+    left: -39%;
+    bottom: 37%;
+  }
+
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+
+const InfoWrapperMobile = styled.div`
+  display: none;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
+  }
 `

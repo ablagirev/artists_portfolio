@@ -9,8 +9,8 @@ import { BaseArtistDetailsTemplate } from 'client/templates'
 import { Loader } from 'client/ui-kit'
 
 export const ArtistDetails = () => {
-  const { id: artistId, /*type*/ } = useParams()
-const type = 'actresses'
+  const { id: artistId /*type*/ } = useParams()
+  const type = 'actresses'
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
     artistDetails: state.artist.details,
@@ -19,7 +19,6 @@ const type = 'actresses'
   }))
 
   useEffect(() => {
-    console.log(777)
     dispatch(artistActions.getArtistDetails({ type, artistId }))
   }, [dispatch])
 
