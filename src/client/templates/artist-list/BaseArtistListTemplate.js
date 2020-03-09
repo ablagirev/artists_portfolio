@@ -4,7 +4,7 @@ import { Row, Col } from 'antd'
 import { ArtistPreview } from 'client/components'
 
 export const BaseArtistListTemplate = ({ data }) => {
-  const { rows, total, fetching } = data
+  const { rows } = data
 
   return (
     <Row>

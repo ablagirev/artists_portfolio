@@ -6,13 +6,17 @@ import { artistActions } from 'client/reducer/artistReducer'
 const getArtistList = createLogic({
   type: artistActions.getArtistList().type,
   process({ action: { payload } }, dispatch, done) {
-    // const { data } = payload || {}
+    const { type } = payload
+
     artistApi
-      .getArtistList()
+      .getArtistList(type)
       .then(({ data }) => {
         dispatch(artistActions.getArtistListSuccess({ data }))
       })
-      .catch(error => dispatch(artistActions.getArtistListFail(error)))
+      .catch(error => {
+        dispatch(artistActions.getArtistListFail({ error }))
+      })
+      .then(() => done())
   }
 })
 

@@ -1,20 +1,33 @@
 import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+import { NotFound } from './NotFound'
 
 import { BaseArtistListTemplate } from 'client/templates'
 import { artistActions } from 'client/reducer'
+import { Loader } from 'client/ui-kit'
 
 export const ArtistList = () => {
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
-    artistList: state.artist.list
+    artistList: state.artist.list,
+    fetching: state.artist.fetching,
+    error: state.artist.error
   }))
-
+  // const { type } = useParams()
+const type = 'actresses'
   useEffect(() => {
-    dispatch(artistActions.getArtistList())
+    dispatch(artistActions.getArtistList({ type }))
   }, [])
 
-  const { artistList } = mapState
+  const { artistList, fetching, error } = mapState
 
-  return <BaseArtistListTemplate data={artistList} />
+  return error.message ? (
+    <NotFound />
+  ) : fetching ? (
+    <Loader />
+  ) : (
+    <BaseArtistListTemplate data={artistList} />
+  )
 }
