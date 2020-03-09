@@ -99,6 +99,10 @@ export const Header = () => {
                             <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
                             <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
                           </CellLink>
+                        ) : item.type === 'post' ? (
+                          <a href={`mailto:${item.link}`} key={item.id}>
+                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                          </a>
                         ) : (
                           <a href={item.link} key={item.id}>
                             <CustomIcon type={item.type} fill={theme.colors.gray.dark} />

@@ -178,7 +178,7 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://youtu.be/MMHxeIrjq4Q'
+          link: 'MMHxeIrjq4Q'
         },
         {
           label: 'Творческая Визитка',
@@ -186,7 +186,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/OlbSSrD1YNs'
+          link: 'OlbSSrD1YNs'
         }
       ]
     },
@@ -286,15 +286,15 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://youtu.be/zq5DKge0FOo'
+          link: 'zq5DKge0FOo'
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/5ROJ0G87Hsk'
+          link: '5ROJ0G87Hsk'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/nQZNq3rhcG0'
+          link: 'nQZNq3rhcG0'
         }
       ]
     },
@@ -411,7 +411,7 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://youtu.be/C8iiZHMs1z8'
+          link: 'C8iiZHMs1z8'
         },
         {
           label: 'Творческая Визитка',
@@ -419,7 +419,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/_N-M8SlSRE4'
+          link: '_N-M8SlSRE4'
         }
       ]
     },
@@ -471,11 +471,11 @@ export const data = {
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/AcMDVzSdoU0'
+          link: 'AcMDVzSdoU0'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/qfwwaGPrPKY'
+          link: 'qfwwaGPrPKY'
         }
       ]
     },
@@ -604,7 +604,7 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://yadi.sk/i/E1RlAYhRqrM4rQ'
+          link: 'E1RlAYhRqrM4rQ'
         },
         {
           label: 'Творческая Визитка',
@@ -710,7 +710,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/IlFkpGjZix4'
+          link: 'IlFkpGjZix4'
         }
       ]
     },
@@ -756,11 +756,11 @@ export const data = {
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/N41c1gaVCRw'
+          link: 'N41c1gaVCRw'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/gUFsA_m87QM'
+          link: 'gUFsA_m87QM'
         }
       ]
     },
@@ -816,7 +816,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/QAsDBLSWxHI'
+          link: 'QAsDBLSWxHI'
         }
       ]
     }
@@ -1247,11 +1247,11 @@ export const data = {
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/t5t9afT9_wg'
+          link: 't5t9afT9_wg'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/B69Hvoz-TO0'
+          link: 'B69Hvoz-TO0'
         }
       ]
     },
@@ -1523,7 +1523,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/ktIsZG7vbX0'
+          link: 'ktIsZG7vbX0'
         }
       ]
     },
@@ -1634,15 +1634,15 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://youtu.be/T0qsibJ3Aw8'
+          link: 'T0qsibJ3Aw8'
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/_E-MCFd-NR4'
+          link: '_E-MCFd-NR4'
         },
         {
           label: 'Визитка',
-          link: 'https://www.youtube.com/watch?v=FEsC9vbg9uw'
+          link: 'FEsC9vbg9uw'
         }
       ]
     },
@@ -1738,7 +1738,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://www.youtube.com/watch?v=jKEHc-2YCKk&feature=youtu.be'
+          link: 'jKEHc-2YCKk'
         }
       ]
     },
@@ -1819,12 +1819,11 @@ export const data = {
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/Wpou0M_JUj8'
+          link: 'Wpou0M_JUj8'
         },
         {
           label: 'Визитка',
-          link:
-            'https://www.youtube.com/watch?v=yVNNnbY4j7I&list=PL1z7qwrPZWablxclfU6ipYh_BB8140,9KC&index'
+          link: 'yVNNnbY4j7I&list'
         }
       ]
     },
@@ -1895,7 +1894,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link: 'https://www.youtube.com/watch?v=cNK4zYqdHM4,'
+          link: 'cNK4zYqdHM4'
         }
       ]
     },
@@ -1956,11 +1955,11 @@ export const data = {
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/fZzpZ6TAPpg'
+          link: 'fZzpZ6TAPpg'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/tkmgJvRCM9U'
+          link: 'tkmgJvRCM9U'
         }
       ]
     },
@@ -2022,8 +2021,7 @@ export const data = {
         },
         {
           label: 'Визитка',
-          link:
-            'https://www.youtube.com/watch?v=7XddFf2H-Zs&list=PL1z7qwrPZWaYPZox9T5wsNfKYKt_1xjKR&index=18&t=0s'
+          link: '7XddFf2H-Zs&list'
         }
       ]
     },
@@ -2238,15 +2236,15 @@ export const data = {
       media: [
         {
           label: 'Шоурил',
-          link: 'https://youtu.be/dqfYYcj9Dp0'
+          link: 'dqfYYcj9Dp0'
         },
         {
           label: 'Творческая Визитка',
-          link: 'https://youtu.be/DrYgpcLvqYc'
+          link: 'DrYgpcLvqYc'
         },
         {
           label: 'Визитка',
-          link: 'https://youtu.be/2brAYS9Rmi0'
+          link: '2brAYS9Rmi0'
         }
       ]
     }

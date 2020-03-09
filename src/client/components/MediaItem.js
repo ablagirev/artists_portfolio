@@ -62,12 +62,10 @@ const LinkWrapper = styled.div`
     padding: 0 5px;
     flex: 1;
     height: 100%;
-    align-items: center;
-    align-content: center;
-    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
     background: #fbfbfb;
 
     &:hover {
@@ -82,4 +80,8 @@ const LinkWrapper = styled.div`
 
 const Iframe = styled.iframe`
   display: ${({ isContentLoaded }) => (isContentLoaded ? 'block' : 'none')};
+  @media (max-width: ${theme.breakpoint}px) {
+    width: auto;
+    height: auto;
+  }
 `

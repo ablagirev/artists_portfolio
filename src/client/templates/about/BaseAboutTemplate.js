@@ -15,7 +15,7 @@ export const BaseAboutTemplate = ({ data }) => {
         <Row>
           <Col span={0} lg={2} />
           <Col>
-            <Breadcrumbs data={breadcrumbs} />
+            <Breadcrumbs data={breadcrumbs} style={{ padding: '0 1em' }} />
           </Col>
           <Col span={0} xl={2} />
         </Row>

@@ -20,7 +20,7 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
     },
     male: {
       url: '/actors',
-      text: 'Актёры`'
+      text: 'Актёры'
     }
   }
 
