@@ -18,8 +18,8 @@ const symbiotes = {
   getArtistListSuccess: (state, { data }) => {
     return { ...state, list: { ...data }, fetching: false }
   },
-  getArtistListFail: (state, payload) => {
-    return { ...state, fetching: false }
+  getArtistListFail: (state, { error }) => {
+    return { ...state, error: { ...error }, fetching: false }
   },
   getArtistDetails: (state, payload) => {
     return { ...state, fetching: true }

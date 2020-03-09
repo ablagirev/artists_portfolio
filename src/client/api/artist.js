@@ -11,64 +11,13 @@ import { schema, normalize } from 'normalizr'
 // import img8 from 'assets/img/kachnova/main.jpg'
 import { data } from 'client/sourceData/artistData'
 
-const getArtistList = () => {
+const getArtistList = type => {
   // return axios.get('/api/artists/')
+  const artists = data[type] ? data[type] : null
 
-  return Promise.resolve(/*{
-    data: {
-      rows: [
-        {
-          firstName: 'Дарья',
-          lastName: 'Бунтина',
-          age: 28,
-          img: img1
-        },
-        {
-          firstName: 'Мария',
-          lastName: 'Волкова',
-          age: 34,
-          img: img2
-        },
-        {
-          firstName: 'Анастасия',
-          lastName: 'Егорова',
-          age: 33,
-          img: img3
-        },
-        {
-          firstName: 'Мария',
-          lastName: 'Волкова',
-          age: 34,
-          img: img4
-        },
-        {
-          firstName: 'Евгения',
-          lastName: 'Гирзекорн',
-          age: 33,
-          img: img5
-        },
-        {
-          firstName: 'Анастасия',
-          lastName: 'Егорова',
-          age: 33,
-          img: img6
-        },
-        {
-          firstName: 'Нелли',
-          lastName: 'Селезнева',
-          age: 55,
-          img: img7
-        },
-        {
-          firstName: 'Елена',
-          lastName: 'Козина',
-          age: 32,
-          img: img8
-        }
-      ],
-      total: 9
-    }
-  }*/)
+  return artists
+    ? Promise.resolve({ data: { rows: artists, total: artists.length } })
+    : Promise.reject({ statusCode: 404, message: 'Страница не найдена' })
 }
 
 const getArtistDetails = (type, artistId) => {

@@ -1,5 +1,3 @@
-import { normalize, schema } from 'normalizr'
-
 import { buntina } from 'client/assets/img/buntina'
 import { druzenko } from 'client/assets/img/druzenko'
 import { egorova } from 'client/assets/img/egorova'
