@@ -34,7 +34,7 @@ export const BaseMainTemplate = ({ data }) => {
             >
               <Tilt className="Tilt" options={imageHoverOptions}>
                 <div className="Tilt-inner">
-                  <WrapperLink href="#">
+                  <WrapperLink href="/actresses">
                     <HeadingWomen size="xxl" hover={menOpacity}>
                       {women.title}
                     </HeadingWomen>
@@ -50,7 +50,7 @@ export const BaseMainTemplate = ({ data }) => {
             >
               <Tilt className="Tilt" options={imageHoverOptions}>
                 <div className="Tilt-inner">
-                  <WrapperLink href="#">
+                  <WrapperLink href="/actors">
                     <img src={men.picture} />
                     <HeadingMen size="xxl" hover={womenOpacity}>
                       {men.title}
