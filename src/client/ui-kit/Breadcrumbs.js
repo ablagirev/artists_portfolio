@@ -20,10 +20,10 @@ const renderBreadcrumbs = ({ url, nested, text }) => {
   }
 }
 
-export const Breadcrumbs = ({ data }) => {
+export const Breadcrumbs = ({ data, style }) => {
   return (
     <BreadcrumbWrapper>
-      <AntBreadcrumb>{renderBreadcrumbs(data)}</AntBreadcrumb>
+      <AntBreadcrumb style={style}>{renderBreadcrumbs(data)}</AntBreadcrumb>
     </BreadcrumbWrapper>
   )
 }
@@ -32,6 +32,6 @@ const BreadcrumbWrapper = styled.div`
   padding-bottom: 1em;
 
   @media (max-width: ${theme.breakpoint}px) {
-    padding: 1em;
+    padding: 1em 0;
   }
 `
