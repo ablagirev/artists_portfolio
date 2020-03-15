@@ -90,18 +90,14 @@ const ContentMobileInner = styled.div`
 
 const BackgroundImg = styled.img`
   position: absolute;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
 `
 
 const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   @media (max-width: ${theme.breakpoint}px) {
-    height: 100%;
     display: flex;
-    padding-bottom: 50px;
   }
 `
 
@@ -115,7 +111,8 @@ const ContentMobile = styled.div`
   display: none;
   @media (max-width: ${theme.breakpoint}px) {
     position: relative;
-    display: block;
+    display: flex;
+    height: 100vh;
   }
 `
 
