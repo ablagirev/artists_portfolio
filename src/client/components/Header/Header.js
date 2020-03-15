@@ -165,6 +165,7 @@ const MobileHeaderWrapper = styled.div`
 
 const DesktopHeaderWrapper = styled.div`
   padding: 8px 20px;
+  min-height: 110px;
   @media (max-width: ${theme.breakpoint}px) {
     display: none;
   }

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import Tilt from 'react-tilt'
 
-import { Heading, Loader } from '../../ui-kit'
-import { Header, Footer } from '../../components'
+import { Heading, Spacer } from '../../ui-kit'
 import { theme } from '../../theme'
+import { Layout } from '../../components'
 
 const imageHoverOptions = {
   reverse: false,
   max: 2,
-  scale: 1.09,
+  scale: 1.15,
   speed: 3000,
   transition: true,
   axis: null,
@@ -22,10 +22,10 @@ export const BaseMainTemplate = ({ data }) => {
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
   return (
-    <>
-      <Header />
+    <Layout>
       <Content>
         <ContentDesktop>
+          <Spacer space={32} />
           <Wrapper>
             <WrapperWomen
               onMouseOver={() => setMenOpacity(true)}
@@ -43,6 +43,7 @@ export const BaseMainTemplate = ({ data }) => {
                 </div>
               </Tilt>
             </WrapperWomen>
+            <Spacer space={20} />
             <WrapperMen
               onMouseOver={() => setWomenOpacity(true)}
               onMouseLeave={() => setWomenOpacity(false)}
@@ -75,8 +76,7 @@ export const BaseMainTemplate = ({ data }) => {
           </ContentMobileInner>
         </ContentMobile>
       </Content>
-      <Footer />
-    </>
+    </Layout>
   )
 }
 
@@ -95,6 +95,9 @@ const BackgroundImg = styled.img`
 `
 
 const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (max-width: ${theme.breakpoint}px) {
     height: 100%;
     display: flex;
@@ -121,29 +124,17 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 520px;
+  height: 100%;
 `
 
 const WrapperWomen = styled.div`
-  position: absolute;
-  right: 51%;
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
-
-  img {
-    height: 448px;
-  }
 `
 
 const WrapperMen = styled.div`
-  position: absolute;
-  left: 51%;
   transition: 700ms ease-in-out;
   opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
-
-  img {
-    height: 448px;
-  }
 `
 
 const HeadingWomen = styled(Heading)`

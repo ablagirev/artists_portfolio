@@ -2,10 +2,9 @@ import React from 'react'
 import { Row, Col } from 'antd'
 import styled from 'styled-components'
 
-import { Header, Footer } from '../../components'
+import { Layout } from '../../components'
 import { Breadcrumbs } from '../../ui-kit'
 
-import { theme } from 'client/theme'
 import { ArtistPreview } from 'client/components'
 
 export const BaseArtistListTemplate = ({ data, gender }) => {
@@ -36,8 +35,7 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
   }
 
   return (
-    <>
-      <Header />
+    <Layout>
       <BreadcrumbsWrapperOuter>
         <BreadcrumbsWrapperInner>
           <Breadcrumbs data={getBreadcrumbs()} />
@@ -54,8 +52,7 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
           })}
         </CustomRow>
       </ListWrapper>
-      <Footer />
-    </>
+    </Layout>
   )
 }
 

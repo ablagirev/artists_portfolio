@@ -2,15 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
 
-import { Header, Footer } from '../../components'
+import { Layout } from '../../components'
 import { Heading, Spacer, Text, Divider, Breadcrumbs } from '../../ui-kit'
 import { theme } from '../../theme'
 
 export const BaseAboutTemplate = ({ data }) => {
   const { title, text, img, breadcrumbs } = data
   return (
-    <>
-      <Header />
+    <Layout>
       <Body>
         <Row>
           <Col span={0} lg={2} />
@@ -41,8 +40,7 @@ export const BaseAboutTemplate = ({ data }) => {
           <Col span={0} lg={2} />
         </Row>
       </Body>
-      <Footer mobileShow={true} />
-    </>
+    </Layout>
   )
 }
 
@@ -79,7 +77,6 @@ const ImgWrapper = styled.div`
 `
 
 const Body = styled.div`
-  position: relative;
   flex: 1 0 auto;
 
   @media (max-width: ${theme.breakpoint}px) {

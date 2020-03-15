@@ -113,9 +113,11 @@ const SocialIcons = styled.div`
 `
 
 const FooterWrapper = styled.div`
+  flex: 0 0 auto;
   @media (max-width: ${theme.breakpoint}px) {
     display: ${({ mobileShow }) => (mobileShow ? 'block' : 'none')};
     padding: 1em 1em 49px 1em;
+    min-height: 100px;
   }
 `
 
