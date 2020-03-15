@@ -97,7 +97,10 @@ const BackgroundImg = styled.img`
 const Content = styled.div`
   width: 100%;
   @media (max-width: ${theme.breakpoint}px) {
+    height: 100vh;
     display: flex;
+    justify-content: initial;
+    align-items: initial;
   }
 `
 

@@ -35,12 +35,10 @@ export const ArtistPreview = ({ data }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 60px;
   justify-content: center;
   flex-direction: column;
 
   @media (max-width: ${theme.breakpoint}px) {
-    margin-bottom: 25px;
     align-items: center;
   }
 `
@@ -53,8 +51,12 @@ const CardWrapper = styled.div`
   & img {
     max-width: 322px;
 
-    @media (max-width: 1100px) {
+    @media (max-width: 1200px) {
       max-width: 270px;
+    }
+
+    @media (max-width: ${theme.breakpoint}px) {
+      max-width: 160px;
     }
   }
 
@@ -70,11 +72,11 @@ const InfoWrapperDesktop = styled.div`
   position: absolute;
   min-width: 270px;
   transform: rotate(-90deg);
-  left: -28%;
+  left: -50%;
   bottom: 31%;
 
-  @media (max-width: 1100px) {
-    left: -39%;
+  @media (max-width: 1200px) {
+    left: -60%;
     bottom: 37%;
   }
 
