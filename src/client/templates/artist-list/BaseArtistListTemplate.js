@@ -1,9 +1,9 @@
 import React from 'react'
-import { Row, Col } from 'antd'
 import styled from 'styled-components'
 
 import { Layout } from '../../components'
 import { Breadcrumbs } from '../../ui-kit'
+import { theme } from '../../theme'
 
 import { ArtistPreview } from 'client/components'
 
@@ -42,15 +42,11 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
         </BreadcrumbsWrapperInner>
       </BreadcrumbsWrapperOuter>
       <ListWrapper>
-        <CustomRow>
-          {rows.map((item, index) => {
-            return (
-              <Col key={index} xs={24} sm={12} lg={8}>
-                <ArtistPreview data={item} />
-              </Col>
-            )
+        <Grid>
+          {rows.map(item => {
+            return <ArtistPreview data={item} />
           })}
-        </CustomRow>
+        </Grid>
       </ListWrapper>
     </Layout>
   )
@@ -60,10 +56,20 @@ const ListWrapper = styled.div`
   margin: 0 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 4em;
 `
 
-const CustomRow = styled(Row)`
-  max-width: 1240px;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 3em;
+  grid-column-gap: 6em;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+  }
 `
 
 const BreadcrumbsWrapperInner = styled.div`
