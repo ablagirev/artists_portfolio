@@ -8,9 +8,7 @@ import { theme } from '../theme'
 const renderBreadcrumbs = ({ url, nested, text }) => {
   const data = []
 
-  return url
-    ? [...data, { url, text }, ...renderBreadcrumbs(nested)]
-    : [...data, { text }]
+  return url ? [...data, { url, text }, ...renderBreadcrumbs(nested)] : [...data, { text }]
 }
 
 export const Breadcrumbs = ({ data, style }) => {

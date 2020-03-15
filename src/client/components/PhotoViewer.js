@@ -32,64 +32,66 @@ export const PhotoViewer = ({ data }) => {
 
 const PhotoWrapper = styled.div`
   display: flex;
-  overflow-y: hidden;
 
-  @media (min-width: ${theme.breakpoint}px) {
-    padding: 0 24px 0 0;
+  padding: 0 24px 0 0;
+  overflow-y: hidden;
+  @media (max-width: ${theme.breakpoint}px) {
   }
 `
 const MainImageWrapper = styled.div`
-  display: none;
-  @media (min-width: ${theme.breakpoint}px) {
-    display: block;
-    padding: 0 24px 0 0;
-    width: 338px;
-    height: auto;
-
-    &:last-child {
-      padding: 0;
-    }
-
-    & img {
-      width: 100%;
-    }
-  }
-`
-const PreviewWrapper = styled.div`
-  display: flex;
-  @media (min-width: ${theme.breakpoint}px) {
-    flex-direction: column;
-    cursor: pointer;
-  }
-`
-const ImageWrapper = styled.div`
+  display: block;
   padding: 0 24px 0 0;
-  height: 334px;
-  width: 100%;
+  width: 338px;
+  height: auto;
+
   &:last-child {
     padding: 0;
   }
 
   & img {
-    height: 100%;
-    display: block;
+    width: 100%;
   }
 
-  @media (min-width: ${theme.breakpoint}px) {
-    width: 52px;
-    height: auto;
-    padding: 16px 0 0 0;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+const PreviewWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 
-    &:first-child {
+  @media (max-width: ${theme.breakpoint}px) {
+    flex-direction: row;
+    cursor: none;
+  }
+`
+const ImageWrapper = styled.div`
+  width: 52px;
+  height: auto;
+  padding: 16px 0 0 0;
+
+  &:last-child {
+    padding: 16px 0 0 0;
+  }
+
+  & img {
+    width: 100%;
+  }
+
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 0 24px 0 0;
+    height: 334px;
+    width: 100%;
+    
+    &:last-child {
       padding: 0;
     }
 
-    &:last-child {
-      padding: 16px 0 0 0;
-    }
-
     & img {
-      width: 100%;
+      width: auto;
+      height: 100%;
+      display: block;
     }
   }
 `

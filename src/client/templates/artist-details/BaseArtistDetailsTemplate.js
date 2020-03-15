@@ -1,10 +1,10 @@
 import React from 'react'
-import { Breadcrumb, Row, Col } from 'antd'
+import { Row, Col } from 'antd'
 import styled from 'styled-components'
 
+import { Layout } from '../../components'
+
 import { theme } from 'client/theme'
-import { Header } from 'client/components/Header'
-import { Footer } from 'client/components/Footer'
 import { ArtistInfo } from 'client/components/ArtistInfo'
 import { PhotoViewer } from 'client/components/PhotoViewer'
 import { Breadcrumbs } from 'client/ui-kit'
@@ -29,7 +29,7 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
   if (genderData) {
     breadcrumbs = {
       text: 'Главная',
-      url: 'main',
+      url: '/',
       nested: {
         text: genderData['text'],
         url: genderData['url'],
@@ -39,9 +39,9 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
       }
     }
   }
+
   return (
-    <>
-      <Header />
+    <Layout>
       <ContentWrapper>
         <Row>
           <Col>
@@ -57,15 +57,14 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
           </Col>
         </Row>
       </ContentWrapper>
-      <Footer />
-    </>
+    </Layout>
   )
 }
 
 const ContentWrapper = styled.div`
-  padding: 0 18px;
+  padding: 0 140px;
 
-  @media (min-width: ${theme.breakpoint}px) {
-    padding: 0 140px;
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 0 18px;
   }
 `

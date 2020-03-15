@@ -9,6 +9,7 @@ import { artistActions } from 'client/reducer'
 import { Loader } from 'client/ui-kit'
 
 export const ArtistList = () => {
+  const { type } = useParams()
   const dispatch = useDispatch()
   const mapState = useSelector(state => {
     const artistList = state.artist.list
@@ -18,7 +19,6 @@ export const ArtistList = () => {
       error: state.artist.error
     }
   })
-  const { type } = useParams()
 
   useEffect(() => {
     dispatch(artistActions.getArtistList({ type }))
@@ -31,6 +31,6 @@ export const ArtistList = () => {
   ) : fetching ? (
     <Loader />
   ) : (
-    <BaseArtistListTemplate data={artistList} />
+    <BaseArtistListTemplate data={artistList} gender={type} />
   )
 }
