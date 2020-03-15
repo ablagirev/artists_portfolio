@@ -13,8 +13,7 @@ const data = {
     text: 'Главная',
     url: 'actresse/1',
     nested: {
-      text: 'О нас',
-      url: 'about'
+      text: 'О нас'
     }
   }
 }
