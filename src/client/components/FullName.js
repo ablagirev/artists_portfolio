@@ -20,11 +20,12 @@ export const FullName = ({ data: { fullName } }) => {
 }
 
 const ColWrapper = styled.div`
-  margin: 24px 0 0 0;
-  display: flex;
-  justify-content: center;
-  @media (min-width: ${theme.breakpoint}px) {
-    margin: 0;
-    justify-content: start;
+  margin: 0;
+  justify-content: start;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    margin: 24px 0 0 0;
+    display: flex;
+    justify-content: center;
   }
 `

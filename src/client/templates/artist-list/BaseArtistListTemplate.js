@@ -23,13 +23,12 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
     }
 
     const genderData = genderMapping[gender]
-
+    console.log(genderData)
     return {
       text: 'Главная',
       url: '/',
       nested: {
-        text: genderData['text'],
-        url: genderData['url']
+        text: genderData['text']
       }
     }
   }
@@ -43,8 +42,8 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
       </BreadcrumbsWrapperOuter>
       <ListWrapper>
         <Grid>
-          {rows.map(item => {
-            return <ArtistPreview data={item} />
+          {rows.map((item, index) => {
+            return <ArtistPreview data={item} key={index} />
           })}
         </Grid>
       </ListWrapper>

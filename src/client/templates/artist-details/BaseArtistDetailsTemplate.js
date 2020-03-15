@@ -39,6 +39,7 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
       }
     }
   }
+
   return (
     <Layout>
       <ContentWrapper>
@@ -61,9 +62,9 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
 }
 
 const ContentWrapper = styled.div`
-  padding: 0 18px;
+  padding: 0 140px;
 
-  @media (min-width: ${theme.breakpoint}px) {
-    padding: 0 140px;
+  @media (max-width: ${theme.breakpoint}px) {
+    padding: 0 18px;
   }
 `

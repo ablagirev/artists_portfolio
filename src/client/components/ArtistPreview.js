@@ -9,8 +9,7 @@ export const ArtistPreview = ({ data }) => {
   const { id, firstName, lastName, age, photo } = data
   const { type } = useParams()
 
-  // const path = `/${type}/${id}`
-  const path = `/actresses/${id}`
+  const path = `/${type}/${id}`
 
   return (
     <Link to={path}>

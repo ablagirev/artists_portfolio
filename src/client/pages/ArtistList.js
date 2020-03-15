@@ -11,11 +11,15 @@ import { Loader } from 'client/ui-kit'
 export const ArtistList = () => {
   const { type } = useParams()
   const dispatch = useDispatch()
-  const mapState = useSelector(state => ({
-    artistList: state.artist.list,
-    fetching: state.artist.fetching,
-    error: state.artist.error
-  }))
+  const mapState = useSelector(state => {
+    const artistList = state.artist.list
+    return {
+      artistList,
+      fetching: artistList.fetching,
+      error: state.artist.error
+    }
+  })
+
   useEffect(() => {
     dispatch(artistActions.getArtistList({ type }))
   }, [])

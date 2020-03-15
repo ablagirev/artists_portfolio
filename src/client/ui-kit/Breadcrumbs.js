@@ -6,24 +6,23 @@ import styled from 'styled-components'
 import { theme } from '../theme'
 
 const renderBreadcrumbs = ({ url, nested, text }) => {
-  if (nested) {
-    return (
-      <>
-        <AntBreadcrumb.Item>
-          <Link to={url}>{text}</Link>
-        </AntBreadcrumb.Item>
-        {renderBreadcrumbs(nested)}
-      </>
-    )
-  } else if (text) {
-    return <AntBreadcrumb.Item>{text}</AntBreadcrumb.Item>
-  }
+  const data = []
+
+  return url ? [...data, { url, text }, ...renderBreadcrumbs(nested)] : [...data, { text }]
 }
 
 export const Breadcrumbs = ({ data, style }) => {
+  const breadcrumbs = renderBreadcrumbs(data)
+
   return (
     <BreadcrumbWrapper>
-      <AntBreadcrumb style={style}>{renderBreadcrumbs(data)}</AntBreadcrumb>
+      <AntBreadcrumb style={style}>
+        {breadcrumbs.map(({ url, text }, index) => (
+          <AntBreadcrumb.Item key={index}>
+            {url ? <Link to={url}>{text}</Link> : text}
+          </AntBreadcrumb.Item>
+        ))}
+      </AntBreadcrumb>
     </BreadcrumbWrapper>
   )
 }

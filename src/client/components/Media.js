@@ -23,38 +23,43 @@ export const Media = ({ data }) => {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  margin: 16px 0 0 0;
-  padding: 8px 8px 12px 8px;
-  background: ${theme.colors.blue.primary}10;
-  flex-direction: column;
+  background: none;
+  width: 492px;
+  margin: 32px 0 0 0;
+  padding: 0;
+  display: block;
 
-  @media (min-width: ${theme.breakpoint}px) {
-    background: none;
-    width: 492px;
-    margin: 32px 0 0 0;
-    padding: 0;
-    display: block;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: flex;
+    width: 100%;
+    margin: 16px 0 0 0;
+    padding: 8px 8px 12px 8px;
+    background: ${theme.colors.blue.primary}10;
+    flex-direction: column;
   }
 `
 
 const IconWrapper = styled.div`
-  @media (min-width: ${theme.breakpoint}px) {
-    display: none;
+  display: none;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
   }
 `
 
 const LinksWrapper = styled.div`
   display: flex;
-  margin: 8px 0 0 0;
-  justify-content: space-around;
+  height: 52px;
+  border: ${theme.colors.gray.light}80 solid 1px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${theme.radius};
 
-  @media (min-width: ${theme.breakpoint}px) {
-    height: 52px;
-    border: ${theme.colors.gray.light}80 solid 1px;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: ${theme.radius};
+  @media (max-width: ${theme.breakpoint}px) {
+    margin: 8px 0 0 0;
+    justify-content: space-around;
+    border: none;
+    height: 100%;
   }
 `
