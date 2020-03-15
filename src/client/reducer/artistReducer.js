@@ -2,33 +2,35 @@ import { createSymbiote } from 'redux-symbiote'
 const namespace = 'artist'
 
 const initialState = {
-  fetching: true,
   list: {
+    fetching: true,
     rows: [],
     total: 0
   },
-  details: {},
+  details: {
+    fetching: true
+  },
   error: {}
 }
 
 const symbiotes = {
   getArtistList: (state, payload) => {
-    return { ...state, fetching: true }
+    return { ...state, list: { fetching: true } }
   },
   getArtistListSuccess: (state, { data }) => {
-    return { ...state, list: { ...data }, fetching: false }
+    return { ...state, list: { ...data, fetching: false } }
   },
   getArtistListFail: (state, { error }) => {
-    return { ...state, error: { ...error }, fetching: false }
+    return { ...state, error: { ...error, fetching: false } }
   },
   getArtistDetails: (state, payload) => {
-    return { ...state, fetching: true }
+    return { ...state, details: { fetching: true } }
   },
   getArtistDetailsSuccess: (state, { data }) => {
-    return { ...state, details: { ...data }, fetching: false }
+    return { ...state, details: { ...data, fetching: false } }
   },
   getArtistDetailsFail: (state, { error }) => {
-    return { ...state, error: { ...error }, fetching: false }
+    return { ...state, error: { ...error, fetching: false } }
   }
 }
 
