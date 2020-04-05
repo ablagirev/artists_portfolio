@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 300;
     src: url('assets/fonts/ProximaNova-Light.otf') format('otf');
   }
-  /*@font-face {
+  @font-face {
     font-family: 'Proxima Nova';
     font-style: normal;
     font-weight: 400;
@@ -28,6 +28,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Playfair Display';
     font-style: bold;
     font-weight: 700;
-    src: url(${font4}) format('ttf');
-  }*/
+    src: url('assets/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
+  }
+  
+  #root {
+    height: 100%;
+  }
 `
