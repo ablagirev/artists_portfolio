@@ -35,13 +35,8 @@ build/Release
 
 # Dependency directories
 node_modules/
-jspm_packages/
-coverage/
-dist/
-public/
 build/
-bin/
-db/
+dist/
 .docz/
 .**/
 
@@ -56,12 +51,6 @@ db/
 
 # Output of 'npm pack'
 *.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env
 
 # archives
 *.7z

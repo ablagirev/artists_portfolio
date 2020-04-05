@@ -1,0 +1,15 @@
+#consul config
+# path (namespace) without a key will load all keys
+# path (namespace) with a key will load one key
+#consul:
+#  path:
+#    - ump/portal-frontend/application
+#    - ump/portal-frontend/portal-loans/PORT
+#local config
+#local:
+#  keys:
+#    UMP_SERVICES_HTTP_URL: http://services-ump2-dev.mbrd.ru:8090/
+#    H_FACTOR_TOKEN: d0c33eefec334d00d3b08dc0455aa588b9fdd1a
+#    PORT: 9003
+#other keys
+APP_ID: root
