@@ -13,7 +13,7 @@ const baseConfig = {
     app: './src/index.js'
   },
   output: {
-    publicPath: serviceName ? `/${serviceName}` : '',
+    publicPath: serviceName ? `/${serviceName}` : '/',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'build')
   },
@@ -67,7 +67,7 @@ const baseConfig = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'file-loader'
             /*options: {
               outputPath: 'fonts',
               name: '[name].[ext]'

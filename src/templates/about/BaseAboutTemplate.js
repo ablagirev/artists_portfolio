@@ -18,8 +18,7 @@ const mobContactsData = {
   ],
   attachment: {
     id: '012',
-    link:
-      'https://docs.google.com/presentation/d/17pwmsReJYJrNFCXSOf9NZ-FhmnhYxYlnAisSRRfqDGE/edit#slide=id.p6',
+    link: 'https://docs.google.com/presentation/d/17pwmsReJYJrNFCXSOf9NZ-FhmnhYxYlnAisSRRfqDGE/edit#slide=id.p6',
     value: 'Скачать шахматку'
   },
   additional: [
@@ -71,10 +70,7 @@ export const BaseAboutTemplate = ({ data }) => {
           <SocialIcons>
             {social.map(item => {
               return (
-                <SocialLink
-                  href={item.type === 'post' ? `mailto:${item.value}` : item.value}
-                  key={item.id}
-                >
+                <SocialLink href={item.type === 'post' ? `mailto:${item.value}` : item.value} key={item.id}>
                   <Icon type={item.type} fill={theme.colors.gray.dark} />
                 </SocialLink>
               )
@@ -83,10 +79,7 @@ export const BaseAboutTemplate = ({ data }) => {
           <FlexWrapper>
             {contacts.map(item => {
               return (
-                <a
-                  key={item.id}
-                  href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}
-                >
+                <a key={item.id} href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}>
                   <Text>
                     {item.type === 'post' ? 'E' : 'T'}: {item.value}
                   </Text>
