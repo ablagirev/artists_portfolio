@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     src: url('assets/fonts/PlayfairDisplay-Bold.ttf') format('ttf');
   }
   
-  #artists_portfolio {
+  #root {
     height: 100%;
   }
 `
