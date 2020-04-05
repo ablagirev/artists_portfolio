@@ -11,7 +11,7 @@ const data = {
   img,
   breadcrumbs: {
     text: 'Главная',
-    url: 'actresse/1',
+    url: '/',
     nested: {
       text: 'О нас'
     }

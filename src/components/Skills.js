@@ -10,16 +10,18 @@ export const Skills = ({ data: { skills } }) => {
   const renderSkills = data => {
     return data.map(({ category, value }) => {
       return (
-        <Row key={category} gutter={[0, 12]}>
-          <Col span={10}>
-            <ColWrapper>
-              <Text>{category}:</Text>
-            </ColWrapper>
-          </Col>
-          <Col span={14}>
-            <Text>{value}</Text>
-          </Col>
-        </Row>
+        value && (
+          <Row key={category} gutter={[0, 12]}>
+            <Col span={10}>
+              <ColWrapper>
+                <Text>{category}:</Text>
+              </ColWrapper>
+            </Col>
+            <Col span={14}>
+              <Text>{value}</Text>
+            </Col>
+          </Row>
+        )
       )
     })
   }
