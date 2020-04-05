@@ -212,8 +212,7 @@ export const data = {
           { category: 'Танец', value: '' },
           {
             category: 'Муз. инструменты',
-            value:
-              'Игра на скрипке и фортепиано - окончила музыкальную школу №14 с отличием, аккордеон'
+            value: 'Игра на скрипке и фортепиано - окончила музыкальную школу №14 с отличием, аккордеон'
           },
           { category: 'Пение', value: '' },
           { category: 'Тембр', value: '' },
@@ -1663,8 +1662,7 @@ export const data = {
           { category: 'Языки', value: '' },
           {
             category: 'Виды спорта',
-            value:
-              'Профессиональный тренер по ОФП. Педагог актерского мастерства у детей и подростков'
+            value: 'Профессиональный тренер по ОФП. Педагог актерского мастерства у детей и подростков'
           },
           { category: 'Танец', value: '' },
           { category: 'Муз. инструменты', value: '' },
@@ -1767,8 +1765,7 @@ export const data = {
           },
           {
             category: 'Танец',
-            value:
-              'Бально-спортивный - профессионально , хип-хоп - любитель, мюзикл - профессионально'
+            value: 'Бально-спортивный - профессионально , хип-хоп - любитель, мюзикл - профессионально'
           },
           { category: 'Муз. инструменты', value: 'Гитара - начальный' },
           { category: 'Пение', value: 'Мюзикл, эстрада, поп-рок' },
@@ -2249,4 +2246,9 @@ export const data = {
       ]
     }
   ]
+}
+
+export const randomPhoto = {
+  women: [buntina, volkova, egorova, girzekorn, kachnova, kuzenkina, kutovaya, lisicina, malkova],
+  men: [vetrov, vinogradov, vladimirov, druzenko, zharkov, kosmachev, patuev, poshnagov, terekhov, shevchenko]
 }
