@@ -11,17 +11,15 @@ export const Theatre = ({ data: { theatre } }) => {
   const renderTheatre = data => {
     return data.map(({ year, name }, index) => {
       return (
-        <Row key={`theater-${index}`}>
-          <TheatreWrapper>
-            <Col span={10}>
-              <ColWrapper>
-                <Text>{year ? `${year}:` : '-'}</Text>
-              </ColWrapper>
-            </Col>
-            <Col span={14}>
-              <Text>{name}</Text>
-            </Col>
-          </TheatreWrapper>
+        <Row key={`theater-${index}`} gutter={[0, 12]}>
+          <Col span={10}>
+            <ColWrapper>
+              <Text>{year ? `${year}:` : '-'}</Text>
+            </ColWrapper>
+          </Col>
+          <Col span={14}>
+            <Text>{name}</Text>
+          </Col>
         </Row>
       )
     })
@@ -30,10 +28,10 @@ export const Theatre = ({ data: { theatre } }) => {
   return (
     <RowWrapper>
       <Row>
-        <Col>
-          <Text color={theme.colors.blue.primary}> {label}</Text>
+        <Col span={24}>
+          <Text color={theme.colors.blue.primary}>{label}</Text>
         </Col>
-        <Col>{renderTheatre(value)}</Col>
+        <Col span={24}>{renderTheatre(value)}</Col>
       </Row>
     </RowWrapper>
   )
@@ -44,7 +42,4 @@ const RowWrapper = styled.div`
 `
 const ColWrapper = styled.div`
   padding: 0 0 0 20px;
-`
-const TheatreWrapper = styled.div`
-  margin: 12px 0 0 0;
 `

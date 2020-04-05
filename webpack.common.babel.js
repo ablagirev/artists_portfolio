@@ -13,7 +13,7 @@ const baseConfig = {
     app: './src/index.js'
   },
   output: {
-    publicPath: serviceName ? `/${serviceName}` : '/',
+    publicPath: serviceName ? `/${serviceName}` : '',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'build')
   },

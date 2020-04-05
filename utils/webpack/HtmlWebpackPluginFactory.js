@@ -41,7 +41,7 @@ export const createHtmlWebpackPlugin = (mode, options) => {
   }
 
   if (mode === 'production') {
-    const filename = path.resolve(rootPath, 'public/index.html')
+    const filename = path.resolve(rootPath, 'build/index.html')
     baseOptions = { ...baseOptions, filename }
   }
 

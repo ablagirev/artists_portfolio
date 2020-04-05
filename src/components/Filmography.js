@@ -9,21 +9,19 @@ export const Filmography = ({ data: { filmography } }) => {
   const { label, value } = filmography
 
   const renderFilmography = data => {
-    return data.map(({ year, name, role: {name: roleName, main}, director }, index) => {
+    return data.map(({ year, name, role: { name: roleName, main }, director }, index) => {
       const role = main ? `${roleName} - главная роль` : roleName
 
       return (
-        <Row key={`filmography-${index}`}>
-          <FilmographyWrapper>
-            <Col span={10}>
-              <ColWrapper>
-                <Text>{year}</Text>
-              </ColWrapper>
-            </Col>
-            <Col span={14}>
-              <Text>{`«${name}». ${role}. Режиссёр: ${director}`}</Text>
-            </Col>
-          </FilmographyWrapper>
+        <Row key={`filmography-${index}`} gutter={[0, 12]}>
+          <Col span={10}>
+            <ColWrapper>
+              <Text>{year}</Text>
+            </ColWrapper>
+          </Col>
+          <Col span={14}>
+            <Text>{`«${name}». ${role}. Режиссёр: ${director}`}</Text>
+          </Col>
         </Row>
       )
     })
@@ -32,10 +30,10 @@ export const Filmography = ({ data: { filmography } }) => {
   return (
     <RowWrapper>
       <Row>
-        <Col>
+        <Col span={24}>
           <Text color={theme.colors.blue.primary}> {label}</Text>
         </Col>
-        <Col>{renderFilmography(value)}</Col>
+        <Col span={24}>{renderFilmography(value)}</Col>
       </Row>
     </RowWrapper>
   )
@@ -46,7 +44,4 @@ const RowWrapper = styled.div`
 `
 const ColWrapper = styled.div`
   padding: 0 0 0 20px;
-`
-const FilmographyWrapper = styled.div`
-  margin: 12px 0 0 0;
 `
