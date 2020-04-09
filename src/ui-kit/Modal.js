@@ -6,7 +6,7 @@ import { theme } from '../theme'
 
 import { Loader } from './Loader'
 
-export const Modal = ({ children, visible = 'false', onCancel, isContentLoaded }) => {
+export const Modal = ({ children, visible, onCancel, isContentLoaded }) => {
   return (
     <StyledAntModal visible={visible} onCancel={onCancel}>
       {children}

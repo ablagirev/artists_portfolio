@@ -6,15 +6,14 @@ import { theme } from 'theme'
 
 export const MediaItem = ({ link, label }) => {
   const [visibility, setVisibility] = useState(false)
-  const [content, setContent] = useState(null)
   const [isContentLoaded, setLoaded] = useState(false)
-  const showModal = content => {
-    setContent(content)
+
+  const showModal = () => {
     setVisibility(true)
   }
+
   const onCancel = () => {
     setVisibility(false)
-    setContent(null)
     setLoaded(false)
   }
 
@@ -22,13 +21,15 @@ export const MediaItem = ({ link, label }) => {
     setLoaded(true)
   }
 
-  const youtubeLink = content && `https://www.youtube.com/embed/${content}`
+  const youtubeLink = link && `https://www.youtube.com/embed/${link}`
+
   return (
     <>
-      <LinkWrapper onClick={() => showModal(link)}>
-        <StyledText>{label}</StyledText>
+      <LinkWrapper onClick={showModal} link={link}>
+        <StyledText link={link}>{label}</StyledText>
       </LinkWrapper>
-      {youtubeLink ? (
+
+      {youtubeLink && visibility ? (
         <Modal visible={visibility} onCancel={onCancel} isContentLoaded={isContentLoaded}>
           <Iframe
             width="560"
@@ -46,33 +47,46 @@ export const MediaItem = ({ link, label }) => {
 }
 
 const StyledText = styled(Text)`
-  @media (min-width: ${theme.breakpoint}px) {
-    text-transform: uppercase;
-    text-align: center;
-    color: ${theme.colors.blue.primary};
+  text-transform: uppercase;
+  text-align: center;
+  color: ${({ link }) => (link ? theme.colors.blue.primary : '#CAD5D9')};
+
+  @media (max-width: ${theme.breakpoint}px) {
+    text-transform: none;
+    color: ${({ link }) => (link ? theme.colors.gray.primary : '#CAD5D9')};
   }
 `
 
 const LinkWrapper = styled.div`
-  cursor: pointer;
-  border-bottom: 1px ${theme.colors.gray.primary} solid;
-  padding: 0 0 2px 0;
+  cursor: ${({ link }) => (link ? 'pointer' : 'not-allowed')};
+  padding: 0 5px;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: ${({ link }) => (link ? '#fbfbfb' : theme.colors.white)};
 
-  @media (min-width: ${theme.breakpoint}px) {
-    padding: 0 5px;
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: #fbfbfb;
+  &:hover {
+    background: ${({ link }) => (link ? theme.colors.blue.primary : theme.colors.white)};
+
+    & ${StyledText} {
+      color: ${({ link }) => (link ? theme.colors.white : '#CAD5D9')};
+    }
+  }
+
+  @media (max-width: ${theme.breakpoint}px) {
+    border-bottom: ${({ link }) => `1px ${link ? theme.colors.gray.primary : '#CAD5D9'} solid`};
+    padding: 0 0 2px 0;
+    background: none;
+    flex: none;
 
     &:hover {
-      background: ${theme.colors.blue.primary};
+      background: none;
 
       & ${StyledText} {
-        color: ${theme.colors.white};
+        color: ${({ link }) => (link ? theme.colors.gray.primary : '#CAD5D9')};
       }
     }
   }
@@ -80,6 +94,7 @@ const LinkWrapper = styled.div`
 
 const Iframe = styled.iframe`
   display: ${({ isContentLoaded }) => (isContentLoaded ? 'block' : 'none')};
+
   @media (max-width: ${theme.breakpoint}px) {
     width: auto;
     height: auto;
