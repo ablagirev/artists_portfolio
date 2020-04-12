@@ -17,14 +17,14 @@ export const ArtistPreview = ({ data }) => {
         <CardWrapper>
           <InfoWrapperDesktop>
             <Text size="md" color={theme.colors.blue.primary}>
-              {`${firstName} ${lastName}, ${age.value}`}
+              {`${firstName} ${lastName}, ${age}`}
             </Text>
           </InfoWrapperDesktop>
-          <img src={photo.list} />
+          <img src={photo} />
         </CardWrapper>
         <InfoWrapperMobile>
           <Text size="md" color={theme.colors.blue.primary}>
-            {`${firstName} ${lastName}, ${age.value}`}
+            {`${firstName} ${lastName}, ${age}`}
           </Text>
         </InfoWrapperMobile>
       </Wrapper>

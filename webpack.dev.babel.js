@@ -14,16 +14,16 @@ const config = {
     historyApiFallback: true,
     hot: true,
     proxy: {
-      /*'/api-ump': {
-        target: '/',
-        pathRewrite: { '^/api.+?/': '' },
+      '/api': {
+        target: 'https://europe-west1-marias-bureau.cloudfunctions.net/',
+        // pathRewrite: { '^/api.+?/': '' },
         // secure: false,
         logLevel: 'debug',
         changeOrigin: true,
         headers: {
           Connection: 'Keep-Alive'
         }
-      }*/
+      }
     }
   }
 }

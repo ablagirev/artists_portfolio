@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import { theme } from 'theme'
 
 export const PhotoViewer = ({ data }) => {
-  const { main, preview } = data
+  const { main, profile } = data
   const [current, setCurrent] = useState(main)
 
-  const handleClick = (e, preview) => {
+  const handleClick = (e, profile) => {
     if (window.innerWidth > theme.breakpoint) {
-      setCurrent(preview)
+      setCurrent(profile)
     }
   }
   return (
@@ -18,7 +18,7 @@ export const PhotoViewer = ({ data }) => {
         <img src={current} />
       </MainImageWrapper>
       <PreviewWrapper>
-        {preview.map(src => {
+        {profile.map(src => {
           return (
             <ImageWrapper key={src}>
               <img src={src} onClick={e => handleClick(e, src)} />
