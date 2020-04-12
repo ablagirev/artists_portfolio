@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Text, Icon, Divider, Spacer } from 'ui-kit'
 import { theme } from 'theme'
 import { headerActions } from 'reducer'
+import { Cell } from './Cell'
+import { Additional } from './Additional'
 
 export const Header = () => {
   const dispatch = useDispatch()
@@ -15,7 +17,7 @@ export const Header = () => {
 
   useEffect(() => {
     dispatch(headerActions.getHeader())
-  }, [])
+  }, [dispatch])
 
   const {
     header: { menu, contacts, logo, fetching }
@@ -32,16 +34,14 @@ export const Header = () => {
               </MobileLogo>
             </Col>
             <Col span={8} />
-            {contacts.map(group => {
-              return group.map((item, index) => {
-                return (
-                  (item.type === 'cell' || item.type === 'post') && (
-                    <Col span={2} key={index}>
-                      <Icon type={item.type} fill={theme.colors.gray.dark} />
-                    </Col>
-                  )
+            {contacts.map((item, index) => {
+              return (
+                (item.type === 'cell' || item.type === 'post') && (
+                  <Col span={2} key={index}>
+                    <Icon type={item.type} fill={theme.colors.gray.dark} />
+                  </Col>
                 )
-              })
+              )
             })}
           </Row>
         </MobileHeaderMainMenu>
@@ -89,30 +89,12 @@ export const Header = () => {
             <Spacer space={10} />
             <CustomRow>
               <Col span={8} />
-              {contacts.map((group, index) => {
-                return (
-                  <Col span={group.length === 1 ? 9 : 7} key={index}>
-                    <Contacts>
-                      {group.map(item => {
-                        return item.type === 'cell' ? (
-                          <CellLink href={`tel:${item.link}`} key={item.id}>
-                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                            <CustomText color={theme.colors.gray.dark}>{item.link}</CustomText>
-                          </CellLink>
-                        ) : item.type === 'post' ? (
-                          <a href={`mailto:${item.link}`} key={item.id}>
-                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                          </a>
-                        ) : (
-                          <a href={item.link} key={item.id}>
-                            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                          </a>
-                        )
-                      })}
-                    </Contacts>
-                  </Col>
-                )
-              })}
+              <Col span={9}>
+                <Cell data={contacts} />
+              </Col>
+              <Col span={7}>
+                <Additional data={contacts} />
+              </Col>
             </CustomRow>
             <Spacer space={16} />
             <Divider />
@@ -186,24 +168,6 @@ const DesktopLogo = styled.a`
 const CustomRow = styled(Row)`
   line-height: 20px;
   width: 100%;
-`
-
-const CustomIcon = styled(Icon)`
-  margin-left: 1em;
-`
-
-const CustomText = styled(Text)`
-  text-align: center;
-`
-
-const Contacts = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`
-const CellLink = styled.a`
-  display: flex;
-  flex-direction: row;
 `
 
 const MobileLogo = styled.a`

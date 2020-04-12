@@ -14,28 +14,24 @@ const initialState = {
 }
 
 const symbiotes = {
-  getArtistList: (state, payload) => {
+  getArtistList: state => {
     return { ...state, list: { fetching: true } }
   },
   getArtistListSuccess: (state, { data }) => {
     return { ...state, list: { ...data, fetching: false } }
   },
   getArtistListFail: (state, { error }) => {
-    return { ...state, error: { ...error, fetching: false } }
+    return { ...state, error: { message: { ...error }, fetching: false } }
   },
-  getArtistDetails: (state, payload) => {
+  getArtistDetails: state => {
     return { ...state, details: { fetching: true } }
   },
   getArtistDetailsSuccess: (state, { data }) => {
     return { ...state, details: { ...data, fetching: false } }
   },
   getArtistDetailsFail: (state, { error }) => {
-    return { ...state, error: { ...error, fetching: false } }
+    return { ...state, error: { message: { ...error }, fetching: false } }
   }
 }
 
-export const { actions: artistActions, reducer: artistReducer } = createSymbiote(
-  initialState,
-  symbiotes,
-  namespace
-)
+export const { actions: artistActions, reducer: artistReducer } = createSymbiote(initialState, symbiotes, namespace)
