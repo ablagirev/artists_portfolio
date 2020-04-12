@@ -1,4 +1,5 @@
 import { createSymbiote } from 'redux-symbiote'
+
 const namespace = 'header'
 
 const initialState = {
@@ -9,19 +10,15 @@ const initialState = {
 }
 
 const symbiotes = {
-  getHeader: (state, payload) => {
+  getHeader: state => {
     return { ...state, fetching: true }
   },
   getHeaderSuccess: (state, { data }) => {
     return { ...state, ...data, fetching: false }
   },
-  getHeaderFail: (state, payload) => {
+  getHeaderFail: state => {
     return { ...state, fetching: false }
   }
 }
 
-export const { actions: headerActions, reducer: headerReducer } = createSymbiote(
-  initialState,
-  symbiotes,
-  namespace
-)
+export const { actions: headerActions, reducer: headerReducer } = createSymbiote(initialState, symbiotes, namespace)

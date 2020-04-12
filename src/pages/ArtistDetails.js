@@ -24,15 +24,9 @@ export const ArtistDetails = () => {
 
   useEffect(() => {
     dispatch(artistActions.getArtistDetails({ type, artistId }))
-  }, [dispatch])
+  }, [dispatch, type, artistId])
 
   const { artistDetails, fetching, error } = mapState
 
-  return error.message ? (
-    <NotFound />
-  ) : fetching ? (
-    <Loader />
-  ) : (
-    <BaseArtistDetailsTemplate data={artistDetails} />
-  )
+  return error.message ? <NotFound /> : fetching ? <Loader /> : <BaseArtistDetailsTemplate data={artistDetails} />
 }
