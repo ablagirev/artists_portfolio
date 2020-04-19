@@ -6,7 +6,8 @@ const initialState = {
   fetching: true,
   contacts: [],
   logo: {},
-  menu: []
+  menu: [],
+  error: {}
 }
 
 const symbiotes = {
@@ -16,8 +17,8 @@ const symbiotes = {
   getHeaderSuccess: (state, { data }) => {
     return { ...state, ...data, fetching: false }
   },
-  getHeaderFail: state => {
-    return { ...state, fetching: false }
+  getHeaderFail: (state, { error }) => {
+    return { ...state, error: { message: { ...error } }, fetching: false }
   }
 }
 

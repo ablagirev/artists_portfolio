@@ -1,35 +1,27 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { BaseMainTemplate } from 'templates'
-import { randomPhoto } from 'sourceData/artistData'
-import backgroundMobile from 'assets/img/main/background_main_mob.png'
 
-const getRandom = (min, max) => {
-  const minVal = Math.ceil(min)
-  const maxVal = Math.floor(max)
+import { Loader } from 'ui-kit'
 
-  return Math.floor(Math.random() * (maxVal - minVal)) + minVal
-}
 
-const woman = randomPhoto.women[getRandom(0, randomPhoto.women.length)].list
-const man = randomPhoto.men[getRandom(0, randomPhoto.men.length)].list
+import { NotFound } from './NotFound'
 
-const data = {
-  women: {
-    picture: woman,
-    title: 'Актрисы',
-    link: '#'
-  },
-  men: {
-    picture: man,
-    title: 'Актеры',
-    link: '#'
-  },
-  background: {
-    mobile: backgroundMobile
-  }
-}
+import { mainActions } from '../reducer'
 
 export const Main = () => {
-  return <BaseMainTemplate data={data} />
+  const dispatch = useDispatch()
+  const mapState = useSelector(state => ({
+    fetching: state.main.fetching,
+    error: state.main.error,
+    photos: state.main.photos
+  }))
+
+  useEffect(() => {
+    dispatch(mainActions.getMain())
+  }, [dispatch])
+
+  const { photos, fetching, error } = mapState
+
+  return error.message ? <NotFound /> : fetching ? <Loader /> : <BaseMainTemplate data={photos} />
 }

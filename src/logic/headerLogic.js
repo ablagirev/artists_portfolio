@@ -5,14 +5,13 @@ import { headerActions } from 'reducer/headerReducer'
 
 const getHeader = createLogic({
   type: headerActions.getHeader().type,
-  process({ action: { payload } }, dispatch, done) {
-    // const { data } = payload || {}
+  process(payload, dispatch, done) {
     headerApi
       .getHeader()
       .then(({ data }) => {
         dispatch(headerActions.getHeaderSuccess({ data }))
       })
-      .catch(error => dispatch(headerActions.getHeaderFail(error)))
+      .catch(error => dispatch(headerActions.getHeaderFail({ error })))
       .then(() => done())
   }
 })

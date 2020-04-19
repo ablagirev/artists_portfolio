@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Tilt from 'react-tilt'
 
-import { Heading, Spacer } from '../../ui-kit'
-import { theme } from '../../theme'
-import { Layout } from '../../components'
+import { Heading, Spacer } from 'ui-kit'
+import { theme } from 'theme'
+import backgroundMobile from 'assets/img/main/background_main_mob.png'
 
 const imageHoverOptions = {
   reverse: false,
@@ -18,65 +18,64 @@ const imageHoverOptions = {
 }
 
 export const BaseMainTemplate = ({ data }) => {
-  const { women, men, background } = data
+  const { women, men } = data
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
+
   return (
-    <Layout>
-      <Content>
-        <ContentDesktop>
-          <Spacer space={32} />
-          <Wrapper>
-            <WrapperWomen
-              onMouseOver={() => setMenOpacity(true)}
-              onMouseLeave={() => setMenOpacity(false)}
-              opacity={womenOpacity}
-            >
-              <Tilt className="Tilt" options={imageHoverOptions}>
-                <div className="Tilt-inner">
-                  <WrapperLink href="/actresses">
-                    <HeadingWomen size="xxl" hover={menOpacity}>
-                      {women.title}
-                    </HeadingWomen>
-                    <img src={women.picture} />
-                  </WrapperLink>
-                </div>
-              </Tilt>
-            </WrapperWomen>
-            <Spacer space={20} />
-            <WrapperMen
-              onMouseOver={() => setWomenOpacity(true)}
-              onMouseLeave={() => setWomenOpacity(false)}
-              opacity={menOpacity}
-            >
-              <Tilt className="Tilt" options={imageHoverOptions}>
-                <div className="Tilt-inner">
-                  <WrapperLink href="/actors">
-                    <img src={men.picture} />
-                    <HeadingMen size="xxl" hover={womenOpacity}>
-                      {men.title}
-                    </HeadingMen>
-                  </WrapperLink>
-                </div>
-              </Tilt>
-            </WrapperMen>
-          </Wrapper>
-        </ContentDesktop>
-        <ContentMobile>
-          <BackgroundImg src={background.mobile} />
-          <ContentMobileInner>
-            <Heading size="xxl" color={theme.colors.white}>
-              БЮРО
-            </Heading>
-            <Heading size="xxl" color={theme.colors.white} bold>
-              Маши
-              <br />
-              Поповой
-            </Heading>
-          </ContentMobileInner>
-        </ContentMobile>
-      </Content>
-    </Layout>
+    <Content>
+      <ContentDesktop>
+        <Spacer space={32} />
+        <Wrapper>
+          <WrapperWomen
+            onMouseOver={() => setMenOpacity(true)}
+            onMouseLeave={() => setMenOpacity(false)}
+            isOpacity={womenOpacity}
+          >
+            <Tilt className="Tilt" options={imageHoverOptions}>
+              <div className="Tilt-inner">
+                <WrapperLink href="/actresses">
+                  <HeadingWomen size="xxl" hover={menOpacity}>
+                    {women.title}
+                  </HeadingWomen>
+                  <img src={women.picture} />
+                </WrapperLink>
+              </div>
+            </Tilt>
+          </WrapperWomen>
+          <Spacer space={20} />
+          <WrapperMen
+            onMouseOver={() => setWomenOpacity(true)}
+            onMouseLeave={() => setWomenOpacity(false)}
+            isOpacity={menOpacity}
+          >
+            <Tilt className="Tilt" options={imageHoverOptions}>
+              <div className="Tilt-inner">
+                <WrapperLink href="/actors">
+                  <img src={men.picture} />
+                  <HeadingMen size="xxl" hover={womenOpacity}>
+                    {men.title}
+                  </HeadingMen>
+                </WrapperLink>
+              </div>
+            </Tilt>
+          </WrapperMen>
+        </Wrapper>
+      </ContentDesktop>
+      <ContentMobile>
+        <BackgroundImg src={backgroundMobile} />
+        <ContentMobileInner>
+          <Heading size="xxl" color={theme.colors.white}>
+            БЮРО
+          </Heading>
+          <Heading size="xxl" color={theme.colors.white} bold>
+            Маши
+            <br />
+            Поповой
+          </Heading>
+        </ContentMobileInner>
+      </ContentMobile>
+    </Content>
   )
 }
 
@@ -129,12 +128,12 @@ const Wrapper = styled.div`
 
 const WrapperWomen = styled.div`
   transition: 700ms ease-in-out;
-  opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
+  opacity: ${({ isOpacity }) => (isOpacity ? 0.5 : 1)};
 `
 
 const WrapperMen = styled.div`
   transition: 700ms ease-in-out;
-  opacity: ${({ opacity }) => (opacity ? 0.5 : 1)};
+  opacity: ${({ isOpacity }) => (isOpacity ? 0.5 : 1)};
 `
 
 const HeadingWomen = styled(Heading)`

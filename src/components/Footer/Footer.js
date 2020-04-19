@@ -16,14 +16,13 @@ export const Footer = ({ mobileShow = false }) => {
 
   useEffect(() => {
     dispatch(footerActions.getFooter())
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   const {
-    footer: { social, contacts, attachment, additional, designer }
+    footer: { social, contacts, attachment, additional, designer, fetching, error }
   } = mapState
 
-  return (
+  return !fetching && !error.message ? (
     <FooterWrapper mobileShow={mobileShow}>
       <FooterHeading>
         <Heading size="xl" bold>
@@ -104,7 +103,7 @@ export const Footer = ({ mobileShow = false }) => {
         <Col span={1} xl={2} />
       </Row>
     </FooterWrapper>
-  )
+  ) : null
 }
 
 const SocialIcons = styled.div`
