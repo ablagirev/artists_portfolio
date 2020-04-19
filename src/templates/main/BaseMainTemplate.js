@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react'
 import styled from 'styled-components'
@@ -38,7 +39,7 @@ export const BaseMainTemplate = ({ data, background }) => {
                   <HeadingWomen size="xxl" hover={menOpacity}>
                     {women.title}
                   </HeadingWomen>
-                  <img src={women.picture} />
+                  <StyledImg src={women.picture} />
                 </WrapperLink>
               </div>
             </Tilt>
@@ -52,7 +53,7 @@ export const BaseMainTemplate = ({ data, background }) => {
             <Tilt className="Tilt" options={imageHoverOptions}>
               <div className="Tilt-inner">
                 <WrapperLink href="/actors">
-                  <img src={men.picture} />
+                  <StyledImg src={men.picture} />
                   <HeadingMen size="xxl" hover={womenOpacity}>
                     {men.title}
                   </HeadingMen>
@@ -79,6 +80,16 @@ export const BaseMainTemplate = ({ data, background }) => {
     </Content>
   )
 }
+
+const StyledImg = styled.img`
+  transition: 500ms ease-in-out;
+  @media (max-height: 800px) {
+    max-height: 420px;
+  }
+  @media (max-height: 700px) {
+    max-height: 300px;
+  }
+`
 
 const BureauText = styled.div`
   position: absolute;

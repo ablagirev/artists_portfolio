@@ -181,9 +181,13 @@ const ImgWrapper = styled.div`
   img {
     width: 100%;
     max-width: 510px;
+    transition: 500ms ease-in-out;
 
     @media (max-width: ${theme.breakpoint}px) {
       max-width: 100%;
+    }
+    @media (max-height: 700px) {
+      max-width: 400px;
     }
   }
 

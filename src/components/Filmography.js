@@ -75,8 +75,20 @@ const ButtonArrow = styled.i`
 
   ${ShowMoreButton}:hover & {
     transform: ${({ opened }) => (opened ? 'rotate(-135deg)' : 'rotate(45deg)')};
-    top: ${({ opened }) => (opened ? '2px' : '8px')};
+    animation: ArrowMove 1s infinite;
     transition: 500ms ease-in-out;
+  }
+
+  @keyframes ArrowMove {
+    0% {
+      top: 12px;
+    }
+    50% {
+      top: 4px;
+    }
+    100% {
+      top: 12px;
+    }
   }
 `
 

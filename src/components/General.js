@@ -13,10 +13,10 @@ export const General = ({ data }) => {
 
         return (
           <Row key={key}>
-            <Col span={8}>
+            <Col span={10}>
               <Text color={theme.colors.blue.primary}> {label}:</Text>
             </Col>
-            <Col span={16}>
+            <Col span={14}>
               <Text>{value}</Text>
             </Col>
           </Row>
