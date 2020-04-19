@@ -3,7 +3,7 @@ import { createSymbiote } from 'redux-symbiote'
 const namespace = 'footer'
 
 const initialState = {
-  fetching: false,
+  fetching: true,
   contacts: [],
   social: [],
   attachment: {},
