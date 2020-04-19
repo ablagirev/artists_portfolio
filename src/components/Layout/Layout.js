@@ -14,11 +14,24 @@ export const Layout = ({ children }) => {
   return (
     <LayoutWrapper>
       <Header />
-      <Content>{isFetched ? children : <Loader />}</Content>
+      {isFetched ? (
+        <Content>{children}</Content>
+      ) : (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      )}
       <Footer />
     </LayoutWrapper>
   )
 }
+
+const LoaderWrapper = styled.div`
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const LayoutWrapper = styled.div`
   position: relative;

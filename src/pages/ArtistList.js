@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { artistActions } from 'reducer'
+import styled from 'styled-components'
 import { BaseArtistListTemplate } from 'templates'
 import { Loader } from 'ui-kit'
 import { NotFound } from './NotFound'
@@ -35,8 +36,16 @@ export const ArtistList = () => {
   return error.message ? (
     <NotFound />
   ) : fetching ? (
-    <Loader />
+    <LoaderWrapper>
+      <Loader />
+    </LoaderWrapper>
   ) : (
     <BaseArtistListTemplate data={artistList} gender={type} background={background} />
   )
 }
+
+const LoaderWrapper = styled.div`
+  position: absolute;
+  right: 40%;
+  bottom: 60%;
+`

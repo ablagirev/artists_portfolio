@@ -2,7 +2,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Layout } from '../../components'
 import { Breadcrumbs } from '../../ui-kit'
 import { theme } from '../../theme'
 
@@ -35,7 +34,7 @@ export const BaseArtistListTemplate = ({ data, gender, background }) => {
   }
 
   return (
-    <Layout>
+    <>
       <BreadcrumbsWrapperOuter>
         <BreadcrumbsWrapperInner>
           <Breadcrumbs data={getBreadcrumbs()} />
@@ -56,7 +55,7 @@ export const BaseArtistListTemplate = ({ data, gender, background }) => {
           <img src={background.mobile} style={{ maxHeight: '300px' }} />
         </BackgroundImgMobile>
       </BackgroundImgWrapper>
-    </Layout>
+    </>
   )
 }
 

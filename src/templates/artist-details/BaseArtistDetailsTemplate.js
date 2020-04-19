@@ -7,7 +7,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { theme } from 'theme'
 import { Breadcrumbs } from 'ui-kit'
-import { Layout } from '../../components'
 
 export const BaseArtistDetailsTemplate = ({ data, background }) => {
   const { photo, lastName, firstName, middleName, gender } = data
@@ -41,7 +40,7 @@ export const BaseArtistDetailsTemplate = ({ data, background }) => {
   }
 
   return (
-    <Layout>
+    <>
       <ContentWrapper>
         <Row>
           <Col>
@@ -65,7 +64,7 @@ export const BaseArtistDetailsTemplate = ({ data, background }) => {
           <img src={background.mobile} style={{ maxHeight: '300px' }} />
         </BackgroundImgMobile>
       </BackgroundImgWrapper>
-    </Layout>
+    </>
   )
 }
 

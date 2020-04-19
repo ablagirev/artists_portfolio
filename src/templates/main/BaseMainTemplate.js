@@ -1,10 +1,10 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Tilt from 'react-tilt'
 
 import { Heading, Spacer } from 'ui-kit'
 import { theme } from 'theme'
-import backgroundMobile from 'assets/img/main/background_main_mob.png'
 
 const imageHoverOptions = {
   reverse: false,
@@ -17,7 +17,7 @@ const imageHoverOptions = {
   easing: 'cubic-bezier(.03,.98,.52,.99)'
 }
 
-export const BaseMainTemplate = ({ data }) => {
+export const BaseMainTemplate = ({ data, background }) => {
   const { women, men } = data
   const [menOpacity, setMenOpacity] = useState(false)
   const [womenOpacity, setWomenOpacity] = useState(false)
@@ -62,41 +62,53 @@ export const BaseMainTemplate = ({ data }) => {
           </WrapperMen>
         </Wrapper>
       </ContentDesktop>
-      <ContentMobile>
-        <BackgroundImg src={backgroundMobile} />
-        <ContentMobileInner>
+
+      <BackgroundImgDesktop>
+        <img src={background.desktop} style={{ maxHeight: '320px' }} />
+      </BackgroundImgDesktop>
+      <BackgroundImgMobile>
+        <img src={background.mobile} style={{ maxWidth: '500px' }} />
+        <BureauText>
           <Heading size="xxl" color={theme.colors.white}>
-            БЮРО
-          </Heading>
-          <Heading size="xxl" color={theme.colors.white} bold>
-            Маши
-            <br />
+            Бюро
+            <br /> Маши <br />
             Поповой
           </Heading>
-        </ContentMobileInner>
-      </ContentMobile>
+        </BureauText>
+      </BackgroundImgMobile>
     </Content>
   )
 }
 
-const ContentMobileInner = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  padding: 8px;
+const BureauText = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 5%;
 `
 
-const BackgroundImg = styled.img`
+const BackgroundImgDesktop = styled.div`
   position: absolute;
-  height: 100%;
+  bottom: 0;
+  right: 0;
   z-index: -1;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+
+const BackgroundImgMobile = styled.div`
+  display: none;
+  img {
+    width: 90%;
+  }
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
+  }
 `
 
 const Content = styled.div`
   width: 100%;
   @media (max-width: ${theme.breakpoint}px) {
-    height: 100vh;
     display: flex;
     justify-content: initial;
     align-items: initial;
@@ -106,15 +118,6 @@ const Content = styled.div`
 const ContentDesktop = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     display: none;
-  }
-`
-
-const ContentMobile = styled.div`
-  display: none;
-  @media (max-width: ${theme.breakpoint}px) {
-    position: relative;
-    display: flex;
-    height: 100vh;
   }
 `
 

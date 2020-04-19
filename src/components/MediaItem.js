@@ -39,7 +39,7 @@ export const MediaItem = ({ link, label }) => {
             allowFullScreen
             onLoad={handleLoad}
             isContentLoaded={isContentLoaded}
-          ></Iframe>
+          />
         </Modal>
       ) : null}
     </>
