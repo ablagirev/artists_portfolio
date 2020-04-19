@@ -7,6 +7,7 @@ import { Text, Icon, Heading } from 'ui-kit'
 import { theme } from 'theme'
 import { footerActions } from 'reducer'
 
+// eslint-disable-next-line react/prop-types
 export const Footer = ({ mobileShow = false }) => {
   const dispatch = useDispatch()
   const mapState = useSelector(state => ({
@@ -15,6 +16,7 @@ export const Footer = ({ mobileShow = false }) => {
 
   useEffect(() => {
     dispatch(footerActions.getFooter())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const {
@@ -36,7 +38,10 @@ export const Footer = ({ mobileShow = false }) => {
               {social.map(item => {
                 return (
                   <Col span={7} key={item.id}>
-                    <a href={item.type === 'post' ? `mailto:${item.value}` : item.value}>
+                    <a
+                      href={item.type === 'post' ? `mailto:${item.link}` : item.link}
+                      target={item.type === 'post' ? '' : '_blank'}
+                    >
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
                   </Col>
@@ -51,13 +56,9 @@ export const Footer = ({ mobileShow = false }) => {
               <FlexWrapper>
                 {contacts.map(item => {
                   return (
-                    <a
-                      key={item.id}
-                      href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}
-                    >
-                      <Text>
-                        {item.type === 'post' ? 'E' : 'T'}: {item.value}
-                      </Text>
+                    <a key={item.id} href={`tel:${item.value}`} target="_blank">
+                      <Text>{item.name}</Text>
+                      <Text>T: {item.value}</Text>
                     </a>
                   )
                 })}
@@ -65,7 +66,7 @@ export const Footer = ({ mobileShow = false }) => {
             </Col>
             <Col span={24} lg={12}>
               <FlexWrapper>
-                <a href={attachment.link}>
+                <a href={attachment.link} target="_blank">
                   <CustomText>{attachment.value}</CustomText>
                 </a>
               </FlexWrapper>
@@ -92,10 +93,10 @@ export const Footer = ({ mobileShow = false }) => {
         </Col>
       </Row>
       <Row>
-        <Col span={18}></Col>
+        <Col span={18} />
         <Col span={24} lg={4}>
           <DesignerWrapper>
-            <a href={designer.link}>
+            <a href={designer.link} target="_blank">
               <DesignerText color={theme.colors.gray.light}>{designer.value}</DesignerText>
             </a>
           </DesignerWrapper>
@@ -113,6 +114,9 @@ const SocialIcons = styled.div`
 `
 
 const FooterWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   flex: 0 0 auto;
   @media (max-width: ${theme.breakpoint}px) {
     display: ${({ mobileShow }) => (mobileShow ? 'block' : 'none')};

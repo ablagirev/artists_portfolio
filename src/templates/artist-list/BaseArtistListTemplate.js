@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -7,7 +8,7 @@ import { theme } from '../../theme'
 
 import { ArtistPreview } from 'components'
 
-export const BaseArtistListTemplate = ({ data, gender }) => {
+export const BaseArtistListTemplate = ({ data, gender, background }) => {
   const { rows } = data
 
   const getBreadcrumbs = () => {
@@ -47,16 +48,43 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
           })}
         </Grid>
       </ListWrapper>
+      <BackgroundImgWrapper>
+        <BackgroundImgDesktop>
+          <img src={background.desktop} style={{ maxHeight: '500px' }} />
+        </BackgroundImgDesktop>
+        <BackgroundImgMobile>
+          <img src={background.mobile} style={{ maxHeight: '300px' }} />
+        </BackgroundImgMobile>
+      </BackgroundImgWrapper>
     </Layout>
   )
 }
+
+const BackgroundImgWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+`
+
+const BackgroundImgDesktop = styled.div`
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+const BackgroundImgMobile = styled.div`
+  display: none;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
+  }
+`
 
 const ListWrapper = styled.div`
   margin: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4em;
+  margin-bottom: 200px;
 `
 
 const Grid = styled.div`
