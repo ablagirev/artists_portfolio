@@ -3,12 +3,19 @@ import styled from 'styled-components'
 
 import { Header } from '../Header'
 import { Footer } from '../Footer'
+import { Loader } from '../../ui-kit'
+import { useSelector } from 'react-redux'
 
 export const Layout = ({ children }) => {
+  const mapState = useSelector(state => ({
+    isFetched: !(state.header.fetching && state.footer.fetching)
+  }))
+  const { isFetched } = mapState
+
   return (
     <LayoutWrapper>
       <Header />
-      <Content>{children}</Content>
+      <Content>{isFetched ? children : <Loader />}</Content>
       <Footer />
     </LayoutWrapper>
   )

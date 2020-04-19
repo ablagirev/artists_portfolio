@@ -1,6 +1,6 @@
 import { createSymbiote } from 'redux-symbiote'
 
-const namespace = 'header'
+const namespace = 'footer'
 
 const initialState = {
   fetching: false,
@@ -8,7 +8,8 @@ const initialState = {
   social: [],
   attachment: {},
   additional: [],
-  designer: {}
+  designer: {},
+  error: {}
 }
 
 const symbiotes = {
@@ -18,8 +19,8 @@ const symbiotes = {
   getFooterSuccess: (state, { data }) => {
     return { ...state, ...data, fetching: false }
   },
-  getFooterFail: state => {
-    return { ...state, fetching: false }
+  getFooterFail: (state, { error }) => {
+    return { ...state, error: { message: { ...error } }, fetching: false }
   }
 }
 

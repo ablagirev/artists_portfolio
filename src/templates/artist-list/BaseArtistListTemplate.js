@@ -34,7 +34,7 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
   }
 
   return (
-    <Layout>
+    <>
       <BreadcrumbsWrapperOuter>
         <BreadcrumbsWrapperInner>
           <Breadcrumbs data={getBreadcrumbs()} />
@@ -47,7 +47,7 @@ export const BaseArtistListTemplate = ({ data, gender }) => {
           })}
         </Grid>
       </ListWrapper>
-    </Layout>
+    </>
   )
 }
 
