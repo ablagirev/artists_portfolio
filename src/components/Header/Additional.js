@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -7,15 +8,25 @@ import { Icon } from 'ui-kit/Icon'
 export const Additional = ({ data }) => (
   <Contacts>
     {data.map(item => {
-      return item.type === 'post' && item.type !== 'cell' ? (
-        <a href={`mailto:${item.link}`} key={item.id}>
-          <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-        </a>
-      ) : (
-        <a href={item.link} key={item.id}>
-          <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-        </a>
-      )
+      if (item.type === 'post') {
+        return (
+          <a href={`mailto:${item.link}`} key={item.id}>
+            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+          </a>
+        )
+      } else if (item.type === 'cell') {
+        return (
+          <a href={`tel:${item.link}`} key={item.id}>
+            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+          </a>
+        )
+      } else {
+        return (
+          <a href={item.link} key={item.id} target="_blank">
+            <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+          </a>
+        )
+      }
     })}
   </Contacts>
 )

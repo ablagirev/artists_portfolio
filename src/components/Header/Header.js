@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Text, Icon, Divider, Spacer } from 'ui-kit'
 import { theme } from 'theme'
 import { headerActions } from 'reducer'
-import { Cell } from './Cell'
 import { Additional } from './Additional'
 
 export const Header = () => {
@@ -38,7 +37,9 @@ export const Header = () => {
               return (
                 (item.type === 'cell' || item.type === 'post') && (
                   <Col span={2} key={index}>
-                    <Icon type={item.type} fill={theme.colors.gray.dark} />
+                    <a href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}>
+                      <Icon type={item.type} fill={theme.colors.gray.dark} />
+                    </a>
                   </Col>
                 )
               )
@@ -88,10 +89,7 @@ export const Header = () => {
           <Col span={10}>
             <Spacer space={10} />
             <CustomRow>
-              <Col span={8} />
-              <Col span={9}>
-                <Cell data={contacts} />
-              </Col>
+              <Col span={17} />
               <Col span={7}>
                 <Additional data={contacts} />
               </Col>
