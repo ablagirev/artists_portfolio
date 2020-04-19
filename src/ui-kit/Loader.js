@@ -35,7 +35,9 @@ const Filter = styled.svg`
 
 const Dots = styled.div`
   filter: url('#gooeyness');
-  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Dot = styled.div`

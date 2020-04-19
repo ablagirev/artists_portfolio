@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { theme } from 'theme'
 
 export const PhotoViewer = ({ data }) => {
-  const { main, profile } = data
-  const [current, setCurrent] = useState(main)
+  const { profile } = data
+  const [current, setCurrent] = useState(profile[0])
 
   const handleClick = (e, profile) => {
     if (window.innerWidth > theme.breakpoint) {
@@ -71,6 +71,10 @@ const ImageWrapper = styled.div`
   height: auto;
   padding: 16px 0 0 0;
 
+  &:first-child {
+    padding: 0;
+  }
+
   &:last-child {
     padding: 16px 0 0 0;
   }
@@ -83,7 +87,7 @@ const ImageWrapper = styled.div`
     padding: 0 24px 0 0;
     height: 334px;
     width: 100%;
-    
+
     &:last-child {
       padding: 0;
     }

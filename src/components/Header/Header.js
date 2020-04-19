@@ -20,10 +20,10 @@ export const Header = () => {
   }, [dispatch])
 
   const {
-    header: { menu, contacts, logo, fetching }
+    header: { menu, contacts, logo, fetching, error }
   } = mapState
 
-  return !fetching ? (
+  return !fetching && !error.message ? (
     <HeaderWrapper>
       <MobileHeaderWrapper>
         <MobileHeaderMainMenu>

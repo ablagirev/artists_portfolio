@@ -1,23 +1,33 @@
-import React from 'react'
-
-import img from '../assets/img/about/About.png'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { BaseAboutTemplate } from 'templates'
+import { Loader } from 'ui-kit'
+import { aboutActions } from 'reducer'
 
-const data = {
-  title: 'Бюро Маши Поповой',
-  text:
-    'Было основано в 2010 году. Создателем агенства является Маша Попова. С 2018 года совместно с Машей начала сотрудничать Инна Попова. Многолетний опыт работы в киноиндустрии и знание кинопроизводства позволяют агенству работать на высоком уровне. Мы представляем интересы наших талантливых актеров и актрис. Верим в совместное, плодотворное сотрудничество и воплощение самых смелых творческих задач.',
-  img,
-  breadcrumbs: {
+import { NotFound } from './NotFound'
+
+export const About = () => {
+  const dispatch = useDispatch()
+  const mapState = useSelector(state => ({
+    fetching: state.about.fetching,
+    error: state.about.error,
+    about: state.about
+  }))
+
+  useEffect(() => {
+    dispatch(aboutActions.getAbout())
+  }, [dispatch])
+
+  const { about, fetching, error } = mapState
+  const breadcrumbs = {
     text: 'Главная',
     url: '/',
     nested: {
       text: 'О нас'
     }
   }
-}
+  const data = { ...about, breadcrumbs }
 
-export const About = () => {
-  return <BaseAboutTemplate data={data} />
+  return error.message ? <NotFound /> : fetching ? <Loader /> : <BaseAboutTemplate data={data} />
 }

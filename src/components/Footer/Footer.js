@@ -15,14 +15,15 @@ export const Footer = ({ mobileShow = false }) => {
 
   useEffect(() => {
     dispatch(footerActions.getFooter())
-  }, [])
+  }, [dispatch])
 
   const {
-    footer: { social, contacts, attachment, additional, designer }
+    footer: { social, contacts, attachment, additional, designer, fetching, error }
   } = mapState
 
-  return (
-    <FooterWrapper mobileShow={mobileShow}>
+  return !fetching && !error.message ? (
+    <div>aaa</div>
+    /*<FooterWrapper mobileShow={mobileShow}>
       <FooterHeading>
         <Heading size="xl" bold>
           Контакты
@@ -51,10 +52,7 @@ export const Footer = ({ mobileShow = false }) => {
               <FlexWrapper>
                 {contacts.map(item => {
                   return (
-                    <a
-                      key={item.id}
-                      href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}
-                    >
+                    <a key={item.id} href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}>
                       <Text>
                         {item.type === 'post' ? 'E' : 'T'}: {item.value}
                       </Text>
@@ -92,7 +90,7 @@ export const Footer = ({ mobileShow = false }) => {
         </Col>
       </Row>
       <Row>
-        <Col span={18}></Col>
+        <Col span={18} />
         <Col span={24} lg={4}>
           <DesignerWrapper>
             <a href={designer.link}>
@@ -102,8 +100,8 @@ export const Footer = ({ mobileShow = false }) => {
         </Col>
         <Col span={1} xl={2} />
       </Row>
-    </FooterWrapper>
-  )
+    </FooterWrapper>*/
+  ) : null
 }
 
 const SocialIcons = styled.div`

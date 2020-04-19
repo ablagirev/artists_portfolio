@@ -41,23 +41,21 @@ export const BaseArtistDetailsTemplate = ({ data }) => {
   }
 
   return (
-    <Layout>
-      <ContentWrapper>
-        <Row>
-          <Col>
-            <Breadcrumbs data={breadcrumbs} />
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={10}>
-            <PhotoViewer data={photo} />
-          </Col>
-          <Col lg={14}>
-            <ArtistInfo data={data} />
-          </Col>
-        </Row>
-      </ContentWrapper>
-    </Layout>
+    <ContentWrapper>
+      <Row>
+        <Col>
+          <Breadcrumbs data={breadcrumbs} />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={10}>
+          <PhotoViewer data={photo} />
+        </Col>
+        <Col lg={14}>
+          <ArtistInfo data={data} />
+        </Col>
+      </Row>
+    </ContentWrapper>
   )
 }
 

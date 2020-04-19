@@ -5,14 +5,13 @@ import { footerActions } from 'reducer/footerReducer'
 
 const getFooter = createLogic({
   type: footerActions.getFooter().type,
-  process({ action: { payload } }, dispatch, done) {
-    // const { data } = payload || {}
+  process(payload, dispatch, done) {
     footerApi
       .getFooter()
       .then(({ data }) => {
         dispatch(footerActions.getFooterSuccess({ data }))
       })
-      .catch(error => dispatch(footerActions.getFooterFail(error)))
+      .catch(error => dispatch(footerActions.getFooterFail({ error })))
       .then(() => done())
   }
 })
