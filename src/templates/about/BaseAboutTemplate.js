@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
 
-import { Layout } from '../../components'
 import { Heading, Spacer, Text, Divider, Breadcrumbs, Icon } from '../../ui-kit'
 import { theme } from '../../theme'
 
-export const BaseAboutTemplate = ({ data }) => {
+export const BaseAboutTemplate = ({ data, background }) => {
   const { general, contacts: contactData, breadcrumbs } = data
   const { title, text, img } = general
 
@@ -49,7 +48,7 @@ export const BaseAboutTemplate = ({ data }) => {
         <SocialIcons>
           {social.map(item => {
             return (
-              <SocialLink href={item.type === 'post' ? `mailto:${item.value}` : item.value} key={item.id}>
+              <SocialLink href={item.type === 'post' ? `mailto:${item.link}` : item.link} key={item.id} target="_blank">
                 <Icon type={item.type} fill={theme.colors.gray.dark} />
               </SocialLink>
             )
@@ -58,10 +57,9 @@ export const BaseAboutTemplate = ({ data }) => {
         <FlexWrapper>
           {contacts.map(item => {
             return (
-              <a key={item.id} href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}>
-                <Text>
-                  {item.type === 'post' ? 'E' : 'T'}: {item.value}
-                </Text>
+              <a key={item.id} href={`tel:${item.value}`}>
+                <Text>{item.name}</Text>
+                <Text>T: {item.value}</Text>
               </a>
             )
           })}
@@ -88,9 +86,36 @@ export const BaseAboutTemplate = ({ data }) => {
           </CustomUl>
         </AdditionalInfoWrapper>
       </MobileContactsWrapper>
+      <BackgroundImgWrapper>
+        <BackgroundImgDesktop>
+          <img src={background.desktop} style={{ maxHeight: '320px' }} />
+        </BackgroundImgDesktop>
+        <BackgroundImgMobile>
+          <img src={background.mobile} style={{ maxHeight: '270px' }} />
+        </BackgroundImgMobile>
+      </BackgroundImgWrapper>
     </Body>
   )
 }
+
+const BackgroundImgWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+`
+
+const BackgroundImgDesktop = styled.div`
+  @media (max-width: ${theme.breakpoint}px) {
+    display: none;
+  }
+`
+const BackgroundImgMobile = styled.div`
+  display: none;
+  @media (max-width: ${theme.breakpoint}px) {
+    display: block;
+  }
+`
 
 const SocialLink = styled.a`
   padding-right: 1em;

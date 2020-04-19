@@ -1,11 +1,9 @@
+/* eslint-disable react/prop-types */
+import iconVideo from 'assets/icons/icon_video.svg'
 import React from 'react'
 import styled from 'styled-components'
-import { Row, Col } from 'antd'
-
-import { MediaItem } from './MediaItem'
-
 import { theme } from 'theme'
-import iconVideo from 'assets/icons/icon_video.svg'
+import { MediaItem } from './MediaItem'
 
 export const Media = ({ data }) => {
   return (
@@ -14,9 +12,11 @@ export const Media = ({ data }) => {
         <img src={iconVideo} />
       </IconWrapper>
       <LinksWrapper>
-        {data.map(({ label, link }, index) => {
-          return <MediaItem key={`media-${index}`} label={label} link={link} />
-        })}
+        {data
+          .sort((a, b) => a.id - b.id)
+          .map(({ label, link, id }, index) => {
+            return <MediaItem key={`media-${index}`} label={label} link={link} />
+          })}
       </LinksWrapper>
     </Wrapper>
   )
