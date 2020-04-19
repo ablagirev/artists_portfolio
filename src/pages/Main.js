@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BaseMainTemplate } from 'templates'
 import { backgroundImgMain } from 'assets/img/background'
 import styled from 'styled-components'
+import { theme } from 'theme'
 
 import { Loader } from 'ui-kit'
 
@@ -44,4 +45,8 @@ const LoaderWrapper = styled.div`
   position: absolute;
   right: 40%;
   bottom: 60%;
+
+  @media (max-width: ${theme.breakpoint}px) {
+    right: 15%;
+  }
 `
