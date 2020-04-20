@@ -138,6 +138,7 @@ const Wrapper = styled.div`
   align-items: center;
   position: relative;
   height: 100%;
+  margin-bottom: 150px;
 `
 
 const WrapperWomen = styled.div`
