@@ -94,7 +94,7 @@ const Grid = styled.div`
 
   @media (max-width: ${theme.breakpoint}px) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
+    grid-gap: 1.1em;
   }
 `
 

@@ -37,7 +37,7 @@ export const BaseMainTemplate = ({ data, background }) => {
             <Tilt className="Tilt" options={imageHoverOptions}>
               <div className="Tilt-inner">
                 <WrapperLink to="/actresses">
-                  <HeadingWomen size="xxl" hover={menOpacity} headingFont>
+                  <HeadingWomen size="xxxl" hover={menOpacity} headingFont>
                     {women.title}
                   </HeadingWomen>
                   <StyledImg src={women.picture} />
@@ -55,7 +55,7 @@ export const BaseMainTemplate = ({ data, background }) => {
               <div className="Tilt-inner">
                 <WrapperLink to="/actors">
                   <StyledImg src={men.picture} />
-                  <HeadingMen size="xxl" hover={womenOpacity} headingFont>
+                  <HeadingMen size="xxxl" hover={womenOpacity} headingFont>
                     {men.title}
                   </HeadingMen>
                 </WrapperLink>
@@ -71,7 +71,7 @@ export const BaseMainTemplate = ({ data, background }) => {
       <BackgroundImgMobile>
         <img src={background.mobile} style={{ maxWidth: '500px' }} />
         <BureauText>
-          <Heading size="xxl" color={theme.colors.white} headingFont>
+          <Heading size="xxxl" color={theme.colors.white} headingFont>
             Бюро
             <br /> Маши <br />
             Поповой
@@ -94,7 +94,7 @@ const StyledImg = styled.img`
 
 const BureauText = styled.div`
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 5%;
 `
 
@@ -156,7 +156,7 @@ const HeadingWomen = styled(Heading)`
   position: absolute;
   top: 50%;
   bottom: 0;
-  left: -6em;
+  left: -170px;
   transition: 1100ms ease-in-out;
 
   ${WrapperWomen}:hover & {
@@ -169,7 +169,7 @@ const HeadingMen = styled(Heading)`
   position: absolute;
   top: 50%;
   bottom: 0;
-  right: -6em;
+  right: -170px;
   transition: 1100ms ease-in-out;
 
   ${WrapperMen}:hover & {

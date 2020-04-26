@@ -7,11 +7,12 @@ import { theme } from '../theme'
 const calcMobSize = {
   xxs: 'xxs',
   xs: 'xs',
-  sm: 'sm',
-  md: 'xs',
+  sm: 'xs',
+  md: 'xxs',
   lg: 'xs',
   xl: 'md',
-  xxl: 'xl'
+  xxl: 'xl',
+  xxxl: 'xxl'
 }
 
 export const Text = ({
@@ -55,7 +56,7 @@ const Wrapper = styled.div`
 `
 
 Text.propTypes = {
-  size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']),
+  size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl']),
   capitalize: PropTypes.bool,
   bold: PropTypes.bool,
   color: PropTypes.string

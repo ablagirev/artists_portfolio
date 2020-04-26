@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { theme } from '../theme'
+import { Text } from './Text'
 
 const renderBreadcrumbs = ({ url, nested, text }) => {
   const data = []
@@ -18,7 +19,9 @@ export const Breadcrumbs = ({ data, style }) => {
     <BreadcrumbWrapper>
       <AntBreadcrumb style={style}>
         {breadcrumbs.map(({ url, text }, index) => (
-          <AntBreadcrumb.Item key={index}>{url ? <Link to={url}>{text}</Link> : text}</AntBreadcrumb.Item>
+          <AntBreadcrumb.Item key={index}>
+            {url ? <CustomLink to={url}>{text}</CustomLink> : <CustomText>{text}</CustomText>}
+          </AntBreadcrumb.Item>
         ))}
       </AntBreadcrumb>
     </BreadcrumbWrapper>
@@ -31,4 +34,12 @@ const BreadcrumbWrapper = styled.div`
   @media (max-width: ${theme.breakpoint}px) {
     padding: 1em 0;
   }
+`
+
+const CustomLink = styled(Link)`
+  font-family: 'Montserrat', sans-serif;
+`
+
+const CustomText = styled(Text)`
+  display: inline-block;
 `

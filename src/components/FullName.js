@@ -10,7 +10,7 @@ export const FullName = ({ data: { fullName } }) => {
     <Row>
       <Col>
         <ColWrapper>
-          <Heading size="md" color={theme.colors.blue.primary}>
+          <Heading size="lg" color={theme.colors.blue.primary}>
             {fullName}
           </Heading>
         </ColWrapper>

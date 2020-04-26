@@ -25,7 +25,7 @@ export const Media = ({ data }) => {
 const Wrapper = styled.div`
   background: none;
   width: 492px;
-  margin: 32px 0 0 0;
+  margin: 24px 0 0 0;
   padding: 0;
   display: block;
 

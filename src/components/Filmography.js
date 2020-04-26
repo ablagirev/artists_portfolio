@@ -61,6 +61,7 @@ const ShowMoreButton = styled.div`
   justify-content: flex-end;
   cursor: pointer;
   margin-top: 1em;
+  margin-right: 1em;
 `
 const ButtonArrow = styled.i`
   width: 6px;

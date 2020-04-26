@@ -26,13 +26,13 @@ export const BaseAboutTemplate = ({ data, background }) => {
             <ImgWrapper>
               <img src={img} />
             </ImgWrapper>
-            <Spacer />
+            <Spacer spacemob={20} />
             <Description>
-              <CustomHeading size="xl" bold headingFont>
+              <CustomHeading size="xxl" headingFont>
                 {title}
               </CustomHeading>
-              <Spacer />
-              <Text size="md">{text}</Text>
+              <Spacer spacemob={20} />
+              <Text size="sm">{text}</Text>
               <Spacer space={32} />
               <Divider width="20%" />
             </Description>

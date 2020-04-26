@@ -60,7 +60,7 @@ const CardWrapper = styled.div`
   }
 
   @media (max-width: ${theme.breakpoint}px) {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
