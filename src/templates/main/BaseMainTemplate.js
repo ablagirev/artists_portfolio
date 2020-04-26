@@ -71,7 +71,7 @@ export const BaseMainTemplate = ({ data, background }) => {
       <BackgroundImgMobile>
         <img src={background.mobile} style={{ maxWidth: '500px' }} />
         <BureauText>
-          <Heading size="xxl" color={theme.colors.white}>
+          <Heading size="xxl" color={theme.colors.white} headingFont>
             Бюро
             <br /> Маши <br />
             Поповой
