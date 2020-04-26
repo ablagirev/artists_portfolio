@@ -78,7 +78,7 @@ const baseConfig = {
     ]
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'utils'), 'node_modules']
   }
 }
 

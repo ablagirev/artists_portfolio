@@ -1,13 +1,19 @@
 /* eslint-disable no-nested-ternary */
-import { backgroundImgDetailed } from 'assets/img/background'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { artistActions } from 'reducer'
-import styled from 'styled-components'
-import { BaseArtistDetailsTemplate } from 'templates'
+
 import { Loader } from 'ui-kit'
+import { artistActions } from 'reducer'
+import { BaseArtistDetailsTemplate } from 'templates'
+import { Header, Footer, Layout } from 'components'
+
+import { backgroundImgDetailed } from 'assets/img/background'
+
+import { loadLayout } from '../../utils/loadLayout'
+
 import { NotFound } from './NotFound'
+
 
 export const ArtistDetails = () => {
   const { id: artistId, type } = useParams()
@@ -17,6 +23,8 @@ export const ArtistDetails = () => {
     const artistDetails = state.artist.details
 
     return {
+      header: state.header,
+      footer: state.footer,
       artistDetails,
       fetching: artistDetails.fetching,
       error: state.artist.error
@@ -27,27 +35,25 @@ export const ArtistDetails = () => {
     desktop: backgroundImgDetailed.desktop,
     mobile: backgroundImgDetailed.mobile
   }
+  const { header, footer, artistDetails, fetching, error } = mapState
 
   useEffect(() => {
+    loadLayout(header.fetching, footer.fetching, dispatch)
     dispatch(artistActions.getArtistDetails({ type, artistId }))
     window.scrollTo({ top: 0 })
-  }, [dispatch, type, artistId])
+  }, [dispatch, type, artistId, header.fetching, footer.fetching])
 
-  const { artistDetails, fetching, error } = mapState
+  const isFetching = fetching || header.fetching || footer.fetching
 
   return error.message ? (
     <NotFound />
-  ) : fetching ? (
-    <LoaderWrapper>
-      <Loader />
-    </LoaderWrapper>
+  ) : isFetching ? (
+    <Loader />
   ) : (
-    <BaseArtistDetailsTemplate data={artistDetails} background={background} />
+    <Layout>
+      <Header data={header} />
+      <BaseArtistDetailsTemplate data={artistDetails} background={background} />
+      <Footer data={footer} />
+    </Layout>
   )
 }
-
-const LoaderWrapper = styled.div`
-  position: absolute;
-  right: 40%;
-  bottom: 60%;
-`

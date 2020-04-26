@@ -1,28 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Col, Row } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Text, Icon, Divider, Spacer } from 'ui-kit'
 import { theme } from 'theme'
-import { headerActions } from 'reducer'
 import { Additional } from './Additional'
 
-export const Header = () => {
-  const dispatch = useDispatch()
-  const mapState = useSelector(state => ({
-    header: state.header
-  }))
+export const Header = ({ data }) => {
+  const { menu, contacts, logo } = data
 
-  useEffect(() => {
-    dispatch(headerActions.getHeader())
-  }, [dispatch])
-
-  const {
-    header: { menu, contacts, logo, fetching, error }
-  } = mapState
-
-  return !fetching && !error.message ? (
+  return (
     <HeaderWrapper>
       <MobileHeaderWrapper>
         <MobileHeaderMainMenu>
@@ -100,7 +87,7 @@ export const Header = () => {
         </Row>
       </DesktopHeaderWrapper>
     </HeaderWrapper>
-  ) : null
+  )
 }
 
 const MobileMenuLinkWrapper = styled.div`

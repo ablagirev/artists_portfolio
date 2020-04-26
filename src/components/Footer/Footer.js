@@ -1,29 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Col, Row } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { Text, Icon, Heading } from 'ui-kit'
 import { theme } from 'theme'
-import { footerActions } from 'reducer'
 
 // eslint-disable-next-line react/prop-types
-export const Footer = ({ mobileShow = false }) => {
-  const dispatch = useDispatch()
-  const mapState = useSelector(state => ({
-    footer: state.footer
-  }))
+export const Footer = ({ data }) => {
+  const { social, contacts, attachment, additional, designer } = data
 
-  useEffect(() => {
-    dispatch(footerActions.getFooter())
-  }, [dispatch])
-
-  const {
-    footer: { social, contacts, attachment, additional, designer, fetching, error }
-  } = mapState
-
-  return !fetching && !error.message ? (
-    <FooterWrapper mobileShow={mobileShow}>
+  return (
+    <FooterWrapper>
       <FooterHeading>
         <Heading size="xl" bold>
           Контакты
@@ -103,7 +90,7 @@ export const Footer = ({ mobileShow = false }) => {
         <Col span={1} xl={2} />
       </Row>
     </FooterWrapper>
-  ) : null
+  )
 }
 
 const SocialIcons = styled.div`
@@ -118,7 +105,7 @@ const FooterWrapper = styled.div`
   bottom: 0;
   flex: 0 0 auto;
   @media (max-width: ${theme.breakpoint}px) {
-    display: ${({ mobileShow }) => (mobileShow ? 'block' : 'none')};
+    display: none;
     padding: 1em 1em 49px 1em;
     min-height: 100px;
   }
