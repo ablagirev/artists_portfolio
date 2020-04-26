@@ -39,7 +39,7 @@ export const ArtistList = () => {
     loadLayout(header.fetching, footer.fetching, dispatch)
     dispatch(artistActions.getArtistList({ type }))
     window.scrollTo({ top: 0 })
-  }, [dispatch])
+  }, [dispatch, type])
 
   const isFetching = fetching || header.fetching || footer.fetching
 
