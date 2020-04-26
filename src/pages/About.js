@@ -32,7 +32,7 @@ export const About = () => {
   useEffect(() => {
     loadLayout(header.fetching, footer.fetching, dispatch)
     dispatch(aboutActions.getAbout())
-  }, [dispatch, footer.fetching, header.fetching])
+  }, [dispatch])
 
   const breadcrumbs = {
     text: 'Главная',
