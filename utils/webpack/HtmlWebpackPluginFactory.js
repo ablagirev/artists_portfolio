@@ -35,6 +35,7 @@ export const createHtmlWebpackPlugin = (mode, options) => {
   let baseOptions = {
     inject: false,
     template: htmlWebpackTemplate,
+    title: 'Marias Bureau',
     mobile: true,
     links,
     ...options

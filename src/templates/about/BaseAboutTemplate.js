@@ -15,7 +15,7 @@ export const BaseAboutTemplate = ({ data, background }) => {
       <Row>
         <Col span={0} lg={2} />
         <Col>
-          <Breadcrumbs data={breadcrumbs} style={{ padding: '0 1em' }} />
+          <Breadcrumbs data={breadcrumbs} />
         </Col>
         <Col span={0} xl={2} />
       </Row>
@@ -28,7 +28,7 @@ export const BaseAboutTemplate = ({ data, background }) => {
             </ImgWrapper>
             <Spacer />
             <Description>
-              <CustomHeading size="xl" bold>
+              <CustomHeading size="xl" bold headingFont>
                 {title}
               </CustomHeading>
               <Spacer />
