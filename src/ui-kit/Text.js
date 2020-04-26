@@ -20,7 +20,8 @@ export const Text = ({
   color = theme.colors.gray.primary,
   size = 'xs',
   capitalize,
-  bold
+  bold,
+  headingFont
 }) => {
   return (
     <Wrapper
@@ -30,6 +31,7 @@ export const Text = ({
       className={className}
       capitalize={capitalize}
       color={color}
+      headingFont={headingFont}
     >
       {children}
     </Wrapper>
@@ -42,10 +44,10 @@ const Wrapper = styled.div`
   font-weight: ${({ bold }) => (bold ? 700 : 400)};
   color: ${({ color }) => color};
   text-transform: ${({ capitalize }) => (capitalize ? 'uppercase' : null)};
-  font-family: 'Proxima Nova', 'Arial', 'Helvetica', sans-serif;
+  font-family: ${({ headingFont }) => (headingFont ? "'Playfair Display', serif" : "'Montserrat', sans-serif")};
 
   & * {
-    font-family: 'Proxima Nova', 'Arial', 'Helvetica', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   @media (max-width: ${theme.breakpoint}px) {
     font-size: ${({ sizemob }) => theme.font_sizes[sizemob]}px;

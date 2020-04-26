@@ -1,9 +1,14 @@
+import 'firebase/analytics'
+import firebase from 'firebase/app'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-
-import { configureStore } from './configureStore'
 import { App } from './App'
+import { configureStore } from './configureStore'
+import { firebaseConfig } from './firebaseConfig'
+
+firebase.initializeApp(firebaseConfig)
+firebase.analytics()
 
 const store = configureStore()
 

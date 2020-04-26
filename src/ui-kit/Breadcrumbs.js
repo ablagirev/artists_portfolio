@@ -18,9 +18,7 @@ export const Breadcrumbs = ({ data, style }) => {
     <BreadcrumbWrapper>
       <AntBreadcrumb style={style}>
         {breadcrumbs.map(({ url, text }, index) => (
-          <AntBreadcrumb.Item key={index}>
-            {url ? <Link to={url}>{text}</Link> : text}
-          </AntBreadcrumb.Item>
+          <AntBreadcrumb.Item key={index}>{url ? <Link to={url}>{text}</Link> : text}</AntBreadcrumb.Item>
         ))}
       </AntBreadcrumb>
     </BreadcrumbWrapper>

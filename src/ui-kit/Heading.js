@@ -11,11 +11,12 @@ export const Heading = ({
   color = theme.colors.blue.primary,
   size = 'lg',
   capitalize,
-  bold
+  bold,
+  headingFont
 }) => {
   return (
     <div className={className}>
-      <Text size={size} color={color} capitalize={capitalize} bold={bold}>
+      <Text size={size} color={color} capitalize={capitalize} bold={bold} headingFont={headingFont}>
         {children}
       </Text>
     </div>

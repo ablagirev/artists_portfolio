@@ -24,7 +24,7 @@ export const Header = ({ data }) => {
               return (
                 (item.type === 'cell' || item.type === 'post') && (
                   <Col span={2} key={index}>
-                    <a href={item.type === 'post' ? `mailto:${item.value}` : `tel:${item.value}`}>
+                    <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
                   </Col>

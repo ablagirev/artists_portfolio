@@ -6,6 +6,7 @@ import Tilt from 'react-tilt'
 
 import { Heading, Spacer } from 'ui-kit'
 import { theme } from 'theme'
+import { Link } from 'react-router-dom'
 
 const imageHoverOptions = {
   reverse: false,
@@ -35,8 +36,8 @@ export const BaseMainTemplate = ({ data, background }) => {
           >
             <Tilt className="Tilt" options={imageHoverOptions}>
               <div className="Tilt-inner">
-                <WrapperLink href="/actresses">
-                  <HeadingWomen size="xxl" hover={menOpacity}>
+                <WrapperLink to="/actresses">
+                  <HeadingWomen size="xxl" hover={menOpacity} headingFont>
                     {women.title}
                   </HeadingWomen>
                   <StyledImg src={women.picture} />
@@ -52,9 +53,9 @@ export const BaseMainTemplate = ({ data, background }) => {
           >
             <Tilt className="Tilt" options={imageHoverOptions}>
               <div className="Tilt-inner">
-                <WrapperLink href="/actors">
+                <WrapperLink to="/actors">
                   <StyledImg src={men.picture} />
-                  <HeadingMen size="xxl" hover={womenOpacity}>
+                  <HeadingMen size="xxl" hover={womenOpacity} headingFont>
                     {men.title}
                   </HeadingMen>
                 </WrapperLink>
@@ -70,7 +71,7 @@ export const BaseMainTemplate = ({ data, background }) => {
       <BackgroundImgMobile>
         <img src={background.mobile} style={{ maxWidth: '500px' }} />
         <BureauText>
-          <Heading size="xxl" color={theme.colors.white}>
+          <Heading size="xxl" color={theme.colors.white} headingFont>
             Бюро
             <br /> Маши <br />
             Поповой
@@ -177,6 +178,6 @@ const HeadingMen = styled(Heading)`
   }
 `
 
-const WrapperLink = styled.a`
+const WrapperLink = styled(Link)`
   position: relative;
 `
