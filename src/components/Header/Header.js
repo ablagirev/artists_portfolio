@@ -34,7 +34,6 @@ export const Header = () => {
             </Col>
             <Col span={8} />
             {contacts.map((item, index) => {
-              console.log(item)
               return (
                 (item.type === 'cell' || item.type === 'post') && (
                   <Col span={2} key={index}>
