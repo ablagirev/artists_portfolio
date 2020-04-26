@@ -5,7 +5,7 @@ const namespace = 'header'
 const initialState = {
   fetching: true,
   contacts: [],
-  logo: {},
+  logo: { img: { desktop: '', mobile: '' } },
   menu: [],
   error: {}
 }

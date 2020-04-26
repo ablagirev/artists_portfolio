@@ -7,7 +7,7 @@ import { Loader } from 'ui-kit'
 import { theme } from 'theme'
 import { mainActions } from 'reducer'
 import { BaseMainTemplate } from 'templates'
-import { Header, Footer,Layout } from 'components'
+import { Header, Footer, Layout } from 'components'
 
 import { backgroundImgMain } from 'assets/img/background'
 
@@ -33,7 +33,7 @@ export const Main = () => {
   useEffect(() => {
     loadLayout(header.fetching, footer.fetching, dispatch)
     dispatch(mainActions.getMain())
-  }, [dispatch, footer.fetching, header.fetching])
+  }, [dispatch])
 
   return error.message ? (
     <NotFound />

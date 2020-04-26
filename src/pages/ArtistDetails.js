@@ -14,7 +14,6 @@ import { loadLayout } from '../../utils/loadLayout'
 
 import { NotFound } from './NotFound'
 
-
 export const ArtistDetails = () => {
   const { id: artistId, type } = useParams()
 
@@ -41,7 +40,7 @@ export const ArtistDetails = () => {
     loadLayout(header.fetching, footer.fetching, dispatch)
     dispatch(artistActions.getArtistDetails({ type, artistId }))
     window.scrollTo({ top: 0 })
-  }, [dispatch, type, artistId, header.fetching, footer.fetching])
+  }, [dispatch, type, artistId])
 
   const isFetching = fetching || header.fetching || footer.fetching
 
