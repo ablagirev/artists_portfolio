@@ -5,6 +5,7 @@ import { Col, Row } from 'antd'
 import { Text, Icon, Divider, Spacer } from 'ui-kit'
 import { theme } from 'theme'
 import { Additional } from './Additional'
+import { Link } from 'react-router-dom'
 
 export const Header = ({ data }) => {
   const { menu, contacts, logo } = data
@@ -15,7 +16,7 @@ export const Header = ({ data }) => {
         <MobileHeaderMainMenu>
           <Row>
             <Col span={12}>
-              <MobileLogo href={logo.link}>
+              <MobileLogo to={logo.link}>
                 <img src={logo.img.mobile} alt={logo.value} />
               </MobileLogo>
             </Col>
@@ -39,9 +40,9 @@ export const Header = ({ data }) => {
               return (
                 <Col span={8} key={item.id}>
                   <MobileMenuLinkWrapper>
-                    <a href={item.link}>
+                    <Link to={item.link}>
                       <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
-                    </a>
+                    </Link>
                   </MobileMenuLinkWrapper>
                 </Col>
               )
@@ -58,9 +59,9 @@ export const Header = ({ data }) => {
               {menu.map(item => {
                 return (
                   <Col span={4} key={item.id}>
-                    <a href={item.link}>
+                    <Link to={item.link}>
                       <Text>{item.value.toUpperCase()}</Text>
-                    </a>
+                    </Link>
                   </Col>
                 )
               })}
@@ -69,7 +70,7 @@ export const Header = ({ data }) => {
             <Divider />
           </Col>
           <Col span={4}>
-            <DesktopLogo href={logo.link}>
+            <DesktopLogo to={logo.link}>
               <img src={logo.img.desktop} alt={logo.value} />
             </DesktopLogo>
           </Col>
@@ -138,7 +139,7 @@ const DesktopHeaderWrapper = styled.div`
   }
 `
 
-const DesktopLogo = styled.a`
+const DesktopLogo = styled(Link)`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -155,7 +156,7 @@ const CustomRow = styled(Row)`
   width: 100%;
 `
 
-const MobileLogo = styled.a`
+const MobileLogo = styled(Link)`
   img {
     width: 150px;
     height: 26px;
