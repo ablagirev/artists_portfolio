@@ -71,8 +71,8 @@ const ImageWrapper = styled.div`
   height: auto;
   padding: 16px 0 0 0;
 
-  &:last-child {
-    padding: 16px 0 0 0;
+  &:first-child {
+    padding-top: 0;
   }
 
   & img {
@@ -83,10 +83,6 @@ const ImageWrapper = styled.div`
     padding: 0 24px 0 0;
     height: 334px;
     width: 100%;
-
-    &:last-child {
-      padding: 0;
-    }
 
     & img {
       width: auto;
