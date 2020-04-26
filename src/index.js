@@ -1,8 +1,21 @@
+import 'firebase/analytics'
+import firebase from 'firebase/app'
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { App } from './App'
+import { configureStore } from './configureStore'
+import { firebaseConfig } from './firebaseConfig'
 
-import { App } from 'client/App'
+firebase.initializeApp(firebaseConfig)
+firebase.analytics()
 
-const APP_ID = process.env.APP_ID
+const store = configureStore()
 
-render(<App />, document.getElementById(APP_ID))
+const appId = process.env.APP_ID || 'root'
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById(appId)
+)

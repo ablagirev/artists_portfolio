@@ -1,0 +1,5 @@
+export { artistLogic } from './artistLogic'
+export { headerLogic } from './headerLogic'
+export { footerLogic } from './footerLogic'
+export { aboutLogic } from './aboutLogic'
+export { mainLogic } from './mainLogic'

@@ -1,0 +1,5 @@
+export { About } from './About'
+export { Main } from './Main'
+export { ArtistList } from './ArtistList'
+export { ArtistDetails } from './ArtistDetails'
+export { NotFound } from './NotFound'

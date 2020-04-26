@@ -1,0 +1,5 @@
+export { artistActions, artistReducer } from './artistReducer'
+export { headerActions, headerReducer } from './headerReducer'
+export { footerActions, footerReducer } from './footerReducer'
+export { aboutActions, aboutReducer } from './aboutReducer'
+export { mainActions, mainReducer } from './mainReducer'

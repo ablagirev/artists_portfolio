@@ -1,0 +1,5 @@
+export { BaseAboutTemplate } from './about/BaseAboutTemplate'
+export { BaseArtistDetailsTemplate } from './artist-details/BaseArtistDetailsTemplate'
+export { BaseArtistListTemplate } from './artist-list/BaseArtistListTemplate'
+export { BaseMainTemplate } from './main/BaseMainTemplate'
+export { BaseNotFoundTemplate } from './not-found/BaseNotFoundTemplate'
