@@ -3,7 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { theme } from 'theme'
-import { Icon } from 'ui-kit/Icon'
+import { Icon, Text, Spacer } from 'ui-kit'
+import { Popover } from 'antd'
 
 export const Additional = ({ data }) => (
   <Contacts>
@@ -15,10 +16,19 @@ export const Additional = ({ data }) => (
           </a>
         )
       } else if (item.type === 'cell') {
+        const phones = item.phones.map((contact, id) => {
+          return (
+            <PhonesWrapper key={contact.cell}>
+              <Text>{contact.name}</Text>
+              <Text>{contact.cell}</Text>
+              {id === 0 ? <Spacer space={8} /> : null}
+            </PhonesWrapper>
+          )
+        })
         return (
-          <a href={`tel:${item.link}`} key={item.id}>
+          <Popover content={phones} key={item.id} trigger="click">
             <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-          </a>
+          </Popover>
         )
       } else {
         return (
@@ -39,4 +49,10 @@ const Contacts = styled.div`
 
 const CustomIcon = styled(Icon)`
   margin-left: 1em;
+  cursor: pointer;
+`
+
+const PhonesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `
