@@ -7,8 +7,9 @@ import { theme } from 'theme'
 
 export const Filmography = ({ data: { filmography } }) => {
   const { label, value } = filmography
-  const shownMovies = value.slice(0, 10)
-  const hiddenMovies = value.slice(10)
+  const sortedMovies = value.sort((current, next) => next.year - current.year)
+  const shownMovies = sortedMovies.slice(0, 10)
+  const hiddenMovies = sortedMovies.slice(10)
   const [opened, setOpened] = useState(false)
 
   const renderFilmography = data => {
