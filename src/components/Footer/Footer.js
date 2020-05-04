@@ -42,10 +42,10 @@ export const Footer = ({ data }) => {
               <FlexWrapper>
                 {contacts.map(item => {
                   return (
-                    <a key={item.id} href={`tel:${item.value}`} target="_blank">
+                    <div key={item.id}>
                       <Text>{item.name}</Text>
                       <Text>T: {item.value}</Text>
-                    </a>
+                    </div>
                   )
                 })}
               </FlexWrapper>

@@ -1,11 +1,10 @@
+import { Col, Row, Popover } from 'antd'
 import React from 'react'
-import styled from 'styled-components'
-import { Col, Row } from 'antd'
-
-import { Text, Icon, Divider, Spacer } from 'ui-kit'
-import { theme } from 'theme'
-import { Additional } from './Additional'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { theme } from 'theme'
+import { Divider, Icon, Spacer, Text } from 'ui-kit'
+import { Additional } from './Additional'
 
 export const Header = ({ data }) => {
   const { menu, contacts, logo } = data
@@ -22,15 +21,35 @@ export const Header = ({ data }) => {
             </Col>
             <Col span={8} />
             {contacts.map((item, index) => {
-              return (
-                (item.type === 'cell' || item.type === 'post') && (
+              if (item.type === 'cell') {
+                const phones = item.phones.map((contact, id) => {
+                  return (
+                    <PhonesWrapper key={contact.cell}>
+                      <Text>{contact.name}</Text>
+                      <a href={`tel:${contact.cell}`}>
+                        <Text>{contact.cell}</Text>
+                      </a>
+                      {id === 0 ? <Spacer space={8} /> : null}
+                    </PhonesWrapper>
+                  )
+                })
+                return (
+                  <Popover content={phones} key={item.id} trigger="click">
+                    <Col span={2}>
+                      <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                    </Col>
+                  </Popover>
+                )
+              }
+              if (item.type === 'post') {
+                return (
                   <Col span={2} key={index}>
                     <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
                   </Col>
                 )
-              )
+              }
             })}
           </Row>
         </MobileHeaderMainMenu>
@@ -161,4 +180,14 @@ const MobileLogo = styled(Link)`
     width: 150px;
     height: 26px;
   }
+`
+
+const CustomIcon = styled(Icon)`
+  margin-left: 1em;
+  cursor: pointer;
+`
+
+const PhonesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `
