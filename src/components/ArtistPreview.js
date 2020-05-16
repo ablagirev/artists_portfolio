@@ -4,9 +4,11 @@ import { Link, useParams } from 'react-router-dom'
 
 import { Text } from 'ui-kit'
 import { theme } from 'theme'
+import { getAgeFromBirthDate } from '../helpers'
 
 export const ArtistPreview = ({ data }) => {
-  const { id, firstName, lastName, age, photo } = data
+  const { id, firstName, lastName, birth, photo } = data
+  const age = getAgeFromBirthDate(birth)
   const { type } = useParams()
 
   const path = `/${type}/${id}`

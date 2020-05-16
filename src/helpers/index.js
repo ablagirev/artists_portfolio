@@ -1,0 +1,1 @@
+export { getAgeFromBirthDate } from './getAgeFromBirthDate'

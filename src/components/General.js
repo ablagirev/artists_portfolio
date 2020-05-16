@@ -4,12 +4,14 @@ import { Row, Col } from 'antd'
 
 import { Text } from 'ui-kit'
 import { theme } from 'theme'
+import { getAgeFromBirthDate } from '../helpers'
 
 export const General = ({ data }) => {
   return (
     <RowWrapper>
       {Object.keys(data).map(key => {
-        const { label, value } = data[key]
+        const { label, birth } = data[key]
+        const age = getAgeFromBirthDate(birth)
 
         return (
           <Row key={key}>
@@ -17,7 +19,7 @@ export const General = ({ data }) => {
               <Text color={theme.colors.blue.primary}> {label}:</Text>
             </Col>
             <Col span={14}>
-              <Text>{value}</Text>
+              <Text>{age}</Text>
             </Col>
           </Row>
         )
