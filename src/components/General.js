@@ -10,7 +10,7 @@ export const General = ({ data }) => {
   return (
     <RowWrapper>
       {Object.keys(data).map(key => {
-        const { label, birth } = data[key]
+        const { label, value, birth } = data[key]
         const age = getAgeFromBirthDate(birth)
 
         return (
@@ -19,7 +19,7 @@ export const General = ({ data }) => {
               <Text color={theme.colors.blue.primary}> {label}:</Text>
             </Col>
             <Col span={14}>
-              <Text>{age}</Text>
+              <Text>{age ? age : value}</Text>
             </Col>
           </Row>
         )
