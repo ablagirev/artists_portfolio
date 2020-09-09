@@ -9,6 +9,12 @@ import { Additional } from './Additional'
 export const Header = ({ data }) => {
   const { menu, contacts, logo } = data
 
+  const customColStyle = { 
+    display: "flex", 
+    justifyContent: "center",
+    alignItems: "center"
+  };
+
   return (
     <HeaderWrapper>
       <MobileHeaderWrapper>
@@ -19,7 +25,7 @@ export const Header = ({ data }) => {
                 <img src={logo.img.mobile} alt={logo.value} />
               </MobileLogo>
             </Col>
-            <Col span={8} />
+            <Col span={6} />
             {contacts.map((item, index) => {
               if (item.type === 'cell') {
                 const phones = item.phones.map((contact, id) => {
@@ -35,7 +41,7 @@ export const Header = ({ data }) => {
                 })
                 return (
                   <Popover content={phones} key={item.id} trigger="click">
-                    <Col span={2}>
+                    <Col span={3} style={customColStyle}>
                       <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
                     </Col>
                   </Popover>
@@ -43,7 +49,7 @@ export const Header = ({ data }) => {
               }
               if (item.type === 'post') {
                 return (
-                  <Col span={2} key={index}>
+                  <Col span={3} key={index} style={customColStyle}>
                     <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
                     </a>
@@ -69,7 +75,6 @@ export const Header = ({ data }) => {
           </CustomRow>
         </MobileFixedMenu>
       </MobileHeaderWrapper>
-
       <DesktopHeaderWrapper>
         <Row>
           <Col span={10}>
@@ -77,11 +82,11 @@ export const Header = ({ data }) => {
             <CustomRow>
               {menu.map(item => {
                 return (
-                  <Col span={4} key={item.id}>
+                  <CustomLinkCol key={item.id}>
                     <Link to={item.link}>
                       <Text>{item.value.toUpperCase()}</Text>
                     </Link>
-                  </Col>
+                  </CustomLinkCol>
                 )
               })}
             </CustomRow>
@@ -163,7 +168,6 @@ const DesktopLogo = styled(Link)`
   display: flex;
   justify-content: center;
   min-width: 165px;
-
   img {
     width: 100%;
     max-width: 200px;
@@ -175,6 +179,10 @@ const CustomRow = styled(Row)`
   width: 100%;
 `
 
+const CustomLinkCol = styled.div`
+  margin-right: 5%;
+`
+
 const MobileLogo = styled(Link)`
   img {
     width: 150px;
@@ -183,7 +191,6 @@ const MobileLogo = styled(Link)`
 `
 
 const CustomIcon = styled(Icon)`
-  margin-left: 1em;
   cursor: pointer;
 `
 
@@ -191,3 +198,5 @@ const PhonesWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
+
+
