@@ -94,6 +94,7 @@ export const Footer = ({ data }) => {
 }
 
 const SocialIcons = styled.div`
+  padding-top: 5px;
   @media (max-width: ${theme.breakpoint}px) {
     padding-bottom: 16px;
   }
@@ -168,5 +169,6 @@ const DesignerText = styled(Text)`
 `
 
 const DesignerWrapper = styled.div`
+  width: 200px;
   float: right;
 `
