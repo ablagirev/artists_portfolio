@@ -26,9 +26,6 @@ export const Icon = ({ type, fill, stroke, fileType, size, ...rest }) => {
 }
 
 const IconWrapper = styled.i`
-  display: grid;
-  justify-items: center;
-
   &:focus {
     outline: none;
   }

@@ -9,12 +9,6 @@ import { Additional } from './Additional'
 export const Header = ({ data }) => {
   const { menu, contacts, logo } = data
 
-  const customColStyle = { 
-    display: "flex", 
-    justifyContent: "center",
-    alignItems: "center"
-  };
-
   return (
     <HeaderWrapper>
       <MobileHeaderWrapper>
@@ -41,19 +35,19 @@ export const Header = ({ data }) => {
                 })
                 return (
                   <Popover content={phones} key={item.id} trigger="click">
-                    <Col span={3} style={customColStyle}>
+                    <CustomIconCol span={3}>
                       <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                    </Col>
+                    </CustomIconCol>
                   </Popover>
                 )
               }
               if (item.type === 'post') {
                 return (
-                  <Col span={3} key={index} style={customColStyle}>
-                    <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
+                  <CustomIconCol span={3} key={index}>
+                    <CustomPostLink href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
                       <Icon type={item.type} fill={theme.colors.gray.dark} />
-                    </a>
-                  </Col>
+                    </CustomPostLink>
+                  </CustomIconCol>
                 )
               }
             })}
@@ -114,6 +108,7 @@ export const Header = ({ data }) => {
     </HeaderWrapper>
   )
 }
+
 
 const MobileMenuLinkWrapper = styled.div`
   display: flex;
@@ -191,12 +186,21 @@ const MobileLogo = styled(Link)`
 `
 
 const CustomIcon = styled(Icon)`
+  height: 20px;
   cursor: pointer;
+`
+
+const CustomPostLink = styled.a`
+  height: 20px;
+`
+
+const CustomIconCol = styled(Col)`
+  display: flex;
+  align-items: center;
 `
 
 const PhonesWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 
