@@ -14,43 +14,43 @@ export const Header = ({ data }) => {
       <MobileHeaderWrapper>
         <MobileHeaderMainMenu>
           <Row>
-            <Col span={12}>
+            <Col span={20}>
               <MobileLogo to={logo.link}>
                 <img src={logo.img.mobile} alt={logo.value} />
               </MobileLogo>
             </Col>
-            <Col span={6} />
-            {contacts.map((item, index) => {
-              if (item.type === 'cell') {
-                const phones = item.phones.map((contact, id) => {
-                  return (
-                    <PhonesWrapper key={contact.cell}>
-                      <Text>{contact.name}</Text>
-                      <a href={`tel:${contact.cell}`}>
-                        <Text>{contact.cell}</Text>
-                      </a>
-                      {id === 0 ? <Spacer space={8} /> : null}
-                    </PhonesWrapper>
-                  )
-                })
-                return (
-                  <Popover content={phones} key={item.id} trigger="click">
-                    <CustomIconCol span={3}>
-                      <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                    </CustomIconCol>
-                  </Popover>
-                )
-              }
-              if (item.type === 'post') {
-                return (
-                  <CustomIconCol span={3} key={index}>
-                    <CustomPostLink href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
-                      <Icon type={item.type} fill={theme.colors.gray.dark} />
-                    </CustomPostLink>
-                  </CustomIconCol>
-                )
-              }
-            })}
+            <Col span={4}>
+              <IconsWrapper>
+                {contacts.map((item, index) => {
+                  if (item.type === 'cell') {
+                    const phones = item.phones.map((contact, id) => {
+                      return (
+                        // Иногда появляется warning prop key
+                        <PhonesWrapper key={contact.cell}>
+                          <Text>{contact.name}</Text>
+                          <a href={`tel:${contact.cell}`}>
+                            <Text>{contact.cell}</Text>
+                          </a>
+                          {id === 0 ? <Spacer space={8} /> : null}
+                        </PhonesWrapper>
+                      )
+                    })
+                    return (
+                      <Popover content={phones} key={item.id} trigger="click">
+                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                      </Popover>
+                    )
+                  }
+                  if (item.type === 'post') {
+                    return (
+                      <CustomPostLink href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
+                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                      </CustomPostLink>
+                    )
+                  }
+                })}
+              </IconsWrapper>
+            </Col>
           </Row>
         </MobileHeaderMainMenu>
         <MobileFixedMenu>
@@ -186,6 +186,7 @@ const MobileLogo = styled(Link)`
 `
 
 const CustomIcon = styled(Icon)`
+  margin-left: 10px;
   height: 20px;
   cursor: pointer;
 `
@@ -194,13 +195,14 @@ const CustomPostLink = styled.a`
   height: 20px;
 `
 
-const CustomIconCol = styled(Col)`
+const IconsWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 `
 
 const PhonesWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-
