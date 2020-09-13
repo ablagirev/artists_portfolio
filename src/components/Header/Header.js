@@ -76,11 +76,11 @@ export const Header = ({ data }) => {
             <CustomRow>
               {menu.map(item => {
                 return (
-                  <CustomLinkCol key={item.id}>
+                  <LinkItem key={item.id}>
                     <Link to={item.link}>
                       <Text>{item.value.toUpperCase()}</Text>
                     </Link>
-                  </CustomLinkCol>
+                  </LinkItem>
                 )
               })}
             </CustomRow>
@@ -141,6 +141,7 @@ const MobileHeaderMainMenu = styled.div`
 const HeaderWrapper = styled.div`
   z-index: 1;
 `
+
 const MobileHeaderWrapper = styled.div`
   display: none;
   @media (max-width: ${theme.breakpoint}px) {
@@ -174,7 +175,7 @@ const CustomRow = styled(Row)`
   width: 100%;
 `
 
-const CustomLinkCol = styled.div`
+const LinkItem = styled.div`
   margin-right: 5%;
 `
 
