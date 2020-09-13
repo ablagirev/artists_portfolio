@@ -37,15 +37,19 @@ export const Header = ({ data }) => {
                     })
                     return (
                       <Popover content={phones} key={item.id} trigger="click">
-                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
+                        <IconItemWrapper>
+                          <Icon type={item.type} fill={theme.colors.gray.dark} />
+                        </IconItemWrapper>
                       </Popover>
                     )
                   }
                   if (item.type === 'post') {
                     return (
-                      <CustomPostLink href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
-                        <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                      </CustomPostLink>
+                      <IconItemWrapper>
+                        <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
+                          <Icon type={item.type} fill={theme.colors.gray.dark} />
+                        </a>
+                      </IconItemWrapper>
                     )
                   }
                 })}
@@ -54,7 +58,7 @@ export const Header = ({ data }) => {
           </Row>
         </MobileHeaderMainMenu>
         <MobileFixedMenu>
-          <CustomRow>
+          <Row>
             {menu.map(item => {
               return (
                 <Col span={8} key={item.id}>
@@ -66,14 +70,14 @@ export const Header = ({ data }) => {
                 </Col>
               )
             })}
-          </CustomRow>
+          </Row>
         </MobileFixedMenu>
       </MobileHeaderWrapper>
       <DesktopHeaderWrapper>
         <Row>
           <Col span={10}>
             <Spacer space={10} />
-            <CustomRow>
+            <Row>
               {menu.map(item => {
                 return (
                   <LinkItem key={item.id}>
@@ -83,7 +87,7 @@ export const Header = ({ data }) => {
                   </LinkItem>
                 )
               })}
-            </CustomRow>
+            </Row>
             <Spacer space={16} />
             <Divider />
           </Col>
@@ -94,12 +98,12 @@ export const Header = ({ data }) => {
           </Col>
           <Col span={10}>
             <Spacer space={10} />
-            <CustomRow>
+            <Row>
               <Col span={17} />
               <Col span={7}>
                 <Additional data={contacts} />
               </Col>
-            </CustomRow>
+            </Row>
             <Spacer space={16} />
             <Divider />
           </Col>
@@ -108,7 +112,6 @@ export const Header = ({ data }) => {
     </HeaderWrapper>
   )
 }
-
 
 const MobileMenuLinkWrapper = styled.div`
   display: flex;
@@ -170,11 +173,6 @@ const DesktopLogo = styled(Link)`
   }
 `
 
-const CustomRow = styled(Row)`
-  line-height: 20px;
-  width: 100%;
-`
-
 const LinkItem = styled.div`
   margin-right: 5%;
 `
@@ -185,22 +183,13 @@ const MobileLogo = styled(Link)`
     height: 26px;
   }
 `
-
-const CustomIcon = styled(Icon)`
-  margin-left: 10px;
-  height: 20px;
-  cursor: pointer;
-`
-
-const CustomPostLink = styled.a`
-  height: 20px;
+const IconItemWrapper = styled.div`
+  margin-left: 1em;
 `
 
 const IconsWrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  height: 100%;
 `
 
 const PhonesWrapper = styled.div`
