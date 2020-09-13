@@ -185,6 +185,7 @@ const MobileLogo = styled(Link)`
 `
 const IconItemWrapper = styled.div`
   margin-left: 1em;
+  cursor: pointer;
 `
 
 const IconsWrapper = styled.div`
