@@ -79,22 +79,22 @@ export const Footer = ({ data }) => {
         </Col>
       </Row>
       <Row>
-        <Col span={18} />
-        <Col span={24} lg={4}>
+        <Col span={17} xl={16} />
+        <Col span={6}  >  
           <DesignerWrapper>
             <a href={designer.link} target="_blank">
               <DesignerText color={theme.colors.gray.light}>{designer.value}</DesignerText>
             </a>
           </DesignerWrapper>
         </Col>
-        <Col span={1} xl={2} />
+        <Col span={1} xl={2} /> 
       </Row>
     </FooterWrapper>
   )
 }
 
+
 const SocialIcons = styled.div`
-  padding-top: 5px;
   @media (max-width: ${theme.breakpoint}px) {
     padding-bottom: 16px;
   }
@@ -169,6 +169,5 @@ const DesignerText = styled(Text)`
 `
 
 const DesignerWrapper = styled.div`
-  width: 200px;
   float: right;
 `
