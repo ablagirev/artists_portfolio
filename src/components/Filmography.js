@@ -13,6 +13,7 @@ export const Filmography = ({ data: { filmography } }) => {
   const [opened, setOpened] = useState(false)
 
   const renderFilmography = data => {
+    debugger;
     return data.map(({ year, name, role: { name: roleName, main }, director }, index) => {
       const role = main ? `${roleName} - главная роль` : roleName
 

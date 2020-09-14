@@ -7,6 +7,7 @@ import { theme } from 'theme'
 
 export const Skills = ({ data: { skills } }) => {
   const { label, value } = skills
+  debugger
   const renderSkills = data => {
     return data.map(({ category, value }) => {
       return (
@@ -26,14 +27,19 @@ export const Skills = ({ data: { skills } }) => {
     })
   }
   return (
-    <RowWrapper>
-      <Row>
-        <Col span={24}>
-          <Text color={theme.colors.blue.primary}>{label}</Text>
-        </Col>
-        <Col span={24}>{renderSkills(value)}</Col>
-      </Row>
-    </RowWrapper>
+    <>
+      {value && value.length &&
+        <RowWrapper>
+          <Row>
+            <Col span={24}>
+              <Text color={theme.colors.blue.primary}>{label}</Text>
+            </Col>
+            <Col span={24}>
+              {renderSkills(value)}
+            </Col>
+          </Row>
+        </RowWrapper>}
+    </>
   )
 }
 

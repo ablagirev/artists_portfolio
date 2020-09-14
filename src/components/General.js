@@ -12,20 +12,21 @@ export const General = ({ data }) => {
       {Object.keys(data).map(key => {
         const { label, value, birth } = data[key]
         const age = getAgeFromBirthDate(birth)
-        
+        const hasFieldDescription = birth || value
+
         return (
-        <>
-          {key != 'age' && !value ? null :
-            <Row key={key}>
-              <Col span={10}>
-                <Text color={theme.colors.blue.primary}> {label}:</Text>
-              </Col>
-              <Col span={14}>
-                <Text>{age ? age : value}</Text>
-              </Col>
-            </Row>
-          }
-        </>
+          <>
+            {hasFieldDescription &&
+              <Row key={key}>
+                <Col span={10}>
+                  <Text color={theme.colors.blue.primary}> {label}:</Text>
+                </Col>
+                <Col span={14}>
+                  <Text>{age ? age : value}</Text>
+                </Col>
+              </Row>
+            }
+          </>
         )
       })}
     </RowWrapper>
