@@ -7,7 +7,9 @@ import { theme } from 'theme'
 
 export const Skills = ({ data: { skills } }) => {
   const { label, value } = skills
-  debugger
+
+  const isValue = Boolean(value && value.length)
+
   const renderSkills = data => {
     return data.map(({ category, value }) => {
       return (
@@ -28,7 +30,7 @@ export const Skills = ({ data: { skills } }) => {
   }
   return (
     <>
-      {value && value.length &&
+      {isValue &&
         <RowWrapper>
           <Row>
             <Col span={24}>
