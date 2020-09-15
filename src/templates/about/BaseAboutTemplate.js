@@ -15,7 +15,9 @@ export const BaseAboutTemplate = ({ data, background }) => {
       <Row>
         <Col span={0} lg={2} />
         <Col>
-          <Breadcrumbs data={breadcrumbs} />
+          <BreadcrumbsWrapperOuter>
+            <Breadcrumbs data={breadcrumbs} />
+          </BreadcrumbsWrapperOuter>
         </Col>
         <Col span={0} xl={2} />
       </Row>
@@ -97,6 +99,10 @@ export const BaseAboutTemplate = ({ data, background }) => {
     </Body>
   )
 }
+
+const BreadcrumbsWrapperOuter = styled.div`
+  margin: 0 20px;
+`
 
 const BackgroundImgWrapper = styled.div`
   position: absolute;
