@@ -58,19 +58,19 @@ export const Header = ({ data }) => {
           </Row>
         </MobileHeaderMainMenu>
         <MobileFixedMenu>
-          <Row>
-            {menu.map(item => {
-              return (
-                <Col span={8} key={item.id}>
-                  <MobileMenuLinkWrapper>
-                    <Link to={item.link}>
-                      <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
-                    </Link>
-                  </MobileMenuLinkWrapper>
-                </Col>
-              )
-            })}
-          </Row>
+          <CustomRow>
+              {menu.map(item => {
+                return (
+                  <Col span={8} key={item.id}>
+                    <MobileMenuLinkWrapper>
+                      <Link to={item.link}>
+                        <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
+                      </Link>
+                    </MobileMenuLinkWrapper>
+                  </Col>
+                )
+              })}
+          </CustomRow>
         </MobileFixedMenu>
       </MobileHeaderWrapper>
       <DesktopHeaderWrapper>
@@ -152,6 +152,10 @@ const MobileHeaderWrapper = styled.div`
     position: relative;
     min-height: 42px;
   }
+`
+const CustomRow = styled(Row)`
+  line-height: 20px;
+  width: 100%;
 `
 
 const DesktopHeaderWrapper = styled.div`
