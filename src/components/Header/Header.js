@@ -14,77 +14,80 @@ export const Header = ({ data }) => {
       <MobileHeaderWrapper>
         <MobileHeaderMainMenu>
           <Row>
-            <Col span={12}>
+            <Col span={20}>
               <MobileLogo to={logo.link}>
                 <img src={logo.img.mobile} alt={logo.value} />
               </MobileLogo>
             </Col>
-            <Col span={8} />
-            {contacts.map((item, index) => {
-              if (item.type === 'cell') {
-                const phones = item.phones.map((contact, id) => {
-                  return (
-                    <PhonesWrapper key={contact.cell}>
-                      <Text>{contact.name}</Text>
-                      <a href={`tel:${contact.cell}`}>
-                        <Text>{contact.cell}</Text>
-                      </a>
-                      {id === 0 ? <Spacer space={8} /> : null}
-                    </PhonesWrapper>
-                  )
-                })
-                return (
-                  <Popover content={phones} key={item.id} trigger="click">
-                    <Col span={2}>
-                      <CustomIcon type={item.type} fill={theme.colors.gray.dark} />
-                    </Col>
-                  </Popover>
-                )
-              }
-              if (item.type === 'post') {
-                return (
-                  <Col span={2} key={index}>
-                    <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
-                      <Icon type={item.type} fill={theme.colors.gray.dark} />
-                    </a>
-                  </Col>
-                )
-              }
-            })}
+            <Col span={4}>
+              <IconsWrapper>
+                {contacts.map((item, index) => {
+                  if (item.type === 'cell') {
+                    const phones = item.phones.map((contact, id) => {
+                      return (
+                        // Иногда появляется warning prop key
+                        <PhonesWrapper key={contact.cell}>
+                          <Text>{contact.name}</Text>
+                          <a href={`tel:${contact.cell}`}>
+                            <Text>{contact.cell}</Text>
+                          </a>
+                          {id === 0 ? <Spacer space={8} /> : null}
+                        </PhonesWrapper>
+                      )
+                    })
+                    return (
+                      <Popover content={phones} key={item.id} trigger="click">
+                        <IconItemWrapper>
+                          <Icon type={item.type} fill={theme.colors.gray.dark} />
+                        </IconItemWrapper>
+                      </Popover>
+                    )
+                  }
+                  if (item.type === 'post') {
+                    return (
+                      <IconItemWrapper>
+                        <a href={item.type === 'post' ? `mailto:${item.link}` : `tel:${item.link}`}>
+                          <Icon type={item.type} fill={theme.colors.gray.dark} />
+                        </a>
+                      </IconItemWrapper>
+                    )
+                  }
+                })}
+              </IconsWrapper>
+            </Col>
           </Row>
         </MobileHeaderMainMenu>
         <MobileFixedMenu>
           <CustomRow>
-            {menu.map(item => {
-              return (
-                <Col span={8} key={item.id}>
-                  <MobileMenuLinkWrapper>
-                    <Link to={item.link}>
-                      <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
-                    </Link>
-                  </MobileMenuLinkWrapper>
-                </Col>
-              )
-            })}
+              {menu.map(item => {
+                return (
+                  <Col span={8} key={item.id}>
+                    <MobileMenuLinkWrapper>
+                      <Link to={item.link}>
+                        <Text color={theme.colors.blue.primary}>{item.value.toUpperCase()}</Text>
+                      </Link>
+                    </MobileMenuLinkWrapper>
+                  </Col>
+                )
+              })}
           </CustomRow>
         </MobileFixedMenu>
       </MobileHeaderWrapper>
-
       <DesktopHeaderWrapper>
         <Row>
           <Col span={10}>
             <Spacer space={10} />
-            <CustomRow>
+            <Row>
               {menu.map(item => {
                 return (
-                  <Col span={4} key={item.id}>
+                  <LinkItem key={item.id}>
                     <Link to={item.link}>
                       <Text>{item.value.toUpperCase()}</Text>
                     </Link>
-                  </Col>
+                  </LinkItem>
                 )
               })}
-            </CustomRow>
+            </Row>
             <Spacer space={16} />
             <Divider />
           </Col>
@@ -95,12 +98,12 @@ export const Header = ({ data }) => {
           </Col>
           <Col span={10}>
             <Spacer space={10} />
-            <CustomRow>
+            <Row>
               <Col span={17} />
               <Col span={7}>
                 <Additional data={contacts} />
               </Col>
-            </CustomRow>
+            </Row>
             <Spacer space={16} />
             <Divider />
           </Col>
@@ -141,6 +144,7 @@ const MobileHeaderMainMenu = styled.div`
 const HeaderWrapper = styled.div`
   z-index: 1;
 `
+
 const MobileHeaderWrapper = styled.div`
   display: none;
   @media (max-width: ${theme.breakpoint}px) {
@@ -148,6 +152,10 @@ const MobileHeaderWrapper = styled.div`
     position: relative;
     min-height: 42px;
   }
+`
+const CustomRow = styled(Row)`
+  line-height: 20px;
+  width: 100%;
 `
 
 const DesktopHeaderWrapper = styled.div`
@@ -163,16 +171,14 @@ const DesktopLogo = styled(Link)`
   display: flex;
   justify-content: center;
   min-width: 165px;
-
   img {
     width: 100%;
     max-width: 200px;
   }
 `
 
-const CustomRow = styled(Row)`
-  line-height: 20px;
-  width: 100%;
+const LinkItem = styled.div`
+  margin-right: 5%;
 `
 
 const MobileLogo = styled(Link)`
@@ -181,10 +187,14 @@ const MobileLogo = styled(Link)`
     height: 26px;
   }
 `
-
-const CustomIcon = styled(Icon)`
+const IconItemWrapper = styled.div`
   margin-left: 1em;
   cursor: pointer;
+`
+
+const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `
 
 const PhonesWrapper = styled.div`

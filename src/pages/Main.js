@@ -38,9 +38,9 @@ export const Main = () => {
   return error.message ? (
     <NotFound />
   ) : fetching ? (
-    <LoaderWrapper>
+    <>
       <Loader />
-    </LoaderWrapper>
+    </>
   ) : (
     <Layout>
       <Header data={header} />
@@ -49,13 +49,3 @@ export const Main = () => {
     </Layout>
   )
 }
-
-const LoaderWrapper = styled.div`
-  position: absolute;
-  right: 40%;
-  bottom: 60%;
-
-  @media (max-width: ${theme.breakpoint}px) {
-    right: 15%;
-  }
-`
