@@ -101,7 +101,11 @@ export const BaseAboutTemplate = ({ data, background }) => {
 }
 
 const BreadcrumbsWrapperOuter = styled.div`
-  margin: 0 20px;
+margin: 0px;
+@media (max-width: ${theme.breakpoint}px) {
+    margin: 0 20px;
+  }
+  
 `
 
 const BackgroundImgWrapper = styled.div`
