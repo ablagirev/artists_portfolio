@@ -12,7 +12,7 @@ export const Filmography = ({ data: { filmography } }) => {
   const hiddenMovies = sortedMovies.slice(10)
   const [opened, setOpened] = useState(false)
 
-  const isValue = Boolean(value && value.length)
+  const hasFilmograpghyData = Boolean(value.length && label)
 
   const renderFilmography = data => {
     return data.map(({ year, name, role: { name: roleName, main }, director }, index) => {
@@ -35,7 +35,7 @@ export const Filmography = ({ data: { filmography } }) => {
 
   return (
     <>
-      {isValue &&
+      {hasFilmograpghyData &&
         <RowWrapper>
           <Row>
             <Col span={24}>

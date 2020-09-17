@@ -8,7 +8,7 @@ import { theme } from 'theme'
 export const Skills = ({ data: { skills } }) => {
   const { label, value } = skills
 
-  const isValue = Boolean(value && value.length)
+  const hasSkillsData = Boolean(value.length && label)
 
   const renderSkills = data => {
     return data.map(({ category, value }) => {
@@ -30,7 +30,7 @@ export const Skills = ({ data: { skills } }) => {
   }
   return (
     <>
-      {isValue &&
+      {hasSkillsData &&
         <RowWrapper>
           <Row>
             <Col span={24}>
