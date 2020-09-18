@@ -12,6 +12,8 @@ export const Filmography = ({ data: { filmography } }) => {
   const hiddenMovies = sortedMovies.slice(10)
   const [opened, setOpened] = useState(false)
 
+  const hasFilmograpghyData = Boolean(value.length && label)
+
   const renderFilmography = data => {
     return data.map(({ year, name, role: { name: roleName, main }, director }, index) => {
       const role = main ? `${roleName} - главная роль` : roleName
@@ -32,27 +34,32 @@ export const Filmography = ({ data: { filmography } }) => {
   }
 
   return (
-    <RowWrapper>
-      <Row>
-        <Col span={24}>
-          <Text color={theme.colors.blue.primary}> {label}</Text>
-        </Col>
-        <Col span={24}>
-          {renderFilmography(shownMovies)}
-          {hiddenMovies.length ? <OtherMovies opened={opened}>{renderFilmography(hiddenMovies)}</OtherMovies> : null}
-        </Col>
-      </Row>
-      {hiddenMovies.length ? (
-        <Row>
-          <ShowMoreButton onClick={() => setOpened(!opened)}>
-            <Text color={theme.colors.blue.primary}>
-              {opened ? 'Свернуть список фильмов' : 'Показать больше фильмов'}
-            </Text>
-            <ButtonArrow opened={opened} />
-          </ShowMoreButton>
-        </Row>
-      ) : null}
-    </RowWrapper>
+    <>
+      {hasFilmograpghyData &&
+        <RowWrapper>
+          <Row>
+            <Col span={24}>
+              <Text color={theme.colors.blue.primary}> {label}</Text>
+            </Col>
+            <Col span={24}>
+              {renderFilmography(shownMovies)}
+              {hiddenMovies.length ? <OtherMovies opened={opened}>{renderFilmography(hiddenMovies)}</OtherMovies> : null}
+            </Col>
+          </Row>
+          {hiddenMovies.length ? (
+            <Row>
+              <ShowMoreButton onClick={() => setOpened(!opened)}>
+                <Text color={theme.colors.blue.primary}>
+                  {opened ? 'Свернуть список фильмов' : 'Показать больше фильмов'}
+                </Text>
+                <ButtonArrow opened={opened} />
+              </ShowMoreButton>
+            </Row>
+          ) : null}
+        </RowWrapper>
+      }
+
+    </>
   )
 }
 const ShowMoreButton = styled.div`
