@@ -7,8 +7,7 @@ import { theme } from 'theme'
 
 export const Education = ({ data: { education } }) => {
 
-  const { main, additional } = education
-  const educationTypes = [main, additional]
+  const educationTypes = [education.main, education.additional]
 
   return (educationTypes.map(educationType => {
     return (

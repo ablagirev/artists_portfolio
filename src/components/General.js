@@ -12,7 +12,7 @@ export const General = ({ data }) => {
       {Object.keys(data).map(key => {
         const { label, value, birth } = data[key]
         const age = getAgeFromBirthDate(birth)
-        const hasFieldDescription = birth || value
+        const hasFieldDescription = Boolean(birth || value)
 
         return (
           <>
