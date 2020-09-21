@@ -63,7 +63,6 @@ const PreviewWrapper = styled.div`
 
   @media (max-width: ${theme.breakpoint}px) {
     flex-direction: row;
-    cursor: none;
   }
 `
 const ImageWrapper = styled.div`

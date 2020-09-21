@@ -26,7 +26,6 @@ export const ArtistInfo = ({ data }) => {
 
   const fullName = `${lastName} ${firstName} ${middleName}`
   const general = { age, height, city }
-
   return (
     <GeneralWrapper>
       <FullName data={{ fullName }} />

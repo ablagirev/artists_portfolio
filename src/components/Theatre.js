@@ -8,32 +8,41 @@ import { theme } from 'theme'
 export const Theatre = ({ data: { theatre } }) => {
   const { label, value } = theatre
 
+  const hasTheatreData = Boolean(value.length && label)
+  
   const renderTheatre = data => {
     return data.map(({ year, name }, index) => {
       return (
-        <Row key={`theater-${index}`} gutter={[0, 12]}>
-          <Col span={10}>
-            <ColWrapper>
-              <Text>{year ? `${year}:` : '-'}</Text>
-            </ColWrapper>
-          </Col>
-          <Col span={14}>
-            <Text>{name}</Text>
-          </Col>
-        </Row>
+        <>
+          {name &&
+            <Row key={`theater-${index}`} gutter={[0, 12]}>
+              <Col span={10}>
+                <ColWrapper>
+                  <Text>{year}</Text>
+                </ColWrapper>
+              </Col>
+              <Col span={14}>
+                <Text>{name}</Text>
+              </Col>
+            </Row>}
+        </>
       )
     })
   }
 
   return (
-    <RowWrapper>
-      <Row>
-        <Col span={24}>
-          <Text color={theme.colors.blue.primary}>{label}</Text>
-        </Col>
-        <Col span={24}>{renderTheatre(value)}</Col>
-      </Row>
-    </RowWrapper>
+    <>
+      {hasTheatreData &&
+        <RowWrapper>
+          <Row>
+            <Col span={24}>
+              <Text color={theme.colors.blue.primary}>{label}</Text>
+            </Col>
+            <Col span={24}>{renderTheatre(value)}</Col>
+          </Row>
+        </RowWrapper>
+      }
+    </>
   )
 }
 
