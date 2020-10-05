@@ -38,7 +38,23 @@ export const createHtmlWebpackPlugin = (mode, options) => {
     title: 'Marias Bureau',
     mobile: true,
     links,
-    ...options
+    ...options,
+    meta: [{
+      property: 'og:title',
+      content: "Бюро Маши Поповой"
+    },
+    {
+      property: 'og:type',
+      content: "article"
+    },
+    {
+      property: 'og:site_name',
+      content: "bureaump.ru"
+    },
+    {
+      property: 'og:title',
+      content: "https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/header%2FlogoMobile.png?alt=media&token=57cb878f-a597-46d7-96b8-0d02d38baa58"
+    }],
   }
 
   if (mode === 'production') {
