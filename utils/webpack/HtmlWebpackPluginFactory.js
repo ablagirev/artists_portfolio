@@ -52,8 +52,16 @@ export const createHtmlWebpackPlugin = (mode, options) => {
       content: "bureaump.ru"
     },
     {
+      property:"og:description" ,
+      content:"Бюро Маши Поповой"
+    },
+    {
       property: 'og:image',
       content: "https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/header%2FlogoDesktop.png?alt=media&token=64ea61e5-b338-4b97-924c-04aa7c178d99"
+    },
+    {
+      property: 'og:url',
+      content: 'https://bureaump.ru/'
     }],
   }
 
