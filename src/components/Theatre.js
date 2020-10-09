@@ -6,39 +6,19 @@ import { Text } from 'ui-kit'
 import { theme } from 'theme'
 
 export const Theatre = ({ data: { theatre } }) => {
-  const { label, value } = theatre
+  const { label,  name } = theatre
 
-  const hasTheatreData = Boolean(value.length && label)
-  
-  const renderTheatre = data => {
-    return data.map(({ year, name }, index) => {
-      return (
-        <>
-          {name &&
-            <Row key={`theater-${index}`} gutter={[0, 12]}>
-              <Col span={10}>
-                <ColWrapper>
-                  <Text>{year}</Text>
-                </ColWrapper>
-              </Col>
-              <Col span={14}>
-                <Text>{name}</Text>
-              </Col>
-            </Row>}
-        </>
-      )
-    })
-  }
+  const hasTheatreData = Boolean(label && name)
 
   return (
     <>
       {hasTheatreData &&
         <RowWrapper>
           <Row>
-            <Col span={24}>
+            <Col span={10}>
               <Text color={theme.colors.blue.primary}>{label}</Text>
             </Col>
-            <Col span={24}>{renderTheatre(value)}</Col>
+            <Col span={14}>{name}</Col>
           </Row>
         </RowWrapper>
       }
