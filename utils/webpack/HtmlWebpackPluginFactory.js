@@ -4,31 +4,13 @@ import htmlWebpackTemplate from 'html-webpack-template'
 
 const rootPath = process.env.NODE_PATH
 const publicPath = process.env.SERVICE_NAME ? `/${process.env.SERVICE_NAME}` : ''
+const faviconPath ='https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/favicons%2Ffavicon.png?alt=media&token=267063e8-60d8-40a0-967a-ec2d2a3f3a31'
 const links = [
   {
-    href: `${publicPath}/favicon.ico`,
-    rel: 'icon',
-    sizes: '16x16',
+    href: faviconPath,
+    rel: 'shortcut icon',
     type: 'image/x-icon'
   },
-  {
-    href: `${publicPath}/favicon-16x16.png`,
-    rel: 'icon',
-    sizes: '16x16',
-    type: 'image/png'
-  },
-  {
-    href: `${publicPath}/favicon-32x32.png`,
-    rel: 'icon',
-    sizes: '32x32',
-    type: 'image/png'
-  },
-  {
-    href: `${publicPath}/favicon-96x96.png`,
-    rel: 'icon',
-    sizes: '96x96',
-    type: 'image/png'
-  }
 ]
 
 export const createHtmlWebpackPlugin = (mode, options) => {
@@ -43,6 +25,11 @@ export const createHtmlWebpackPlugin = (mode, options) => {
       property: 'og:title',
       content: "Бюро Маши Поповой"
     },
+    {
+      property:"Description",
+      content: "Мы представляем интересы наших талантливых актеров и актрис. Верим в совместное, плодотворное сотрудничество и воплощение самых смелых творческих задач."
+    },
+    
     {
       property: 'og:type',
       content: "article"
