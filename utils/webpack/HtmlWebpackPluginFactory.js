@@ -4,7 +4,7 @@ import htmlWebpackTemplate from 'html-webpack-template'
 
 const rootPath = process.env.NODE_PATH
 const publicPath = process.env.SERVICE_NAME ? `/${process.env.SERVICE_NAME}` : ''
-const faviconPath ='https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/favicons%2Ffavicon.png?alt=media&token=267063e8-60d8-40a0-967a-ec2d2a3f3a31'
+const faviconPath ='https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/favicons%2Ffavicon.ico?alt=media&token=4bdf1f52-79c4-4b9b-8205-cc14ee0f2e5a'
 const links = [
   {
     href: faviconPath,
@@ -26,10 +26,9 @@ export const createHtmlWebpackPlugin = (mode, options) => {
       content: "Бюро Маши Поповой"
     },
     {
-      property:"Description",
+      property:"description",
       content: "Мы представляем интересы наших талантливых актеров и актрис. Верим в совместное, плодотворное сотрудничество и воплощение самых смелых творческих задач."
     },
-    
     {
       property: 'og:type',
       content: "article"
