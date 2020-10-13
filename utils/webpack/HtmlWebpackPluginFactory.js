@@ -4,7 +4,7 @@ import htmlWebpackTemplate from 'html-webpack-template'
 
 const rootPath = process.env.NODE_PATH
 const publicPath = process.env.SERVICE_NAME ? `/${process.env.SERVICE_NAME}` : ''
-const faviconPath ='https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/favicons%2Fapple-touch-icon.png?alt=media&token=b0a5b736-fc36-440c-9f1c-b6d483d82164'
+const faviconPath ='https://firebasestorage.googleapis.com/v0/b/marias-bureau.appspot.com/o/favicons%2Fandroid-chrome-512x512.png?alt=media&token=d3d92371-0fc5-458b-b443-065aee484125'
 const links = [
   {
     href: faviconPath,
