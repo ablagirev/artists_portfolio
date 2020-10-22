@@ -28,13 +28,13 @@ export const ArtistInfo = ({ data }) => {
   const general = { age, height, city }
   return (
     <GeneralWrapper>
-      <FullName data={{ fullName }} />
-      <Media data={media} />
-      <General data={general} />
-      <Education data={{ education }} />
-      <Skills data={{ skills }} />
-      <Theatre data={{ theatre }} />
-      <Filmography data={{ filmography }} />
+      { fullName && <FullName data={{ fullName }} />}
+      { media && <Media data={media} />}
+      { general && <General data={general} />}
+      { education && <Education data={{ education }} />}
+      { skills && <Skills data={{ skills }} />}
+      { theatre && <Theatre data={{ theatre }} />}
+      { filmography && <Filmography data={{ filmography }} />}
     </GeneralWrapper>
   )
 }
